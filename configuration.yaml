@@ -1,0 +1,305 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret zone_home_latitude
+  longitude: !secret zone_home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret zone_home_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Berlin
+  # Customization file
+  customize: !include customize.yaml
+
+logger:
+  default: info
+  logs:
+    custom_components.media_player.alexa: debug
+
+recorder:
+  purge_keep_days: 5
+  purge_interval: 1
+  db_url: !secret homeassistantdb
+
+# Sets kown zones
+zone:
+  - name: Zu Hause
+    latitude: !secret zone_home_latitude
+    longitude: !secret zone_home_longitude
+    radius: 25
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+  themes: !include_dir_merge_named themes/
+  javascript_version: latest
+
+#lovelace:
+#  mode: yaml
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+#  trusted_networks:
+#    - 127.0.0.1
+#    - ::1
+#  ip_ban_enabled: True
+#  login_attempts_threshold: 5
+
+# Enables the api
+api:
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+
+
+# ##########################################################################
+# Enable central functionalities and network connections
+# ##########################################################################
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Connect to InfluxDB
+influxdb:
+  host: !secret influxdb_ip
+  database: home_assistant
+  tags:
+    source: hass
+
+# Connect to network MQTT
+mqtt:
+  broker: !secret mqtt_ip
+  port: !secret mqtt_port
+  client_id: homeassistant
+  discovery: true
+  discovery_prefix: homeassistant
+  birth_message:
+    topic: 'homeassistant/status'
+    payload: 'online'
+  will_message:
+    topic: 'homeassistant/status'
+    payload: 'offline'
+
+# Integrate Node-Red, Jupyter and States in panel
+panel_iframe:
+  nodered:
+    title: 'Node-Red'
+    icon: 'mdi:shuffle-variant'
+    url: !secret nodered_url
+  jupyterlab:
+    title: JupyterLab
+    url: !secret jupyterlab_url  # URL GOES HERE
+    icon: mdi:database-search
+  states_view:
+    title: 'States'
+    icon: 'mdi:power-socket-us'
+    url: !secret states_view_url
+
+# ##########################################################################
+# Enable cloud connections
+# ##########################################################################
+# Enable home assistant cloud
+cloud: !include includes/cloud.yaml
+
+# Text to speech
+tts:
+  - platform: google
+
+netatmo:
+  api_key: !secret netatmo_api_key
+  secret_key: !secret netatmo_secret
+  username: !secret netatmo_login_id
+  password: !secret netatmo_password
+  discovery: false
+
+
+# ##########################################################################
+# Include sub config files
+# ##########################################################################
+# Activates device trackers
+device_tracker: !include includes/device_trackers.yaml
+
+# Include sensors
+sensor: !include includes/sensors.yaml
+
+# Include binary sensors
+binary_sensor: !include includes/binary_sensors.yaml
+
+# Include input booleans
+input_boolean: !include includes/input_booleans.yaml
+
+# Include timer
+timer: !include includes/timers.yaml
+
+# Include switches
+switch: !include includes/switches.yaml
+
+# Include group definitions
+group: !include includes/groups.yaml
+
+# Include automation scripts
+automation: !include includes/automations.yaml
+
+# Include scripts
+script: !include includes/scripts.yaml
+
+# Include media players
+media_player: !include includes/media_players.yaml
+
+# Include input selects
+#input_select: !include includes/input_selects.yaml
+
+# Include intent scripts
+intent_script: !include includes/intents.yaml
+
+# Include lights
+light: !include includes/lights.yaml
+
+# Include cameras
+camera: !include includes/camera.yaml
+
+remote:
+  - platform: harmony
+    name: living_room
+    host: !secret harmony_ip
+
+# ##########################################################################
+# Configure some special devices
+# ##########################################################################
+#apple_tv:
+#  - host: !secret apple_tv_3_ip
+#    login_id: !secret apple_tv_3_login_id
+#    name: Apple TV 3
+##    start_off: true
+#    credentials: !secret apple_tv_3_credential
+#  - host: !secret apple_tv_4_ip
+#    login_id: !secret apple_tv_4_login_id
+#    name: Apple TV 4
+##    start_off: true
+#    credentials: !secret apple_tv_4_credential
+
+homekit:
+  filter:
+    include_domains:
+      - light
+
+climate:
+  - platform: netatmo
+
+#xiaomi_aqara:
+#  discovery_retry: 5
+#  gateways:
+#    - mac: !secret xiaomi_aqara_mac
+#      key: !secret xiaomi_aqara_key
+
+#homematicip_cloud:
+#  accesspoint: !secret homematicip_accesspoint
+#  authtoken: !secret homematicip_authtoken
+
+homematic:
+  interfaces:
+    rf:
+      host: !secret homematic_ip
+    ip:
+      host: !secret homematic_ip
+      port: 2010
+    groups:
+      host: !secret homematic_ip
+      port: 9292
+      username: !secret homematic_username
+      password: !secret homematic_password
+      path: /groups
+      resolvenames: json
+  hosts:
+    ccu3:
+      host: !secret homematic_ip
+      username: !secret homematic_username
+      password: !secret homematic_password
+
+#volkswagencarnet:
+#  username: !secret carnet_username
+#  password: !secret carnet_password
+#  update_interval: 
+#    minutes: 3
+
+#hue:
+#  bridges:
+#    -host: bridge1_ip
+#     filename: phue1.conf
+#    -host: bridge2_ip
+#     filename: phue2.conf
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+
+notify:
+  - name: telegram
+    platform: telegram
+    chat_id: !secret telegram_chat_id
+
+#alert:
+#  cam1_motion:
+#    name: Cam1 detected motion
+#    entity_id: binary_sensor.motion_sensor_158d000200b808
+#    # entity_id: binary_sensor.cam_1_dafang_motion_sensor
+#    state: 'on'
+#    #repeat: 1
+#    notifiers:
+#      - notify.telegram
+
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+
+alarm_control_panel:
+  - platform: arlo
+
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+# Only in Lovelace YAML mode :-(
+#custom_updater:
+#  track:
+#    - cards
+#    - components
+#  card_urls:
+#    - https://raw.githubusercontent.com/bramkragten/custom-ui/master/updater.json
+#    - https://raw.githubusercontent.com/nervetattoo/simple-thermostat/master/tracker.json
+
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_api_key

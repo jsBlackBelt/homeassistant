@@ -1,0 +1,18 @@
+############################################################
+#
+# Home Assistant Harmony Controls
+#
+############################################################
+
+#harmony:
+#  name: Harmony Control
+#  options:
+#    - TV
+#    - Kodi
+#    - Airplay
+#    - Apple TV
+#    - PS3
+#    - Spotify
+#    - Musik
+#    - Power Off
+#  icon: mdi:remote

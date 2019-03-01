@@ -1,0 +1,111 @@
+# ##########################################################################
+# Hue Scenes
+# ##########################################################################
+# Living Room
+living_room_movie_on:
+  alias: Wohnzimmer Film
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Wohnzimmer"
+        scene_name: "Movie"
+
+living_room_relax_on:
+  alias: Wohnzimmer Entspannen
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Wohnzimmer"
+        scene_name: "Entspannen"
+
+living_room_vaporwave_on:
+  alias: Wohnzimmer Vaporwave
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Wohnzimmer"
+        scene_name: "Vaporwave"
+
+living_room_xmas_on:
+  alias: Wohnzimmer Weihnacht
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room
+    - service: light.turn_on
+      data:
+        entity_id: light.xmas_tree
+    - service: light.turn_on
+      data:
+        entity_id: light.xmas_star
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Wohnzimmer"
+        scene_name: "Xmas"
+
+# Studio
+studio_vaporwave_on:
+  alias: Studio Vaporwave
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Studio"
+        scene_name: "Vaporwave"
+
+# Bedroom
+bedroom_play_time_on:
+  alias: Schlafzimmer Play Time
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Schlafzimmer"
+        scene_name: "Play Time"
+
+studio_smooth_jazz_on:
+  alias: Studio Smooth Jazz
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Studio"
+        scene_name: "Smooth Jazz"
+
+# Wellness
+fitness_wellness_on:
+  alias: Fitness Wellness
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Fitness"
+        scene_name: "Wellness"
+
+# ##########################################################################
+# Cam 1 Dafang
+# ##########################################################################
+cam_1_dafang_right:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: myhome/cam_1_dafang/motors/horizontal/set
+        payload: right
+
+cam_1_dafang_left:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: myhome/cam_1_dafang/motors/horizontal/set
+        payload: left
+
+cam_1_dafang_up:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: myhome/cam_1_dafang/motors/vertical/set
+        payload: up
+
+cam_1_dafang_down:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: myhome/cam_1_dafang/motors/vertical/set
+        payload: down
+

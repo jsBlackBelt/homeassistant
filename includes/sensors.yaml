@@ -1,0 +1,424 @@
+# ##########################################################################
+# Arlo
+# ##########################################################################
+- platform: arlo
+  monitored_conditions:
+    - captured_today
+    - last_capture
+    - total_cameras
+    - battery_level
+    - signal_strength
+
+# ##########################################################################
+# Time & Date
+# ##########################################################################
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+
+# ##########################################################################
+# Weather
+# ##########################################################################
+- platform: darksky
+  api_key: !secret dark_sky_api_key
+  forecast:
+    - 0
+  language: de
+  monitored_conditions:
+    - summary
+    - icon
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - precip_accumulation
+    - temperature
+    - apparent_temperature
+    - dew_point
+    - wind_speed
+    - wind_gust
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - pressure
+    - visibility
+    - ozone
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
+    - temperature_high
+    - temperature_low
+    - apparent_temperature_high
+    - apparent_temperature_low
+    - precip_intensity_max
+    - uv_index
+    - moon_phase
+    - sunrise_time
+    - sunset_time
+    - nearest_storm_distance
+    - nearest_storm_bearing
+
+# ##########################################################################
+# Netatmo
+# ##########################################################################
+- platform: netatmo
+  station: Villa
+  modules:
+    Innenmodul:
+      - temperature
+      - humidity
+      - co2
+      - wifi_status
+      - noise
+      - pressure
+    Aussenmodul:
+      - temperature
+      - humidity
+      - min_temp
+      - max_temp
+      - battery_vp
+      - rf_status
+
+# ##########################################################################
+# Gardena (DEV)
+# ##########################################################################
+- platform: gardena_smart
+  username : !secret gardena_user
+  password : !secret gardena_password
+- platform: template
+  sensors:
+    sileno_last_online:
+      friendly_name: "Sileno last time online"
+      value_template: "{{ states.sensor.sileno_city.attributes.last_online }}"
+    sileno_battery_level:
+      friendly_name: "Sileno Battery Level"
+      value_template: "{{ states.sensor.sileno_city.attributes.battery_level }}"
+      unit_of_measurement: '%'
+    sileno_charge_cycles:
+      friendly_name: "Sileno charge cycles"
+      value_template: "{{ states.sensor.sileno_city.attributes.charge_cycles }}"
+      unit_of_measurement: ''
+    sileno_collisions:
+      friendly_name: "Sileno number of collisions"
+      value_template: "{{ states.sensor.sileno_city.attributes.collisions }}"
+      unit_of_measurement: ''
+    sileno_cutting_time:
+      friendly_name: "Sileno total_cutting time"
+      value_template: "{{ states.sensor.sileno_city.attributes.cutting_time }}"
+      unit_of_measurement: hours
+    sileno_error:
+      friendly_name: "Sileno error"
+      value_template: "{{ states.sensor.sileno_city.attributes.error }}"
+    sileno_error_time:
+      friendly_name: "Sileno error time"
+      value_template: "{{ states.sensor.sileno_city.attributes.error_time }}"
+    sileno_next_start_time:
+      friendly_name: "Sileno next start time"
+      value_template: "{{ states.sensor.sileno_city.attributes.next_start }}"
+    sileno_next_start_source:
+      friendly_name: "Sileno start source"
+      value_template: "{{ states.sensor.sileno_city.attributes.next_source_for_start }}"
+
+# ##########################################################################
+# Measure Switches
+# ##########################################################################
+- platform: template
+  sensors:
+    pwr_dehumidifier:
+      friendly_name: "Air dehumidifier power consumption"
+      unit_of_measurement: 'W'
+      value_template: '{% if states.switch.luftentfeuchter %}{{ states.switch.luftentfeuchter.attributes.current_power_w }}{% else %}Off{% endif %}'
+- platform: template
+  sensors:
+    pwr_dehumidifier_today:
+      friendly_name: "Air dehumidifier power consumption today"
+      unit_of_measurement: 'kWh'
+      value_template: '{% if states.switch.luftentfeuchter %}{{ states.switch.luftentfeuchter.attributes.today_energy_kwh }}{% else %}Off{% endif %}'
+
+- platform: template
+  sensors:
+    pwr_washingmachine:
+      friendly_name: "Wasching machine power consumption"
+      unit_of_measurement: 'W'
+      value_template: '{% if states.switch.waschmaschine %}{{ states.switch.waschmaschine.attributes.current_power_w }}{% else %}Off{% endif %}'
+- platform: template
+  sensors:
+    pwr_washingmachine_today:
+      friendly_name: "Wasching machine power consumption today"
+      unit_of_measurement: 'kWh'
+      value_template: '{% if states.switch.waschmaschine %}{{ states.switch.waschmaschine.attributes.today_energy_kwh }}{% else %}Off{% endif %}'
+
+- platform: template
+  sensors:
+    pwr_dryer:
+      friendly_name: "Dryer machine power consumption"
+      unit_of_measurement: 'W'
+      value_template: '{% if states.switch.trockner %}{{ states.switch.trockner.attributes.current_power_w }}{% else %}Off{% endif %}'
+- platform: template
+  sensors:
+    pwr_dryer_today:
+      friendly_name: "dryer machine power consumption today"
+      unit_of_measurement: 'kWh'
+      value_template: '{% if states.switch.trockner %}{{ states.switch.trockner.attributes.today_energy_kwh }}{% else %}Off{% endif %}'
+
+- platform: template
+  sensors:
+    pwr_light_cellar:
+      friendly_name: "Light cellar power consumption"
+      unit_of_measurement: 'W'
+      value_template: '{% if states.light.keller %}{{ states.light.keller.attributes.power_consumption }}{% else %}Off{% endif %}'
+- platform: template
+  sensors:
+    pwr_light_cellar_today:
+      friendly_name: "Light cellar  power consumption today"
+      unit_of_measurement: 'kWh'
+      value_template: '{% if states.light.keller %}{{ states.light.keller.attributes.energie_counter_kwh }}{% else %}Off{% endif %}'
+
+# ##########################################################################
+# Homematic
+# ##########################################################################
+- platform: template
+  sensors:
+    climate_living_room_level:
+      value_template: '{{ states.climate.living_room.attributes.level }}'
+      unit_of_measurement: '%'
+- platform: template
+  sensors:
+    climate_living_room_current_temperature:
+      value_template: '{{ states.climate.living_room.attributes.current_temperature }}'
+      unit_of_measurement: '°C'
+- platform: template
+  sensors:
+    climate_living_room_temperature:
+      value_template: '{{ states.climate.living_room.attributes.temperature }}'
+      unit_of_measurement: '°C'
+
+- platform: template
+  sensors:
+    climate_living_room_sliding_door_level:
+      value_template: '{{ states.climate.living_room_sliding_door.attributes.level }}'
+      unit_of_measurement: '%'
+- platform: template
+  sensors:
+    climate_living_room_sliding_door_current_temperature:
+      value_template: '{{ states.climate.living_room_sliding_door.attributes.current_temperature }}'
+      unit_of_measurement: '°C'
+- platform: template
+  sensors:
+    climate_living_room_sliding_door_temperature:
+      value_template: '{{ states.climate.living_room_sliding_door.attributes.temperature }}'
+      unit_of_measurement: '°C'
+
+- platform: template
+  sensors:
+    climate_entrance_level:
+      value_template: '{{ states.climate.entrance.attributes.level }}'
+      unit_of_measurement: '%'
+- platform: template
+  sensors:
+    climate_entrance_current_temperature:
+      value_template: '{{ states.climate.entrance.attributes.current_temperature }}'
+      unit_of_measurement: '°C'
+- platform: template
+  sensors:
+    climate_entrance_temperature:
+      value_template: '{{ states.climate.entrance.attributes.temperature }}'
+      unit_of_measurement: '°C'
+
+- platform: template
+  sensors:
+    climate_amelie_level:
+      value_template: '{{ states.climate.amelie.attributes.level }}'
+      unit_of_measurement: '%'
+- platform: template
+  sensors:
+    climate_amelie_current_temperature:
+      value_template: '{{ states.climate.amelie.attributes.current_temperature }}'
+      unit_of_measurement: '°C'
+- platform: template
+  sensors:
+    climate_amelie_temperature:
+      value_template: '{{ states.climate.amelie.attributes.temperature }}'
+      unit_of_measurement: '°C'
+
+- platform: template
+  sensors:
+    climate_marlene_level:
+      value_template: '{{ states.climate.marlene.attributes.level }}'
+      unit_of_measurement: '%'
+- platform: template
+  sensors:
+    climate_marlene_current_temperature:
+      value_template: '{{ states.climate.marlene.attributes.current_temperature }}'
+      unit_of_measurement: '°C'
+- platform: template
+  sensors:
+    climate_marlene_temperature:
+      value_template: '{{ states.climate.marlene.attributes.temperature }}'
+      unit_of_measurement: '°C'
+
+- platform: template
+  sensors:
+    climate_bedroom_level:
+      value_template: '{{ states.climate.bedroom.attributes.level }}'
+      unit_of_measurement: '%'
+- platform: template
+  sensors:
+    climate_bedroom_current_temperature:
+      value_template: '{{ states.climate.bedroom.attributes.current_temperature }}'
+      unit_of_measurement: '°C'
+- platform: template
+  sensors:
+    climate_bedroom_temperature:
+      value_template: '{{ states.climate.bedroom.attributes.temperature }}'
+      unit_of_measurement: '°C'
+
+- platform: template
+  sensors:
+    climate_studio_level:
+      value_template: '{{ states.climate.studio.attributes.level }}'
+      unit_of_measurement: '%'
+- platform: template
+  sensors:
+    climate_studio_current_temperature:
+      value_template: '{{ states.climate.studio.attributes.current_temperature }}'
+      unit_of_measurement: '°C'
+- platform: template
+  sensors:
+    climate_studio_temperature:
+      value_template: '{{ states.climate.studio.attributes.temperature }}'
+      unit_of_measurement: '°C'
+
+- platform: template
+  sensors:
+    climate_fitness_level:
+      value_template: '{{ states.climate.fitness.attributes.level }}'
+      unit_of_measurement: '%'
+- platform: template
+  sensors:
+    climate_fitness_current_temperature:
+      value_template: '{{ states.climate.fitness.attributes.current_temperature }}'
+      unit_of_measurement: '°C'
+- platform: template
+  sensors:
+    climate_fitness_temperature:
+      value_template: '{{ states.climate.fitness.attributes.temperature }}'
+      unit_of_measurement: '°C'
+
+# ##########################################################################
+# Sun Elevation
+# ##########################################################################
+- platform: template
+  sensors:
+    sun_elevation:
+      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+      unit_of_measurement: 'degrees'
+
+# ##########################################################################
+# Weather Warnings
+# ##########################################################################
+- platform: dwd_weather_warnings
+  region_name: Erding
+
+# ##########################################################################
+# Scraper
+# ##########################################################################
+
+# ##########################################################################
+# Media Players
+# ##########################################################################
+- platform: plex
+  host: !secret plex_ip
+  port: !secret plex_port
+  name: Plex
+
+# ##########################################################################
+# Internet speed
+# ##########################################################################
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  minute:
+    - 0
+    - 30
+
+# ##########################################################################
+# Harmony
+# ##########################################################################
+- platform: template
+  sensors:
+    harmony_activity:
+      friendly_name: 'Harmony Activity'
+      value_template: '{{ states.remote.living_room.attributes.current_activity }}'
+
+# ##########################################################################
+# MQTT iPhone Sensors
+# ##########################################################################
+- platform: mqtt
+  state_topic: owntracks/markus/D79762C2-B7FF-4E48-8B3D-5BDDA255521F
+  name: "Battery iPhone8 Markus"
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'
+      
+- platform: mqtt
+  state_topic: owntracks/markus2/7D4E4247-B276-4807-B766-9A1FEDC2E1C7
+  name: "Battery iPhone7 Markus"
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'
+
+- platform: mqtt
+  state_topic: owntracks/magda/5B9E4342-2EF1-431E-AEE2-D85A7E9DB173
+  name: "Battery iPhone8 Magda"
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'
+
+# ##########################################################################
+# Zigbee Bridge State
+# ##########################################################################
+- platform: mqtt
+  name: Bridge state
+  state_topic: "zigbee2mqtt/bridge/state"
+  icon: mdi:router-wireless
+
+# ##########################################################################
+# Special HASS related sensors
+# ##########################################################################
+- platform: version
+  name: HA Installed Version
+  scan_interval: 86400
+
+- platform: command_line
+  name: "HA Uptime"
+  command: echo "$(($(date +%s) - $(date -d "$(head -n1 /config/home-assistant.log | cut -d' ' -f-2)" +%s)))"
+  scan_interval: 720
+  value_template: >-
+    {% set uptime = value | int %}
+    {% set seconds = uptime % 60 %}
+    {% set minutes = ((uptime % 3600) / 60) | int %}
+    {% set hours = ((uptime % 86400) / 3600) | int %}
+    {% set days = (uptime / 86400) | int %}
+    {%- if days > 0 -%}
+      {%- if days == 1 -%}
+        1 day
+      {%- else -%}
+        {{ days }} days
+      {%- endif -%}
+      {{ ', ' }}
+    {%- endif -%}
+    {%- if hours > 0 -%}
+      {%- if hours == 1 -%}
+        1 hour
+      {%- else -%}
+        {{ hours }} hours
+      {%- endif -%}
+      {{ ', ' }}
+    {%- endif -%}
+    {%- if minutes > 0 -%}
+      {%- if minutes == 1 -%}
+        1 minute
+      {%- else -%}
+        {{ minutes }} minutes
+      {%- endif -%}
+    {%- endif -%}

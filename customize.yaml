@@ -1,0 +1,34 @@
+sensor.illumination_158d0001e634ea:
+  friendly_name: Lichtintensität (Motion)
+sensor.illumination_158d0001e5256b:
+  friendly_name: Lichtintensität (Motion)
+sensor.illumination_7811dcb7c0e2:
+  friendly_name: Lichtintensität (Hub)
+binary_sensor.door_window_sensor_158d00022b387f:
+  friendly_name: Studio Nordfenster
+binary_sensor.door_window_sensor_158d00022bd5c3:
+  friendly_name: Studio Südfenster
+sensor.temperatur_und_luftfeuchtigkeitssensor_mit_display_humidity:
+  friendly_name: Luftfeuchtigkeit
+sensor.temperatur_und_luftfeuchtigkeitssensor_mit_display_temperature:
+  friendly_name: Temperatur
+light.onoff_plug_1_3:
+  icon: mdi:fan
+switch.espresso:
+  icon: mdi:coffee
+switch.waschmaschine:
+  icon: mdi:washing-machine
+binary_sensor.washing_machine_on:
+  icon: mdi:washing-machine
+switch.trockner:
+  icon: mdi:tumble-dryer
+binary_sensor.dryer_on:
+  icon: mdi:tumble-dryer
+script.cam_1_dafang_down:
+  icon: mdi:arrow-down-bold
+script.cam_1_dafang_left:
+  icon: mdi:arrow-left-bold
+script.cam_1_dafang_right:
+  icon: mdi:arrow-right-bold
+script.cam_1_dafang_up:
+  icon: mdi:arrow-up-bold

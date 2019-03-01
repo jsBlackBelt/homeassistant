@@ -1,0 +1,22 @@
+- platform: plex
+#  host: !secret plex_ip
+#  port: !secret plex_port
+  entity_namespace: plex
+  include_non_clients: false
+  scan_interval: 1
+  show_all_controls: false
+  use_custom_entity_ids: false
+  use_episode_art: true
+  remote_unavailable_clients: false
+
+- platform: webostv
+  host: !secret webostv_ip
+  name: LG OLED65C7D
+  timeout: 5
+
+- platform: onkyo
+
+- platform: alexa
+  email: !secret amazon_email
+  password: !secret amazon_password
+  url: amazon.de

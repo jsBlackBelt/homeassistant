@@ -1,0 +1,82 @@
+# ##########################################################################
+# Flux
+# ##########################################################################
+#- platform: flux
+#  lights:
+#    - light.schlafzimmer
+#    - light.studio
+#  name: Fluxer
+#  start_time: '6:00'
+#  stop_time: '23:00'
+#  start_colortemp: 4000
+#  sunset_colortemp: 3000
+#  stop_colortemp: 1900
+#  brightness: 200
+#  disable_brightness_adjust: True
+#  mode: xy
+#  transition: 30
+#  interval: 60
+
+# ##########################################################################
+# REST Switches
+# ##########################################################################
+- platform: rest
+  resource: http://127.0.0.1:8126/container/grafana
+  name: Grafana
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+- platform: rest
+  resource: http://127.0.0.1:8126/container/influxdb
+  name: InfluxDB
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+- platform: rest
+  resource: http://127.0.0.1:8126/container/jupyter
+  name: Jupyter
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+- platform: rest
+  resource: http://127.0.0.1:8126/container/mariadb
+  name: MariaDB
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+- platform: rest
+  resource: http://127.0.0.1:8126/container/mqtt
+  name: Mosquitto
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+- platform: rest
+  resource: http://127.0.0.1:8126/container/nodered
+  name: Nodered
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+- platform: rest
+  resource: http://127.0.0.1:8126/container/plex1
+  name: Plex1
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+- platform: rest
+  resource: http://127.0.0.1:8126/container/plex2
+  name: Plex2
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+- platform: rest
+  resource: http://127.0.0.1:8126/container/portainer
+  name: Portainer
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+- platform: rest
+  resource: http://127.0.0.1:8126/container/watchtower
+  name: Watchtower
+  body_on: '{"state": "start"}'
+  body_off: '{"state": "stop"}'
+  is_on_template: '{{ value_json is not none and value_json.state == "running" }}'

@@ -1,0 +1,93 @@
+# ##########################################################################
+# Rooms - Link to Alexa Groups
+# ##########################################################################
+- platform: group
+  name: entrance_group
+  entities:
+    - light.entrance_ceiling_light_1
+    - light.entrance_ceiling_light_2
+
+- platform: group
+  name: kitchen_group
+  entities:
+    - light.kitchen_counter_top_north
+    - light.kitchen_dining_table
+    - light.kitchen_ceiling_light
+    - light.kitchen_tetris
+
+- platform: group
+  name: living_room_group
+  entities:
+    - light.living_room_color_floor_lamp_candle_1
+    - light.living_room_color_floor_lamp_candle_2
+    - light.living_room_color_floor_lamp_candle_3
+    - light.living_room_iris
+    - light.living_room_floor_lamp
+
+- platform: group
+  name: living_room_color_floor_lamp_group
+  entities:
+    - light.living_room_color_floor_lamp_candle_1
+    - light.living_room_color_floor_lamp_candle_2
+    - light.living_room_color_floor_lamp_candle_3
+
+- platform: group
+  name: toilet_group
+  entities:
+    - light.toilet_ceiling_light
+
+- platform: group
+  name: kidsroom_amelie_group
+  entities:
+    - light.kidsroom_amelie_ceiling_light
+
+- platform: group
+  name: kidsroom_marlene_group
+  entities:
+    - light.kidsroom_marlene_wall_lamp
+
+- platform: group
+  name: bedroom_group
+  entities:
+    - light.bedroom_ceiling_light
+    - light.bedroom_wardrobe
+    - light.bedroom_light_wall_lamp
+
+- platform: group
+  name: bathroom_group
+  entities:
+    - light.bathroom_mirror
+    - light.bathroom_ceiling_light
+
+- platform: group
+  name: studio_group
+  entities:
+    - light.studio_ceiling_light_1
+    - light.studio_ceiling_light_2
+    - light.studio_desk_lamp
+    - light.studio_floor_lamp
+    - light.studio_iris
+    - light.studio_showcase
+    - light.studio_sofa
+
+- platform: group
+  name: wellness_group
+  entities:
+    - light.fitness_pillar_1
+    - light.fitness_pillar_2
+
+#- platform: stairs
+#  name: stairs_group
+#  entities:
+
+- platform: group
+  name: garden_group
+  entities:
+    - light.garden_south
+
+# ##########################################################################
+# Misc
+# ##########################################################################
+- platform: hyperion
+  host: !secret hyperion_ip
+  name: Hyperion Service

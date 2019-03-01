@@ -1,0 +1,125 @@
+# ##########################################################################
+# Netatmo
+# ##########################################################################
+- platform: template
+  sensors:
+    netatmo_innenmodul_co2_high:
+      friendly_name: "CO2"
+      device_class: gas
+      value_template: "{{ states('sensor.netatmo_innenmodul_co2')|int > 1500 }}"
+    netatmo_innenmodul_humidity_high:
+      friendly_name: "Humidity"
+      device_class: moisture
+      value_template: "{{ states('sensor.netatmo_innenmodul_humidity')|int > 50 }}"
+
+# ##########################################################################
+# Gardena (DEV)
+# ##########################################################################
+- platform: template
+  sensors:
+    sileno_charging:
+      friendly_name: "Sileno charging"
+      device_class: plug
+      value_template: "{{ states.sensor.sileno_city.attributes.charging_status }}"
+    sileno_manual_mode:
+      friendly_name: "Sileno in manual mode"
+      value_template: "{{ states.sensor.sileno_city.attributes.in_manual_mode }}"
+
+# ##########################################################################
+# Air Dehumidifier
+# ##########################################################################
+- platform: template
+  sensors:
+    dehumidifier_active:
+      friendly_name: "Air dehumidifier running"
+      device_class: power
+      delay_off:
+        minutes: 5
+      value_template: "{{ states('sensor.dehumidifier_power')|float > 10 }}"
+
+# ##########################################################################
+# Espresso
+# ##########################################################################
+- platform: template
+  sensors:
+    espresso_heating_up:
+      friendly_name: "Espresso is heating up"
+      device_class: power
+      delay_off:
+        minutes: 1
+      value_template: "{{ states('sensor.espresso_power')|float > 10 }}"
+
+# ##########################################################################
+# Air Humidifier
+# ##########################################################################
+- platform: template
+  sensors:
+    humidifier_active:
+      friendly_name: "Air humidifier running"
+      device_class: power
+      value_template: "{{ states('sensor.humidifier_power')|float > 10 }}"
+
+# ##########################################################################
+# Washing Machine & Dryer
+# ##########################################################################
+- platform: template
+  sensors:
+    washing_machine_active:
+      friendly_name: "Washing machine running"
+      device_class: power
+      delay_off:
+        minutes: 5
+      value_template: "{{ states('sensor.washing_machine_power')|float > 10 }}"
+- platform: template
+  sensors:
+    dryer_active:
+      friendly_name: "Dryer running"
+      device_class: power
+      delay_off:
+        minutes: 15
+      value_template: "{{ states('sensor.dryer_power')|float > 10 }}"
+
+# ##########################################################################
+# Bayesian Binary Sensor
+# ##########################################################################
+- platform: bayesian
+  prior: 0.5
+  name: 'Markus Presence'
+  probability_threshold: 0.9
+  observations:
+    - entity_id: 'device_tracker.b019c6e74a27'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.markus_d79762c2b7ff4e488b3d5bdda255521f'
+      prob_given_true: 0.9
+      prob_given_false: 0.4
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.markus_ping'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'
+
+- platform: bayesian
+  prior: 0.5
+  name: 'Magda Presence'
+  probability_threshold: 0.9
+  observations:
+    - entity_id: 'device_tracker.808223126d95'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.magda_5b9e43422ef1431eaee2d85a7e9db173'
+      prob_given_true: 0.9
+      prob_given_false: 0.4
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.magda_ping'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'

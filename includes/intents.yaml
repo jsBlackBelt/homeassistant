@@ -1,0 +1,37 @@
+intent_script:
+  Downloadspeed:
+    speech:
+      type: plain
+      text: Die aktuelle Downloadgeschwindigkeit ist {{ states("sensor.speedtest_download")}} Megabits pro Sekunde.
+
+intent_script:
+  Uploadspeed:
+    speech:
+      type: plain
+      text: Die aktuelle Uploadgeschwindigkeit ist {{ states("sensor.speedtest_upload")}} Megabits pro Sekunde.
+
+intent_script:
+  Ventilation:
+    speech:
+      type: plain
+      text: >
+        {%- if states(sensor.netatmo_innenmodul_co2_2) > 1250 -%}
+          Wir sollten Luft rein lassen.
+        {%- else -%}
+          Nein, alles gut.
+        {%- endif -%}
+
+#intent_script:
+#  LocateIntent:
+#    speech:
+#      type: plain
+#      text: >
+#        {%- for state in states.device_tracker -%}
+#          {%- if state.name.lower() == User.lower() -%}
+#            {{ state.name }} ist {{ state.state }}
+#          {%- endif -%}
+#          {%- else -%}
+#            Es tut mir leid, ich weiß nicht wo {{ User }} ist.
+#          {%- endfor -%}
+
+#            {{ state.name }} ist {{ state.state }} und ist {{ distance(state.attributes.latitude, state.attributes.longitude) | multiply(0.000621) | round }} Milen von zuhause, das war vor {{ relative_time(state.last_updated) }}
