@@ -23,6 +23,7 @@
     - light.living_room_color_floor_lamp_candle_3
     - light.living_room_iris
     - light.living_room_floor_lamp
+    - light.living_room_wall_lamp
 
 - platform: group
   name: living_room_color_floor_lamp_group
@@ -51,7 +52,7 @@
   entities:
     - light.bedroom_ceiling_light
     - light.bedroom_wardrobe
-    - light.bedroom_light_wall_lamp
+    - light.bedroom_wall_lamp
 
 - platform: group
   name: bathroom_group

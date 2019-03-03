@@ -22,6 +22,7 @@ alexa:
       - light.living_room_color_floor_lamp_group
       - light.living_room_iris
       - light.living_room_floor_lamp
+      - light.living_room_wall_lamp
       - light.xmas_tree
       - light.xmas_star
       - switch.living_room_showcase
@@ -50,7 +51,7 @@ alexa:
 
       - light.bedroom_ceiling_light
       - light.bedroom_wardrobe
-      - light.bedroom_light_wall_lamp
+      - light.bedroom_wall_lamp
       - switch.light_bedroom
       - script.bedroom_play_time_on
 

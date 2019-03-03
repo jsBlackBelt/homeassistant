@@ -1,4 +1,16 @@
 # ##########################################################################
+# Telegram
+# ##########################################################################
+- id: telegramboot
+  alias: Telegram bot to notify on boot
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: notify.telegram
+      data: Home Assistant on Pi booted
+
+# ##########################################################################
 # Startup Theme
 # ##########################################################################
 - id: activate_startup_theme
