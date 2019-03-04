@@ -2,19 +2,19 @@
 # Telegram
 # ##########################################################################
 - id: telegramboot
-  alias: Telegram bot to notify on boot
+  alias: Benachrichtigung beim Start
   trigger:
     - platform: homeassistant
       event: start
   action:
     - service: notify.telegram
-      data: Home Assistant on Pi booted
+      data: Home Assistant ist gestartet
 
 # ##########################################################################
 # Startup Theme
 # ##########################################################################
 - id: activate_startup_theme
-  alias: Set theme at startup
+  alias: Setze Theme beim Start
   initial_state: 'on'
   trigger:
     - platform: homeassistant
@@ -25,7 +25,7 @@
       name: dark_theme
 
 - id: hyperion_activate_hdmi
-  alias: Turn Hyperion effect on when light goes on
+  alias: Starte Hyperion Service beim Start
   trigger:
     - platform: homeassistant
       event: start
@@ -42,7 +42,7 @@
 # Zigbee
 # ##########################################################################
 - id: enable_zigbee_join
-  alias: Enable Zigbee joining
+  alias: Erlaube neue Zigbee-Geräte
   hide_entity: true
   trigger:
     platform: state
@@ -57,7 +57,7 @@
     data:
       entity_id: timer.zigbee_permit_join
 - id: disable_zigbee_join
-  alias: Disable Zigbee joining
+  alias: Erlaube keine neuen Zigbee-Geräte 
   trigger:
   - entity_id: input_boolean.zigbee_permit_join
     platform: state
@@ -72,7 +72,7 @@
     service: timer.cancel
   hide_entity: true
 - id: disable_zigbee_join_timer
-  alias: Disable Zigbee joining by timer
+  alias: Beende erlaube neue Zigbee-Geräte
   hide_entity: true
   trigger:
   - platform: event

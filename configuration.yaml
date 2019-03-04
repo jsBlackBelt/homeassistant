@@ -25,7 +25,7 @@ recorder:
 
 # Sets kown zones
 zone:
-  - name: Zu Hause
+  - name: home
     latitude: !secret zone_home_latitude
     longitude: !secret zone_home_longitude
     radius: 25

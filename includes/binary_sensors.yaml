@@ -1,16 +1,25 @@
 # ##########################################################################
+# Test Internet Connection
+# ##########################################################################
+- platform: ping
+  name: "Internet Connection"
+  host: 8.8.8.8
+  count: 2
+  scan_interval: 30
+
+# ##########################################################################
 # Netatmo
 # ##########################################################################
 - platform: template
   sensors:
     netatmo_innenmodul_co2_high:
-      friendly_name: "CO2"
+      friendly_name: "Wohnzimmer CO2"
       device_class: gas
       value_template: "{{ states('sensor.netatmo_innenmodul_co2')|int > 1500 }}"
     netatmo_innenmodul_humidity_high:
-      friendly_name: "Humidity"
+      friendly_name: "Wohnzimmer Luftfeuchtigkeit"
       device_class: moisture
-      value_template: "{{ states('sensor.netatmo_innenmodul_humidity')|int > 50 }}"
+      value_template: "{{ states('sensor.netatmo_innenmodul_humidity')|int > 60 }}"
 
 # ##########################################################################
 # Gardena (DEV)
@@ -18,11 +27,11 @@
 - platform: template
   sensors:
     sileno_charging:
-      friendly_name: "Sileno charging"
+      friendly_name: "Sileno lädt"
       device_class: plug
       value_template: "{{ states.sensor.sileno_city.attributes.charging_status }}"
     sileno_manual_mode:
-      friendly_name: "Sileno in manual mode"
+      friendly_name: "Sileno Modus manuell"
       value_template: "{{ states.sensor.sileno_city.attributes.in_manual_mode }}"
 
 # ##########################################################################
@@ -31,7 +40,7 @@
 - platform: template
   sensors:
     dehumidifier_active:
-      friendly_name: "Air dehumidifier running"
+      friendly_name: "Luftentfeuchter läuft"
       device_class: power
       delay_off:
         minutes: 5
@@ -43,7 +52,7 @@
 - platform: template
   sensors:
     espresso_heating_up:
-      friendly_name: "Espresso is heating up"
+      friendly_name: "Espresso heizt"
       device_class: power
       delay_off:
         minutes: 1
@@ -55,7 +64,7 @@
 - platform: template
   sensors:
     humidifier_active:
-      friendly_name: "Air humidifier running"
+      friendly_name: "Luftbefeuchter läuft"
       device_class: power
       value_template: "{{ states('sensor.humidifier_power')|float > 10 }}"
 
@@ -65,7 +74,7 @@
 - platform: template
   sensors:
     washing_machine_active:
-      friendly_name: "Washing machine running"
+      friendly_name: "Waschmaschine läuft"
       device_class: power
       delay_off:
         minutes: 5
@@ -73,7 +82,7 @@
 - platform: template
   sensors:
     dryer_active:
-      friendly_name: "Dryer running"
+      friendly_name: "Trockner läuft"
       device_class: power
       delay_off:
         minutes: 15
@@ -85,41 +94,51 @@
 - platform: bayesian
   prior: 0.5
   name: 'Markus Presence'
-  probability_threshold: 0.9
+  probability_threshold: 0.8
   observations:
-    - entity_id: 'device_tracker.b019c6e74a27'
-      prob_given_true: 0.9
-      prob_given_false: 0.1
-      platform: 'state'
-      to_state: 'home'
-    - entity_id: 'device_tracker.markus_d79762c2b7ff4e488b3d5bdda255521f'
+    - entity_id: 'device_tracker.b0_19_c6_e7_4a_27'
       prob_given_true: 0.9
       prob_given_false: 0.4
       platform: 'state'
       to_state: 'home'
+    - entity_id: 'device_tracker.markus_iphone_8_2'
+      prob_given_true: 0.9
+      prob_given_false: 0.4
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.markus_d79762c2_b7ff_4e48_8b3d_5bdda255521f'
+      prob_given_true: 0.9
+      prob_given_false: 0.3
+      platform: 'state'
+      to_state: 'home'
     - entity_id: 'device_tracker.markus_ping'
       prob_given_true: 0.9
-      prob_given_false: 0.1
+      prob_given_false: 0.4
       platform: 'state'
       to_state: 'home'
 
 - platform: bayesian
   prior: 0.5
   name: 'Magda Presence'
-  probability_threshold: 0.9
+  probability_threshold: 0.8
   observations:
-    - entity_id: 'device_tracker.808223126d95'
-      prob_given_true: 0.9
-      prob_given_false: 0.1
-      platform: 'state'
-      to_state: 'home'
-    - entity_id: 'device_tracker.magda_5b9e43422ef1431eaee2d85a7e9db173'
+    - entity_id: 'device_tracker.80_82_23_12_6d_95'
       prob_given_true: 0.9
       prob_given_false: 0.4
       platform: 'state'
       to_state: 'home'
+    - entity_id: 'device_tracker.magdas_iphone_8_2'
+      prob_given_true: 0.9
+      prob_given_false: 0.4
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.magda_5b9e4342_2ef1_431e_aee2_d85a7e9db173'
+      prob_given_true: 0.9
+      prob_given_false: 0.3
+      platform: 'state'
+      to_state: 'home'
     - entity_id: 'device_tracker.magda_ping'
       prob_given_true: 0.9
-      prob_given_false: 0.1
+      prob_given_false: 0.4
       platform: 'state'
       to_state: 'home'

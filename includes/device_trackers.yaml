@@ -20,15 +20,19 @@
 # ##########################################################################
 # Nmap
 # ##########################################################################
-#- platform: nmap_tracker
-#  hosts:
-#    - 192.168.1.0/24
-#  interval_seconds: 30
-#  track_new_devices: no
-#  exclude:
-#    - 192.168.1.1
-#  scan_options: " --privileged -sP "
-#  consider_home: 1800 - Added to known_devices.yaml instead on a device by device basis.
+- platform: nmap_tracker
+  hosts:
+    - 192.168.0.1/24
+    - 192.168.1.10-254
+  interval_seconds: 30
+  home_interval: 10
+  exclude:
+    - 192.168.1.1
+  scan_options: " --privileged -sP "
+  consider_home: 1800
+  new_device_defaults:
+    track_new_devices: true
+    hide_if_away: false
 
 # ##########################################################################
 # Unifi
