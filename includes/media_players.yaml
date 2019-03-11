@@ -21,7 +21,13 @@
   port: 8102
   name: VSX-1131
 
-- platform: alexa
-  email: !secret amazon_email
-  password: !secret amazon_password
-  url: amazon.de
+#- platform: alexa
+#  email: !secret amazon_email
+#  password: !secret amazon_password
+#  url: amazon.de
+
+#- platform: alexa_media
+#  accounts:
+#    - email: !secret amazon_email
+#      password: !secret amazon_password
+#      url: amazon.de

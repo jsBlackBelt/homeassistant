@@ -505,14 +505,13 @@
 # ##########################################################################
 # Internet speed
 # ##########################################################################
-- platform: speedtest
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-  minute:
-    - 0
-    - 30
+#- platform: speedtestdotnet
+#  monitored_conditions:
+#    - ping
+#    - download
+#    - upload
+#  scan_interval:
+#    minutes: 30
 
 # ##########################################################################
 # Harmony

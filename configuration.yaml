@@ -1,4 +1,4 @@
-homeassistant:
+whomeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
@@ -16,7 +16,7 @@ homeassistant:
 logger:
   default: info
   logs:
-    custom_components.media_player.alexa: debug
+    custom_components.alexa_media: debug
 
 recorder:
   purge_keep_days: 5
@@ -37,6 +37,9 @@ zone:
 frontend:
   themes: !include_dir_merge_named themes/
   javascript_version: latest
+
+# Enable system health
+system_health:
 
 #lovelace:
 #  mode: yaml
@@ -175,6 +178,12 @@ script: !include includes/scripts.yaml
 
 # Include media players
 media_player: !include includes/media_players.yaml
+
+alexa_media:
+  accounts:
+    - email: !secret amazon_email
+      password: !secret amazon_password
+      url: amazon.de
 
 # Include input selects
 #input_select: !include includes/input_selects.yaml

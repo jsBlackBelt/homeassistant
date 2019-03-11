@@ -1,25 +1,25 @@
-intent_script:
-  Downloadspeed:
-    speech:
-      type: plain
-      text: Die aktuelle Downloadgeschwindigkeit ist {{ states("sensor.speedtest_download")}} Megabits pro Sekunde.
+#intent_script:
+#  Downloadspeed:
+#    speech:
+#      type: plain
+#      text: Die aktuelle Downloadgeschwindigkeit ist {{ states("sensor.speedtest_download")}} Megabits pro Sekunde.
 
-intent_script:
-  Uploadspeed:
-    speech:
-      type: plain
-      text: Die aktuelle Uploadgeschwindigkeit ist {{ states("sensor.speedtest_upload")}} Megabits pro Sekunde.
+#intent_script:
+#  Uploadspeed:
+#    speech:
+#      type: plain
+#      text: Die aktuelle Uploadgeschwindigkeit ist {{ states("sensor.speedtest_upload")}} Megabits pro Sekunde.
 
-intent_script:
-  Ventilation:
-    speech:
-      type: plain
-      text: >
-        {%- if states(sensor.netatmo_innenmodul_co2_2) > 1250 -%}
-          Wir sollten Luft rein lassen.
-        {%- else -%}
-          Nein, alles gut.
-        {%- endif -%}
+#intent_script:
+#  Ventilation:
+#    speech:
+#      type: plain
+#      text: >
+#        {%- if states(sensor.netatmo_innenmodul_co2_2) > 1250 -%}
+#          Wir sollten Luft rein lassen.
+#        {%- else -%}
+#          Nein, alles gut.
+#        {%- endif -%}
 
 #intent_script:
 #  LocateIntent:
