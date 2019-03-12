@@ -497,10 +497,10 @@
 # ##########################################################################
 # Media Players
 # ##########################################################################
-- platform: plex
-  host: !secret plex_ip
-  port: !secret plex_port
-  name: Plex
+#- platform: plex
+#  host: !secret plex_ip
+#  port: !secret plex_port
+#  name: Plex
 
 # ##########################################################################
 # Internet speed

@@ -153,20 +153,20 @@ netatmo_aussen:
 # ##########################################################################
 # Docker Containers
 # ##########################################################################
-docker_containers:
-  name: Docker Containers
-  control: hidden
-  entities:
-    - switch.appdaemon
-    - switch.caddy
-    - switch.grafana
-    - switch.influxdb
-    - switch.mosquitto
-    - switch.nodered
-    - switch.plex
-    - switch.plexero
-    - switch.portainer
-    - switch.watchtower
+#docker_containers:
+#  name: Docker Containers
+#  control: hidden
+#  entities:
+#    - switch.appdaemon
+#    - switch.caddy
+#    - switch.grafana
+#    - switch.influxdb
+#    - switch.mosquitto
+#    - switch.nodered
+#    - switch.plex
+#    - switch.plexero
+#    - switch.portainer
+#    - switch.watchtower
 
 # ##########################################################################
 # Gardena (DEV)

@@ -2,7 +2,7 @@
 # Arlo
 # ##########################################################################
 - platform: arlo
-  ffmpeg_arguments: '-pred 1 -q:v 2'
+#  ffmpeg_arguments: '-pred 1 -q:v 2'
 
 # ##########################################################################
 # Ring
@@ -13,6 +13,6 @@
 # ##########################################################################
 # Ffmpeg
 # ##########################################################################
-- platform: ffmpeg
-  name: Cam 1 Dafang
-  input: -rtsp_transport tcp -i rtsp://192.168.1.200:8554/unicast
+#- platform: ffmpeg
+#  name: Cam 1 Dafang
+#  input: -rtsp_transport tcp -i rtsp://192.168.1.200:8554/unicast
