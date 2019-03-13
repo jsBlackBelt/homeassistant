@@ -14,7 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
 logger:
-  default: error
+  default: info
 #  logs:
 #    custom_components.alexa_media: debug
 
@@ -179,11 +179,11 @@ script: !include includes/scripts.yaml
 # Include media players
 media_player: !include includes/media_players.yaml
 
-alexa_media:
-  accounts:
-    - email: !secret amazon_email
-      password: !secret amazon_password
-      url: amazon.de
+#alexa_media:
+#  accounts:
+#    - email: !secret amazon_email
+#      password: !secret amazon_password
+#      url: amazon.de
 
 # Include input selects
 #input_select: !include includes/input_selects.yaml
