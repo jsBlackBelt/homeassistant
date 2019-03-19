@@ -5,7 +5,6 @@
 !*.yaml
 !.gitignore
 !*.md
-!custom_components
 !includes
 !themes
 !www
