@@ -197,6 +197,8 @@ light: !include includes/lights.yaml
 # Include cameras
 camera: !include includes/camera.yaml
 
+stream:
+
 remote:
   - platform: harmony
     name: living_room

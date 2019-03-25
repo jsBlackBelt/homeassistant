@@ -96,7 +96,7 @@
     - light.studio_sofa
 
 - platform: group
-  name: wellness_group
+  name: fitness_group
   entities:
     - light.fitness_pillar_1
     - light.fitness_pillar_2
