@@ -179,11 +179,14 @@ script: !include includes/scripts.yaml
 # Include media players
 media_player: !include includes/media_players.yaml
 
-#alexa_media:
-#  accounts:
-#    - email: !secret amazon_email
-#      password: !secret amazon_password
-#      url: amazon.de
+# Include iOS
+ios: !include includes/ios.yaml
+
+alexa_media:
+  accounts:
+    - email: !secret amazon_email
+      password: !secret amazon_password
+      url: amazon.de
 
 # Include input selects
 #input_select: !include includes/input_selects.yaml
@@ -256,12 +259,6 @@ homematic:
       host: !secret homematic_ip
       username: !secret homematic_username
       password: !secret homematic_password
-
-#volkswagencarnet:
-#  username: !secret carnet_username
-#  password: !secret carnet_password
-#  update_interval: 
-#    minutes: 3
 
 #hue:
 #  bridges:
