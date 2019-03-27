@@ -13,6 +13,16 @@
 # ##########################################################################
 # Ffmpeg
 # ##########################################################################
-#- platform: ffmpeg
-#  name: Cam 1 Dafang
-#  input: -rtsp_transport tcp -i rtsp://192.168.1.200:8554/unicast
+- platform: ffmpeg
+  name: Cam 1 Dafang
+  input: -rtsp_transport tcp -i rtsp://192.168.1.200:8554/unicast
+
+- platform: generic
+  name: DaFang3
+  username: root
+  password: ismart12
+  authentication: basic
+  still_image_url: https://192.168.1.200/cgi-bin/currentpic.cgi
+  stream_source: rtsp://192.168.1.200:8554/unicast
+  verify_ssl: false
+  scan_interval: 5
