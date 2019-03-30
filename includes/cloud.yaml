@@ -76,7 +76,7 @@ alexa:
       - script.studio_smooth_jazz_on
 
 # Wellness
-      - light.wellness_group
+      - light.fitness_group
 
       - light.fitness_pillar_1
       - light.fitness_pillar_2
@@ -115,7 +115,7 @@ alexa:
       name: Schlafzimmerlicht
     light.studio_room:
       name: Studiolicht
-    light.wellness:
+    light.fitness:
       name: Fitnesslicht
     light.kidsroom_amelie:
       name: Kinderzimmer Amelie
