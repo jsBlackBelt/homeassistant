@@ -33,3 +33,42 @@ zigbee_permit_join:
   name: Allow devices to join
   initial: off
   icon: mdi:cellphone-wireless
+
+# ##########################################################################
+# Activate Scenes via Node-Red
+# ##########################################################################
+living_room_scene_movie:
+  name: Living Room Scene Movie
+  initial: off
+  icon: mdi:lightbulb-on
+
+living_room_scene_reading:
+  name: Living Room Scene Reading
+  initial: off
+  icon: mdi:lightbulb-on
+
+living_room_scene_vaporwave:
+  name: Living Room Scene Vaporwave
+  initial: off
+  icon: mdi:lightbulb-on
+
+studio_scene_work:
+  name: Studio Scene Work
+  initial: off
+  icon: mdi:lightbulb-on
+
+studio_scene_reading:
+  name: Studio Scene Reading
+  initial: off
+  icon: mdi:lightbulb-on
+
+bedroom_scene_sex:
+  name: Bedroom Scene Sex
+  initial: off
+  icon: mdi:lightbulb-on
+
+bedroom_scene_reading:
+  name: Bedroom Scene Reading
+  initial: off
+  icon: mdi:lightbulb-on
+
