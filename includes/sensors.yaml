@@ -172,7 +172,7 @@
   language: de
   monitored_conditions:
     - summary
-    - icon
+#    - icon
     - precip_type
     - precip_intensity
     - precip_probability
@@ -549,7 +549,6 @@
 - platform: mqtt
   name: Bridge state
   state_topic: "zigbee2mqtt/bridge/state"
-  icon: mdi:router-wireless
 
 # ##########################################################################
 # Special HASS related sensors

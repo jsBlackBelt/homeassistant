@@ -19,23 +19,19 @@ cam1dafang:
   - sensor.cam_1_dafang_status
   - switch.cam_1_dafang_state
 
-#  icon: mdi:all-inclusive
 people_view:
   view: yes
-  icon: mdi:account-multiple-outline
   entities:
     - group.awesome_people
 
 security_view:
   view: yes
-  icon: mdi:security-home
   entities:
     - binary_sensor.door_window_sensor_158d00022b387f
     - binary_sensor.door_window_sensor_158d00022bd5c3
 
 weather_view:
   view: yes
-  icon: mdi:weather-sunny
   entities:
     - group.netatmo_innen
     - group.netatmo_aussen
@@ -43,7 +39,6 @@ weather_view:
 
 media_view:
   view: yes
-  icon: mdi:television
   entities:
     - media_player.apple_tv_3
     - media_player.apple_tv_4
@@ -56,7 +51,6 @@ media_view:
 
 it_view:
   view: yes
-  icon: mdi:laptop
   entities:
 #    - group.it_computers
 #    - group.it_tablets
