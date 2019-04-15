@@ -17,6 +17,13 @@
 #  transition: 30
 #  interval: 60
 
+- platform: mqtt
+  name: "Zigbee2mqtt Main join"
+  state_topic: "zigbee2mqtt/bridge/config/permit_join"
+  command_topic: "zigbee2mqtt/bridge/config/permit_join"
+  payload_on: "true"
+  payload_off: "false"
+
 # ##########################################################################
 # REST Switches
 # ##########################################################################
