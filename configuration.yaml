@@ -127,6 +127,10 @@ panel_iframe:
     title: 'States'
     icon: 'mdi:power-socket-us'
     url: !secret states_view_url
+  networkmap:
+    title: 'Zigbee Map'
+    url: '/local/zigbee2mqtt_networkmap/map.html'
+    icon: 'mdi:graphql'
 
 # ##########################################################################
 # Enable cloud connections
@@ -206,6 +210,10 @@ remote:
   - platform: harmony
     name: living_room
     host: !secret harmony_ip
+
+# Zigbee Network Map
+webhook:
+zigbee2mqtt_networkmap:
 
 # ##########################################################################
 # Configure some special devices
