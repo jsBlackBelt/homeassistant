@@ -75,9 +75,11 @@ alexa:
       - script.studio_vaporwave_on
       - script.studio_smooth_jazz_on
 
-# Wellness
+# Fitness
       - light.fitness_group
 
+      - light.fitness_ceiling_light_1
+      - light.fitness_ceiling_light_2
       - light.fitness_pillar_1
       - light.fitness_pillar_2
       - switch.dehumidifier

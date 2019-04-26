@@ -1,4 +1,20 @@
 # ##########################################################################
+# Pi-Hole
+# ##########################################################################
+- platform: pi_hole
+  host: !secret pi_hole_ip
+  monitored_conditions:
+    - ads_blocked_today
+    - ads_percentage_today
+    - dns_queries_today
+    - domains_being_blocked
+    - queries_cached
+    - queries_forwarded
+    - unique_clients
+    - unique_domains
+    - clients_ever_seen
+
+# ##########################################################################
 # System Monitor
 # ##########################################################################
 #- platform: systemmonitor
@@ -19,7 +35,7 @@
 #    - type: last_boot
 
 - platform: glances
-  host: 192.168.1.115
+  host: !secret smarthome_ip
   name: SmartHome
   version: 3
   resources:
@@ -44,7 +60,7 @@
     - docker_memory_use
 
 - platform: glances
-  host: 192.168.1.150
+  host: !secret k8smaster_ip
   name: K8s Master
   version: 3
   resources:
@@ -69,7 +85,7 @@
     - docker_memory_use
 
 - platform: glances
-  host: 192.168.1.151
+  host: !secret k8sworker1_ip
   name: K8s Worker 1
   version: 3
   resources:
@@ -94,7 +110,7 @@
     - docker_memory_use
 
 - platform: glances
-  host: 192.168.1.152
+  host: !secret k8sworker2_ip
   name: K8s Worker 2
   version: 3
   resources:
@@ -119,7 +135,7 @@
     - docker_memory_use
 
 - platform: glances
-  host: 192.168.1.153
+  host: !secret k8sworker3_ip
   name: K8s Worker 3
   version: 3
   resources:

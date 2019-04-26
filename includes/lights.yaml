@@ -98,6 +98,8 @@
 - platform: group
   name: fitness_group
   entities:
+    - light.fitness_ceiling_light_1
+    - light.fitness_ceiling_light_2
     - light.fitness_pillar_1
     - light.fitness_pillar_2
 
