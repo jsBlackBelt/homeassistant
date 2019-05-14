@@ -118,3 +118,10 @@
 - platform: hyperion
   host: !secret hyperion_ip
   name: Hyperion Service
+  effect_list:
+    - 'HDMI'
+    - 'Warm mood blobs'
+    - 'Rainbow mood'
+    - 'Rainbow swirl'
+    - ‘UDP multicast listener’
+    - ‘UDP listener’
