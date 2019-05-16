@@ -21,7 +21,8 @@ alexa:
 
       - light.living_room_color_floor_lamp_group
       - light.living_room_iris
-      - light.living_room_floor_lamp
+      - light.living_room_play_1
+      - light.living_room_play_2
       - light.living_room_wall_lamp
       - light.xmas_tree
       - light.xmas_star
@@ -68,6 +69,7 @@ alexa:
       - light.studio_ceiling_light_2
       - light.studio_desk_lamp
       - light.studio_floor_lamp
+      - light.studio_floor_lamp_2
       - light.studio_iris
       - light.studio_showcase
       - light.studio_sofa

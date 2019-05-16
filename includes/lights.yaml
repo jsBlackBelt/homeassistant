@@ -6,8 +6,8 @@
   entity_id: switch.living_room_showcase
 
 - platform: switch
-  name: living_room_floor_lamp
-  entity_id: switch.living_room_floor_lamp
+  name: studio_floor_lamp_2
+  entity_id: switch.studio_floor_lamp_2
 
 - platform: switch
   name: kitchen_tetris
@@ -45,8 +45,9 @@
     - light.living_room_color_floor_lamp_candle_2
     - light.living_room_color_floor_lamp_candle_3
     - light.living_room_iris
+    - light.living_room_play_1
+    - light.living_room_play_2
     - light.living_room_showcase
-    - light.living_room_floor_lamp
     - light.living_room_wall_lamp
 
 - platform: group
@@ -91,6 +92,7 @@
     - light.studio_ceiling_light_2
     - light.studio_desk_lamp
     - light.studio_floor_lamp
+    - light.studio_floor_lamp_2
     - light.studio_iris
     - light.studio_showcase
     - light.studio_sofa
