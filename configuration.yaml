@@ -187,12 +187,6 @@ media_player: !include includes/media_players.yaml
 # Include iOS
 ios: !include includes/ios.yaml
 
-alexa_media:
-  accounts:
-    - email: !secret amazon_email
-      password: !secret amazon_password
-      url: amazon.de
-
 # Include input selects
 #input_select: !include includes/input_selects.yaml
 
@@ -238,6 +232,17 @@ homekit:
 
 climate:
   - platform: netatmo
+
+# Include Alexa
+alexa_media:
+  accounts:
+    - email: !secret amazon_email
+      password: !secret amazon_password
+      url: amazon.de
+
+# Include Gardena
+gardena_smart:
+example_sensor:
 
 #xiaomi_aqara:
 #  discovery_retry: 5
