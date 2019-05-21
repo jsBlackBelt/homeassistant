@@ -43,7 +43,7 @@ class gardena_smart(Entity):
     def __init__(self, username, password, location_id, device_id):
         """Initialize the sensor."""
         _LOGGER.info('Initializing...')
-        from gardena_smart import Gardena
+        #from gardena_smart import Gardena
         self.gardena = Gardena(email_address=username, password=password)
         #Use first location
         _LOGGER.info('Current Location : ' + str(location_id))
@@ -158,16 +158,27 @@ class Gardena(object):
             device_info[i['id']]=i
         self.device_info = device_info
 
-    def get_properties_from_abilities(json_object, ability):
-        for dict in json_object:
-            if dict['name'] == ability:
-                return dict
+    def get_properties_from_abilities(self, json_object, ability):
+        _LOGGER.info('Parsing 1 - ability: ' + ability)
+        for mlist in json_object:
+            _LOGGER.info('Parsing 1 - ability list: ' + mlist)
+            for dict in mlist:
+                _LOGGER.info('Parsing for 1 - ability list element: ' + dict)
+                if dict['name'] == ability:
+                    return dict
+    def get_value_from_property(self, json_object, property1, property2):
+        _LOGGER.info('Parsing for 2 : ' + property1)
+        for mylist in json_object['abilities']:
+            if mylist['name'] == property1:
+               for mylist2 in mylist:
+                   if mylist2['name'] == property2:
+                       _LOGGER.info('Result 2 b: ' + mylist2['value'])
+                       return mylist2['value']
 
-    def get_value_from_property(json_object, property):
-        for dict in json_object:
-            if dict['name'] == property:
-                return dict['value']
-
+#        for dict in json_object:
+#            if dict["name"] == property:
+#                _LOGGER.info('Result 2 : ' + dict['value'])
+#                return dict['value']
     def get_devices_in_catagory(self, category):
         """Return devices matching a category, should be mower, gateway, sensor """
         return [i['id'] for i in self.raw_devices['devices']  if i['category']==category]
@@ -178,7 +189,8 @@ class Gardena(object):
     def get_mower_last_online(self, id):
         return self.device_info[id]['abilities'][0]['properties'][5]['value']
     def get_mower_battery_level(self, id):
-        return get_value_from_property(get_properties_from_abilities(self.device_info[id], 'mower'), 'battery')
+        return self.get_value_from_property(self.device_info[id], 'battery', 'level')
+#        return self.get_value_from_property(self.get_properties_from_abilities(self.device_info[id], 'mower'), 'battery')
 #        return self.device_info[id]['abilities'][1]['properties'][0]['value']
     def get_mower_charging_status(self, id):
         return self.device_info[id]['abilities'][1]['properties'][1]['value']
