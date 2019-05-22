@@ -3,6 +3,7 @@ import json
 import requests
 import os
 from datetime import datetime, timedelta
+import pickle
 
 import voluptuous as vol
 
@@ -167,6 +168,8 @@ class Gardena(object):
                 if dict['name'] == ability:
                     return dict
     def get_value_from_property(self, json_object, property1, property2):
+        pickle.dump(json_object, open("json_object.json", wb))
+
         _LOGGER.info('Parsing for 2 : ' + property1)
         for mylist in json_object['abilities']:
             if mylist['name'] == property1:
