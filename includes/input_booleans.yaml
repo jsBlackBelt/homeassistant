@@ -48,6 +48,10 @@ living_room_scene_vaporwave:
   name: Living Room Scene Vaporwave
   initial: off
 
+living_room_scene_lounging:
+  name: Living Room Scene Lounging
+  initial: off
+
 studio_scene_work:
   name: Studio Scene Work
   initial: off
