@@ -19,7 +19,7 @@ logger:
 #    custom_components.alexa_media: debug
 
 recorder:
-  purge_keep_days: 5
+  purge_keep_days: 90
   purge_interval: 1
   db_url: !secret homeassistantdb
 
