@@ -248,6 +248,76 @@
   password : !secret gardena_password
 - platform: template
   sensors:
+    gardena_sileno_battery_charging:
+      value_template: "{{ states.vacuum.sileno_city.attributes.battery_charging }}"
+    gardena_sileno_battery_level:
+      value_template: "{{ states.vacuum.sileno_city.attributes.battery_level }}"
+    gardena_sileno_category:
+      value_template: "{{ states.vacuum.sileno_city.attributes.category }}"
+    gardena_sileno_radio_quality:
+      value_template: "{{ states.vacuum.sileno_city.attributes.radio_quality }}"
+    gardena_sileno_radio_connection_status:
+      value_template: "{{ states.vacuum.sileno_city.attributes.radio_connection_status }}"
+    gardena_sileno_radio_state:
+      value_template: "{{ states.vacuum.sileno_city.attributes.radio_state }}"
+    gardena_sileno_manual_operation:
+      value_template: "{{ states.vacuum.sileno_city.attributes.manual_operation }}"
+    gardena_sileno_status:
+      value_template: "{{ states.vacuum.sileno_city.attributes.status }}"
+    gardena_sileno_error:
+      value_template: "{{ states.vacuum.sileno_city.attributes.error }}"
+    gardena_sileno_last_error_code:
+      value_template: "{{ states.vacuum.sileno_city.attributes.last_error_code }}"
+    gardena_sileno_source_for_next_start:
+      value_template: "{{ states.vacuum.sileno_city.attributes.source_for_next_start }}"
+    gardena_sileno_timestamp_next_start:
+      value_template: "{{ states.vacuum.sileno_city.attributes.timestamp_next_start }}"
+    gardena_sileno_cutting_time:
+      value_template: "{{ states.vacuum.sileno_city.attributes.cutting_time }}"
+    gardena_sileno_charging_cycles:
+      value_template: "{{ states.vacuum.sileno_city.attributes.charging_cycles }}"
+    gardena_sileno_collisions:
+      value_template: "{{ states.vacuum.sileno_city.attributes.collisions }}"
+    gardena_sileno_running_time:
+      value_template: "{{ states.vacuum.sileno_city.attributes.running_time }}"
+    gardena_sileno_friendly_name:
+      value_template: "{{ states.vacuum.sileno_city.attributes.friendly_name }}"
+
+- platform: template
+  sensors:
+    gardena_water_control_battery_level:
+      value_template: "{{ states.switch.water_control.attributes.battery_level }}"
+    gardena_water_control_category:
+      value_template: "{{ states.switch.water_control.attributes.category }}"
+    gardena_water_control_radio_quality:
+      value_template: "{{ states.switch.water_control.attributes.radio_quality }}"
+    gardena_water_control_radio_contection_status:
+      value_template: "{{ states.switch.water_control.attributes.radio_contection_status }}"
+    gardena_water_control_radio_state:
+      value_template: "{{ states.switch.water_control.attributes.radio_state }}"
+    gardena_water_control_ambient_temperature:
+      value_template: "{{ states.switch.water_control.attributes.ambient_temperature }}"
+    gardena_water_control_ambient_frost_warning:
+      value_template: "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
+    gardena_water_control_valve_open:
+      value_template: "{{ states.switch.water_control.attributes.valve_open }}"
+    gardena_water_control_manual_override:
+      value_template: "{{ states.switch.water_control.attributes.manual_override }}"
+    gardena_water_control_button_manual_override_time:
+      value_template: "{{ states.switch.water_control.attributes.button_manual_override_time }}"
+    gardena_water_control_last_manual_override_time:
+      value_template: "{{ states.switch.water_control.attributes.last_manual_override_time }}"
+    gardena_water_control_scheduled_watering_next_start:
+      value_template: "{{ states.switch.water_control.attributes.scheduled_watering_next_start }}"
+    gardena_water_control_schedules_watering_end:
+      value_template: "{{ states.switch.water_control.attributes.schedules_watering_end }}"
+    gardena_water_control_adaptive_scheduling_last_decision:
+      value_template: "{{ states.switch.water_control.attributes.adaptive_scheduling_last_decision }}"
+    gardena_water_control_friendly_name:
+      value_template: "{{ states.switch.water_control.attributes.friendly_name }}"
+
+- platform: template
+  sensors:
     sileno_last_online:
       friendly_name: "Sileno zuletzt online"
       value_template: "{{ states.sensor.sileno_city.attributes.last_online }}"

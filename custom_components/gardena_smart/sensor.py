@@ -168,13 +168,14 @@ class Gardena(object):
                 if dict['name'] == ability:
                     return dict
     def get_value_from_property(self, json_object, property1, property2):
-        pickle.dump(json_object, open("json_object.json", wb))
+        pickle.dump(json_object, open("json_object.json", "wb"))
 
         _LOGGER.info('Parsing for 2 : ' + property1)
         for mylist in json_object['abilities']:
             if mylist['name'] == property1:
                for mylist2 in mylist:
-                   if mylist2['name'] == property2:
+                   _LOGGER.info('Parsing for 2 mylist2 : ' + mylist2)
+                   if mylist2 == property2:
                        _LOGGER.info('Result 2 b: ' + mylist2['value'])
                        return mylist2['value']
 
@@ -206,7 +207,8 @@ class Gardena(object):
     def get_mower_manual_mode(self, id):
         return self.device_info[id]['abilities'][3]['properties'][0]['value']
     def get_mower_status(self, id):
-        return self.device_info[id]['abilities'][3]['properties'][1]['value']
+        return self.get_value_from_property(self.device_info[id], 'status', 'value')
+#        return self.device_info[id]['abilities'][3]['properties'][1]['value']
     def get_mower_error(self, id):
         """Return error and last ts"""
         error = self.device_info[id]['abilities'][3]['properties']
@@ -237,7 +239,7 @@ class Gardena(object):
 #        mower_info['radio_status'] = self.get_mower_radio_status(id)
 #        mower_info['radio_connection_status'] = self.get_mower_radio_connection_status(id)
 #        mower_info['in_manual_mode'] = self.get_mower_manual_mode(id)
-#        mower_info['status'] = self.get_mower_status(id)
+        mower_info['status'] = self.get_mower_status(id)
 #        mower_info['error'] = self.get_mower_error(id)[0]
 #        mower_info['error_time'] = self.convert_python_dt(self.get_mower_error(id)[1])
 #        mower_info['last_error_msg'] = self.get_mower_last_error(id)

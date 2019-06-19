@@ -244,6 +244,10 @@ alexa_media:
 gardena_smart:
 example_sensor:
 
+gardena:
+  username : !secret gardena_user
+  password : !secret gardena_password
+
 #xiaomi_aqara:
 #  discovery_retry: 5
 #  gateways:
