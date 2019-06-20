@@ -1,0 +1,8 @@
+{
+  "domain": "gardena_smart",
+  "name": "Gardena Smart Integration",
+  "documentation": "https://github.com/mawinkler/homeassistant/",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": []
+}

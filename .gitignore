@@ -4,11 +4,13 @@
 # You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
 !*.pcy
+!*.py
 !.gitignore
 !*.md
 !includes
 !themes
 !www
+!custom_components
 
 # Ignore folders.
 .storage

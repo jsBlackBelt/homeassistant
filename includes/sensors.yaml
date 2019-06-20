@@ -252,10 +252,12 @@
       value_template: "{{ states.vacuum.sileno_city.attributes.battery_charging }}"
     gardena_sileno_battery_level:
       value_template: "{{ states.vacuum.sileno_city.attributes.battery_level }}"
+      unit_of_measurement: '%'
     gardena_sileno_category:
       value_template: "{{ states.vacuum.sileno_city.attributes.category }}"
     gardena_sileno_radio_quality:
       value_template: "{{ states.vacuum.sileno_city.attributes.radio_quality }}"
+      unit_of_measurement: '%'
     gardena_sileno_radio_connection_status:
       value_template: "{{ states.vacuum.sileno_city.attributes.radio_connection_status }}"
     gardena_sileno_radio_state:
@@ -263,7 +265,12 @@
     gardena_sileno_manual_operation:
       value_template: "{{ states.vacuum.sileno_city.attributes.manual_operation }}"
     gardena_sileno_status:
-      value_template: "{{ states.vacuum.sileno_city.attributes.status }}"
+      value_template: >-
+        {% if is_state('states.vacuum.sileno_city.attributes.status', 'ok_cutting') %}
+          cutting
+        {% else %}
+          "{{ states.vacuum.sileno_city.attributes.status }}"
+        {% endif %}
     gardena_sileno_error:
       value_template: "{{ states.vacuum.sileno_city.attributes.error }}"
     gardena_sileno_last_error_code:
@@ -271,15 +278,19 @@
     gardena_sileno_source_for_next_start:
       value_template: "{{ states.vacuum.sileno_city.attributes.source_for_next_start }}"
     gardena_sileno_timestamp_next_start:
-      value_template: "{{ states.vacuum.sileno_city.attributes.timestamp_next_start }}"
+      value_template: "{{ ((as_timestamp(states.vacuum.sileno_city.attributes.timestamp_next_start)) | timestamp_local) }}"
     gardena_sileno_cutting_time:
       value_template: "{{ states.vacuum.sileno_city.attributes.cutting_time }}"
+      unit_of_measurement: hours
     gardena_sileno_charging_cycles:
       value_template: "{{ states.vacuum.sileno_city.attributes.charging_cycles }}"
+      unit_of_measurement: ''
     gardena_sileno_collisions:
       value_template: "{{ states.vacuum.sileno_city.attributes.collisions }}"
+      unit_of_measurement: ''
     gardena_sileno_running_time:
       value_template: "{{ states.vacuum.sileno_city.attributes.running_time }}"
+      unit_of_measurement: hours
     gardena_sileno_friendly_name:
       value_template: "{{ states.vacuum.sileno_city.attributes.friendly_name }}"
 
@@ -287,28 +298,44 @@
   sensors:
     gardena_water_control_battery_level:
       value_template: "{{ states.switch.water_control.attributes.battery_level }}"
+      unit_of_measurement: '%'
     gardena_water_control_category:
       value_template: "{{ states.switch.water_control.attributes.category }}"
     gardena_water_control_radio_quality:
       value_template: "{{ states.switch.water_control.attributes.radio_quality }}"
+      unit_of_measurement: '%'
     gardena_water_control_radio_contection_status:
       value_template: "{{ states.switch.water_control.attributes.radio_contection_status }}"
     gardena_water_control_radio_state:
       value_template: "{{ states.switch.water_control.attributes.radio_state }}"
     gardena_water_control_ambient_temperature:
       value_template: "{{ states.switch.water_control.attributes.ambient_temperature }}"
+      unit_of_measurement: '°C'
     gardena_water_control_ambient_frost_warning:
-      value_template: "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
+#      value_template: "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
+#        {% if state_attr('states.switch.water_control', 'ambient_frost_warning') == 'no_frost') %}
+      value_template: >-
+        {% if is_state_attr('states.switch.water_control', 'ambient_frost_warning', 'no_frost') %}
+          "no frost"
+        {% else %}
+          "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
+        {% endif %}
     gardena_water_control_valve_open:
-      value_template: "{{ states.switch.water_control.attributes.valve_open }}"
+      value_template: >-
+        {% if is_state('states.switch.water_control.attributes.valve_open', false) %}
+          closed
+        {% else %}
+          "{{ states.switch.water_control.attributes.valve_open }}"
+        {% endif %}
     gardena_water_control_manual_override:
       value_template: "{{ states.switch.water_control.attributes.manual_override }}"
     gardena_water_control_button_manual_override_time:
       value_template: "{{ states.switch.water_control.attributes.button_manual_override_time }}"
+      unit_of_measurement: minutes
     gardena_water_control_last_manual_override_time:
       value_template: "{{ states.switch.water_control.attributes.last_manual_override_time }}"
     gardena_water_control_scheduled_watering_next_start:
-      value_template: "{{ states.switch.water_control.attributes.scheduled_watering_next_start }}"
+      value_template: "{{ ((as_timestamp(states.switch.water_control.attributes.scheduled_watering_next_start)) | timestamp_local) }}"
     gardena_water_control_schedules_watering_end:
       value_template: "{{ states.switch.water_control.attributes.schedules_watering_end }}"
     gardena_water_control_adaptive_scheduling_last_decision:

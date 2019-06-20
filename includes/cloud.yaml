@@ -26,6 +26,7 @@ alexa:
       - light.living_room_wall_lamp
       - light.xmas_tree
       - light.xmas_star
+      - switch.humidifier
       - switch.living_room_showcase
       - script.living_room_xmas_on
       - script.living_room_vaporwave_on
@@ -73,7 +74,7 @@ alexa:
       - light.studio_iris
       - light.studio_showcase
       - light.studio_sofa
-      - switch.humidifier
+      - switch.blower_switch
       - script.studio_vaporwave_on
       - script.studio_smooth_jazz_on
 
