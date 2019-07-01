@@ -234,16 +234,15 @@ climate:
   - platform: netatmo
 
 # Include Alexa
-alexa_media:
-  accounts:
-    - email: !secret amazon_email
-      password: !secret amazon_password
-      url: amazon.de
+#alexa_media:
+#  accounts:
+#    - email: !secret amazon_email
+#      password: !secret amazon_password
+#      url: amazon.de
 
 # Include Gardena
-gardena_smart:
-example_sensor:
-
+#gardena_smart:  # old
+#example_sensor: # testing
 gardena:
   username : !secret gardena_user
   password : !secret gardena_password
