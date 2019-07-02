@@ -150,7 +150,6 @@ netatmo:
   password: !secret netatmo_password
   discovery: true
 
-
 # ##########################################################################
 # Include sub config files
 # ##########################################################################
@@ -201,6 +200,7 @@ camera: !include includes/camera.yaml
 
 stream:
 
+# Include Harmony
 remote:
   - platform: harmony
     name: living_room
@@ -232,6 +232,9 @@ homekit:
 
 climate:
   - platform: netatmo
+
+apcupsd:
+  host: 192.168.1.115
 
 # Include Alexa
 #alexa_media:

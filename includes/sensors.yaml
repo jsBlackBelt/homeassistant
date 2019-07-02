@@ -15,6 +15,30 @@
     - clients_ever_seen
 
 # ##########################################################################
+# APC UPS
+# ##########################################################################
+- platform: apcupsd
+  resources:
+    - apc
+    - date
+    - version
+    - upsname
+    - upsmode
+    - starttime
+    - model
+    - status
+    - linev
+    - loadpct
+    - bcharge
+    - timeleft
+    - mbattchg
+    - mintimel
+    - maxtime
+    - maxlinev
+    - minlinev
+    - outputv
+
+# ##########################################################################
 # System Monitor
 # ##########################################################################
 #- platform: systemmonitor
