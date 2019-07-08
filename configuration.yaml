@@ -198,6 +198,15 @@ light: !include includes/lights.yaml
 # Include cameras
 camera: !include includes/camera.yaml
 
+# Include Calendar
+calendar:
+  - platform: caldav
+    url: https://caldav.icloud.com 
+    username: !secret icloud_username
+    password: !secret icloud_password
+    calendars:
+#      - 'Calendar Name'
+
 stream:
 
 # Include Harmony
