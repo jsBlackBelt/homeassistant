@@ -1,1 +1,0 @@
-"""The gardena sensor integration."""

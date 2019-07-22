@@ -1,18 +1,18 @@
 # ##########################################################################
 # Pi-Hole
 # ##########################################################################
-- platform: pi_hole
-  host: !secret pi_hole_ip
-  monitored_conditions:
-    - ads_blocked_today
-    - ads_percentage_today
-    - dns_queries_today
-    - domains_being_blocked
-    - queries_cached
-    - queries_forwarded
-    - unique_clients
-    - unique_domains
-    - clients_ever_seen
+#- platform: pi_hole
+#  host: !secret pi_hole_ip
+#  monitored_conditions:
+#    - ads_blocked_today
+#    - ads_percentage_today
+#    - dns_queries_today
+#    - domains_being_blocked
+#    - queries_cached
+#    - queries_forwarded
+#    - unique_clients
+#    - unique_domains
+#    - clients_ever_seen
 
 # ##########################################################################
 # APC UPS
@@ -244,6 +244,53 @@
     - nearest_storm_bearing
 
 # ##########################################################################
+# Weather Underground
+# ##########################################################################
+- platform: wunderground
+  api_key: !secret wunderground_api_key
+  pws_id: !secret wunderground_pws_id
+  monitored_conditions:
+    - weather
+    - station_id
+    - feelslike_c
+    - feelslike_string
+    - heat_index_c
+    - heat_index_string
+    - dewpoint_c
+    - dewpoint_string
+    - UV
+    - pressure_in
+    - pressure_mb
+    - wind_dir
+    - wind_string
+    - relative_humidity
+    - visibility_km
+    - precip_today_in
+    - precip_today_metric
+    - precip_today_string
+    - solarradiation
+    # Daily Forecast
+    - weather_1d_metric
+    - weather_1n_metric
+    - weather_2d_metric
+    - weather_2n_metric
+    - weather_3d_metric
+    - weather_3n_metric
+    - weather_4d_metric
+    - weather_4n_metric
+    # Weather Overview
+    - temp_high_record_c
+    - temp_high_1d_c
+    - temp_c
+    - temp_low_1d_c
+    - temp_low_record_c
+    - precip_1d
+    - precip_1d_mm
+    - wind_kph
+    - wind_1d_kph
+    - alerts
+
+# ##########################################################################
 # Netatmo
 # ##########################################################################
 - platform: netatmo
@@ -265,7 +312,7 @@
       - rf_status
 
 # ##########################################################################
-# Gardena (DEV)
+# Gardena
 # ##########################################################################
 - platform: gardena_smart
   username : !secret gardena_user
@@ -274,76 +321,102 @@
   sensors:
     gardena_sileno_battery_charging:
       value_template: "{{ states.vacuum.sileno_city.attributes.battery_charging }}"
+      friendly_name: "Ladevorgang"
     gardena_sileno_battery_level:
       value_template: "{{ states.vacuum.sileno_city.attributes.battery_level }}"
       unit_of_measurement: '%'
+      friendly_name: "Batteriestand"
     gardena_sileno_category:
       value_template: "{{ states.vacuum.sileno_city.attributes.category }}"
+      friendly_name: "Kategorie"
     gardena_sileno_radio_quality:
       value_template: "{{ states.vacuum.sileno_city.attributes.radio_quality }}"
       unit_of_measurement: '%'
+      friendly_name: "Qualität Wi-Fi"
     gardena_sileno_radio_connection_status:
       value_template: "{{ states.vacuum.sileno_city.attributes.radio_connection_status }}"
+      friendly_name: "Verbindung Status"
     gardena_sileno_radio_state:
       value_template: "{{ states.vacuum.sileno_city.attributes.radio_state }}"
+      friendly_name: "Verbindung Status"
     gardena_sileno_manual_operation:
       value_template: "{{ states.vacuum.sileno_city.attributes.manual_operation }}"
+      friendly_name: "Manueller Modus"
     gardena_sileno_status:
       value_template: >-
-        {% if is_state('states.vacuum.sileno_city.attributes.status', 'ok_cutting') %}
-          cutting
+        {% if is_state('vacuum.sileno_city', '"ok_cutting"') %}
+          Mäht
+        {% elif is_state('vacuum.sileno_city', 'parked_timer') %}
+          Geparkt
         {% else %}
           "{{ states.vacuum.sileno_city.attributes.status }}"
         {% endif %}
+      friendly_name: "Status"
     gardena_sileno_error:
       value_template: "{{ states.vacuum.sileno_city.attributes.error }}"
+      friendly_name: "Fehlermeldung"
     gardena_sileno_last_error_code:
       value_template: "{{ states.vacuum.sileno_city.attributes.last_error_code }}"
+      friendly_name: "Fehlercode"
     gardena_sileno_source_for_next_start:
       value_template: "{{ states.vacuum.sileno_city.attributes.source_for_next_start }}"
+      friendly_name: "Nächste Startart"
     gardena_sileno_timestamp_next_start:
       value_template: "{{ ((as_timestamp(states.vacuum.sileno_city.attributes.timestamp_next_start)) | timestamp_local) }}"
+      friendly_name: "Nächster Start"
     gardena_sileno_cutting_time:
       value_template: "{{ states.vacuum.sileno_city.attributes.cutting_time }}"
       unit_of_measurement: hours
+      friendly_name: "Mähzeit (total)"
     gardena_sileno_charging_cycles:
       value_template: "{{ states.vacuum.sileno_city.attributes.charging_cycles }}"
       unit_of_measurement: ''
+      friendly_name: "Ladezyklen (total)"
     gardena_sileno_collisions:
       value_template: "{{ states.vacuum.sileno_city.attributes.collisions }}"
       unit_of_measurement: ''
+      friendly_name: "Kollisionen (total)"
     gardena_sileno_running_time:
       value_template: "{{ states.vacuum.sileno_city.attributes.running_time }}"
       unit_of_measurement: hours
+      friendly_name: "Laufzeit (total)"
     gardena_sileno_friendly_name:
       value_template: "{{ states.vacuum.sileno_city.attributes.friendly_name }}"
+      friendly_name: "Name"
 
 - platform: template
   sensors:
     gardena_water_control_battery_level:
       value_template: "{{ states.switch.water_control.attributes.battery_level }}"
       unit_of_measurement: '%'
+      friendly_name: "Batteriestand"
     gardena_water_control_category:
       value_template: "{{ states.switch.water_control.attributes.category }}"
+      friendly_name: "Kategorie"
     gardena_water_control_radio_quality:
       value_template: "{{ states.switch.water_control.attributes.radio_quality }}"
       unit_of_measurement: '%'
+      friendly_name: "Qualität Wi-Fi"
     gardena_water_control_radio_contection_status:
       value_template: "{{ states.switch.water_control.attributes.radio_contection_status }}"
+      friendly_name: "Verbindung Status"
     gardena_water_control_radio_state:
       value_template: "{{ states.switch.water_control.attributes.radio_state }}"
+      friendly_name: "Verbindung Status"
     gardena_water_control_ambient_temperature:
       value_template: "{{ states.switch.water_control.attributes.ambient_temperature }}"
       unit_of_measurement: '°C'
+      friendly_name: "Umgebungstemperatur"
     gardena_water_control_ambient_frost_warning:
 #      value_template: "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
 #        {% if state_attr('states.switch.water_control', 'ambient_frost_warning') == 'no_frost') %}
       value_template: >-
-        {% if is_state_attr('states.switch.water_control', 'ambient_frost_warning', 'no_frost') %}
+        {% if state_attr('states.switch.water_control.attributes', 'ambient_frost_warning', 'no_frost') %}
           "no frost"
         {% else %}
           "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
         {% endif %}
+      friendly_name: "Frostwarnung"
     gardena_water_control_valve_open:
       value_template: >-
         {% if is_state('states.switch.water_control.attributes.valve_open', false) %}
@@ -351,55 +424,29 @@
         {% else %}
           "{{ states.switch.water_control.attributes.valve_open }}"
         {% endif %}
+      friendly_name: "Bewässerung aktiv"
     gardena_water_control_manual_override:
       value_template: "{{ states.switch.water_control.attributes.manual_override }}"
+      friendly_name: "Manuell gestartet"
     gardena_water_control_button_manual_override_time:
       value_template: "{{ states.switch.water_control.attributes.button_manual_override_time }}"
       unit_of_measurement: minutes
+      friendly_name: "Manuelle Dauer"
     gardena_water_control_last_manual_override_time:
       value_template: "{{ states.switch.water_control.attributes.last_manual_override_time }}"
+      friendly_name: "Manuelle letzte Dauer"
     gardena_water_control_scheduled_watering_next_start:
       value_template: "{{ ((as_timestamp(states.switch.water_control.attributes.scheduled_watering_next_start)) | timestamp_local) }}"
+      friendly_name: "Nächster Start"
     gardena_water_control_schedules_watering_end:
       value_template: "{{ states.switch.water_control.attributes.schedules_watering_end }}"
+      friendly_name: "Nächstes Ende"
     gardena_water_control_adaptive_scheduling_last_decision:
       value_template: "{{ states.switch.water_control.attributes.adaptive_scheduling_last_decision }}"
+      friendly_name: "Adaptive Änderung"
     gardena_water_control_friendly_name:
       value_template: "{{ states.switch.water_control.attributes.friendly_name }}"
-
-- platform: template
-  sensors:
-    sileno_last_online:
-      friendly_name: "Sileno zuletzt online"
-      value_template: "{{ states.sensor.sileno_city.attributes.last_online }}"
-    sileno_battery_level:
-      friendly_name: "Sileno Batterie"
-      value_template: "{{ states.sensor.sileno_city.attributes.battery_level }}"
-      unit_of_measurement: '%'
-    sileno_charge_cycles:
-      friendly_name: "Sileno Ladezyklen"
-      value_template: "{{ states.sensor.sileno_city.attributes.charge_cycles }}"
-      unit_of_measurement: ''
-    sileno_collisions:
-      friendly_name: "Sileno Kollisionen"
-      value_template: "{{ states.sensor.sileno_city.attributes.collisions }}"
-      unit_of_measurement: ''
-    sileno_cutting_time:
-      friendly_name: "Sileno Mähzeit total"
-      value_template: "{{ states.sensor.sileno_city.attributes.cutting_time }}"
-      unit_of_measurement: hours
-    sileno_error:
-      friendly_name: "Sileno Fehler"
-      value_template: "{{ states.sensor.sileno_city.attributes.error }}"
-    sileno_error_time:
-      friendly_name: "Sileno Fehlerzeitpunkt"
-      value_template: "{{ states.sensor.sileno_city.attributes.error_time }}"
-    sileno_next_start_time:
-      friendly_name: "Sileno Nächster Start"
-      value_template: "{{ states.sensor.sileno_city.attributes.next_start }}"
-    sileno_next_start_source:
-      friendly_name: "Sileno Nächster Startort"
-      value_template: "{{ states.sensor.sileno_city.attributes.next_source_for_start }}"
+      friendly_name: "Name"
 
 # ##########################################################################
 # Measure Switches
