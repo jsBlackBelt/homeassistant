@@ -275,49 +275,49 @@
 # ##########################################################################
 # Weather Underground
 # ##########################################################################
-- platform: wunderground
-  api_key: !secret wunderground_api_key
-  pws_id: !secret wunderground_pws_id
-  monitored_conditions:
-    - weather
-    - station_id
-    - feelslike_c
-    - feelslike_string
-    - heat_index_c
-    - heat_index_string
-    - dewpoint_c
-    - dewpoint_string
-    - UV
-    - pressure_in
-    - pressure_mb
-    - wind_dir
-    - wind_string
-    - relative_humidity
-    - visibility_km
-    - precip_today_in
-    - precip_today_metric
-    - precip_today_string
-    - solarradiation
-    # Daily Forecast
-    - weather_1d_metric
-    - weather_1n_metric
-    - weather_2d_metric
-    - weather_2n_metric
-    - weather_3d_metric
-    - weather_3n_metric
-    - weather_4d_metric
-    - weather_4n_metric
-    # Weather Overview
-    - temp_high_record_c
-    - temp_high_1d_c
-    - temp_c
-    - temp_low_1d_c
-    - temp_low_record_c
-    - precip_1d
-    - precip_1d_mm
-    - wind_kph
-    - wind_1d_kph
-    - alerts
+#- platform: wunderground
+#  api_key: !secret wunderground_api_key
+#  pws_id: !secret wunderground_pws_id
+#  monitored_conditions:
+#    - weather
+#    - station_id
+#    - feelslike_c
+#    - feelslike_string
+#    - heat_index_c
+#    - heat_index_string
+#    - dewpoint_c
+#    - dewpoint_string
+#    - UV
+#    - pressure_in
+#    - pressure_mb
+#    - wind_dir
+#    - wind_string
+#    - relative_humidity
+#    - visibility_km
+#    - precip_today_in
+#    - precip_today_metric
+#    - precip_today_string
+#    - solarradiation
+#    # Daily Forecast
+#    - weather_1d_metric
+#    - weather_1n_metric
+#    - weather_2d_metric
+#    - weather_2n_metric
+#    - weather_3d_metric
+#    - weather_3n_metric
+#    - weather_4d_metric
+#    - weather_4n_metric
+#    # Weather Overview
+#    - temp_high_record_c
+#    - temp_high_1d_c
+#    - temp_c
+#    - temp_low_1d_c
+#    - temp_low_record_c
+#    - precip_1d
+#    - precip_1d_mm
+#    - wind_kph
+#    - wind_1d_kph
+#    - alerts
 
 # ##########################################################################
 # Netatmo
