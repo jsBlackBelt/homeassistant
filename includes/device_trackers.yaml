@@ -1,18 +1,4 @@
 # ##########################################################################
-# Owntracks
-# ##########################################################################
-- platform: owntracks
-  waypoints: true
-  mqtt_topic: "owntracks/#"
-  events_only: true
-  waypoint_whitelist:
-    - markus
-    - magda
-  region_mapping:
-    cabin: home
-    office: work
-
-# ##########################################################################
 # Bluetooth
 # ##########################################################################
 #- platform: bluetooth_tracker

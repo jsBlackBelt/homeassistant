@@ -341,6 +341,91 @@
       - rf_status
 
 # ##########################################################################
+# Robonect
+# ##########################################################################
+# - platform: mqtt
+#   state_topic: "robonect/device/name"
+# - platform: mqtt
+#   state_topic: "robonect/device/serial"
+- platform: mqtt
+  state_topic: "robonect/health/climate/humidity"
+  name: "Robonect Sileno Health Humidity"
+  unit_of_measurement: '%'
+  device_class: climate
+- platform: mqtt
+  state_topic: "robonect/health/climate/temperature"
+  name: "Robonect Sileno Health Temperature"
+  unit_of_measurement: '°C'
+  device_class: climate
+- platform: mqtt
+  state_topic: "robonect/health/voltage/batt"
+  name: "Robonect Sileno Health Voltage Battery"
+  unit_of_measurement: 'V'
+- platform: mqtt
+  state_topic: "robonect/health/voltage/ext33"
+  name: "Robonect Sileno Health Voltage Mower"
+  unit_of_measurement: 'V'
+- platform: mqtt
+  state_topic: "robonect/health/voltage/int33"
+  name: "Robonect Sileno Health Voltage Robonect"
+  unit_of_measurement: 'V'
+- platform: mqtt
+  state_topic: "robonect/mower/battery/charge"
+  name: "Robonect Sileno Battery"
+  unit_of_measurement: '%'
+  device_class: battery
+- platform: mqtt
+  state_topic: "robonect/mower/distance"
+  name: "Robonect Sileno Distance"
+  unit_of_measurement: 'm'
+- platform: mqtt
+  state_topic: "robonect/mower/mode"
+  name: "Robonect Sileno Mode"
+- platform: mqtt
+  state_topic: "robonect/mower/statistic/hours"
+  name: "Robonect Sileno Statistic Hours"
+  unit_of_measurement: 'h'
+- platform: mqtt
+  state_topic: "robonect/mower/status"
+  name: "Robonect Sileno Status"
+- platform: mqtt
+  state_topic: "robonect/mower/status/duration"
+- platform: mqtt
+  state_topic: "robonect/mower/status/plain"
+  name: "Robonect Sileno Status Plain"
+- platform: mqtt
+  state_topic: "robonect/mower/stopped"
+  name: "Robonect Sileno Stopped"
+
+- platform: mqtt
+  state_topic: "robonect/mqtt"
+  name: "Robonect Sileno Online"
+- platform: mqtt
+  state_topic: "robonect/weather/data/break"
+  name: "Robonect Sileno Weather Break"
+- platform: mqtt
+  state_topic: "robonect/weather/data/humidity"
+  name: "Robonect Sileno Weather Humidity"
+  unit_of_measurement: '%'
+  device_class: climate
+- platform: mqtt
+  state_topic: "robonect/weather/data/rain"
+  name: "Robonect Sileno Weather Rain"
+  unit_of_measurement: 'mm'
+  device_class: climate
+- platform: mqtt
+  state_topic: "robonect/weather/data/temperature"
+  name: "Robonect Sileno Weather Temperature"
+  unit_of_measurement: '°C'
+  device_class: climate
+- platform: mqtt
+  state_topic: "robonect/weather/service"
+- platform: mqtt
+  state_topic: "robonect/wlan/rssi"
+  name: "Robonect Sileno Wi-Fi Strength"
+  unit_of_measurement: 'dBm'
+
+# ##########################################################################
 # Gardena
 # ##########################################################################
 - platform: gardena_smart
