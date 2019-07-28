@@ -351,12 +351,12 @@
   state_topic: "robonect/health/climate/humidity"
   name: "Robonect Sileno Health Humidity"
   unit_of_measurement: '%'
-  device_class: climate
+#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/health/climate/temperature"
   name: "Robonect Sileno Health Temperature"
   unit_of_measurement: '°C'
-  device_class: climate
+#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/health/voltage/batt"
   name: "Robonect Sileno Health Voltage Battery"
@@ -407,17 +407,17 @@
   state_topic: "robonect/weather/data/humidity"
   name: "Robonect Sileno Weather Humidity"
   unit_of_measurement: '%'
-  device_class: climate
+#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/weather/data/rain"
   name: "Robonect Sileno Weather Rain"
   unit_of_measurement: 'mm'
-  device_class: climate
+#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/weather/data/temperature"
   name: "Robonect Sileno Weather Temperature"
   unit_of_measurement: '°C'
-  device_class: climate
+#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/weather/service"
 - platform: mqtt
