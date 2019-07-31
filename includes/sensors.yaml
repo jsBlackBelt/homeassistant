@@ -215,12 +215,20 @@
 # ##########################################################################
 # Arlo
 # ##########################################################################
-- platform: arlo
+#- platform: arlo
+#  monitored_conditions:
+#    - captured_today
+#    - last_capture
+#    - total_cameras
+#    - battery_level
+#    - signal_strength
+
+- platform: aarlo
   monitored_conditions:
-    - captured_today
     - last_capture
     - total_cameras
     - battery_level
+    - captured_today
     - signal_strength
 
 # ##########################################################################
