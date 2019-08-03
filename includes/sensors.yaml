@@ -409,6 +409,9 @@
   state_topic: "robonect/mqtt"
   name: "Robonect Sileno Online"
 - platform: mqtt
+  state_topic: "robonect/passage/open"
+  name: "Robonect Sileno Passage Open"
+- platform: mqtt
   state_topic: "robonect/weather/data/break"
   name: "Robonect Sileno Weather Break"
 - platform: mqtt
