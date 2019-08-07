@@ -1,3 +1,22 @@
+############################################################
+# Robonect Controls
+############################################################
+robonect_command:
+  name: Robonect Sileno Set State
+  options:
+   - _
+   - start
+   - stop
+   - auto
+   - home
+   - man
+   - eod
+  initial: _
+  icon: mdi:robot
+
+############################################################
+# Zigbee2mqtt Controls
+############################################################
 zigbee2mqtt_log_level:
   name: Zigbee2mqtt Log Level
   options:
@@ -9,9 +28,7 @@ zigbee2mqtt_log_level:
   icon: mdi:format-list-bulleted
 
 ############################################################
-#
-# Home Assistant Harmony Controls
-#
+# Logitech Harmony Controls
 ############################################################
 
 #harmony:

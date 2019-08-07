@@ -17,6 +17,25 @@
 #  transition: 30
 #  interval: 60
 
+# ##########################################################################
+# Robonect
+# ##########################################################################
+#- platform: mqtt
+#  name: "Robonect Switch"
+#  state_topic: "robonect/controlbedroom/switch1"
+#  command_topic: "home/bedroom/switch1/set"
+#  availability_topic: "home/bedroom/switch1/available"
+#  payload_on: "ON"
+#  payload_off: "OFF"
+#  state_on: "ON"
+#  state_off: "OFF"
+#  optimistic: false
+#  qos: 0
+#  retain: true
+
+# ##########################################################################
+# Zigbee2mqtt
+# ##########################################################################
 - platform: mqtt
   name: "Zigbee2mqtt Main join"
   state_topic: "zigbee2mqtt/bridge/config/permit_join"

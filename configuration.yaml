@@ -187,7 +187,7 @@ media_player: !include includes/media_players.yaml
 ios: !include includes/ios.yaml
 
 # Include input selects
-#input_select: !include includes/input_selects.yaml
+input_select: !include includes/input_selects.yaml
 
 # Include intent scripts
 intent_script: !include includes/intents.yaml
