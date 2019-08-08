@@ -1,4 +1,61 @@
 # ##########################################################################
+# Sonnenbatterie
+# ##########################################################################
+- platform: rest
+  name: JSON sonnen
+  json_attributes:
+    - BatteryCharging
+    - Consumption_W
+    - GridFeedIn_W
+    - Production_W
+    - USOC
+  resource: !secret sonnen_status
+  value_template: '{{ value_json.sonnen }}'
+- platform: template
+  sensors:
+    sonnen_charging:
+      friendly_name: 'Charging'
+      value_template: '{{ states.sensor.json_sonnen.attributes["BatteryCharging"] }}'
+    sonnen_stromverbrauch:
+      friendly_name: 'Stromverbrauch W'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Consumption_W"] }}'
+      unit_of_measurement: 'W'
+    sonnen_stromeinspeisung:
+      friendly_name: 'Stromeinspeisung W'
+      value_template: '{{ states.sensor.json_sonnen.attributes["GridFeedIn_W"] }}'
+      unit_of_measurement: 'W'
+    sonnen_stromerzeugung:
+      friendly_name: 'Stromeinspeisung W'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Production_W"] }}'
+      unit_of_measurement: 'W'
+    sonnen_stromspeicher:
+      friendly_name: 'Batteriespeicher %'
+      value_template: '{{ states.sensor.json_sonnen.attributes["USOC"] }}'
+      unit_of_measurement: '%'
+#          "BackupBuffer": "0",
+#          "BatteryCharging": true,
+#          "BatteryDischarging": false,
+  #          "Consumption_W": 517,
+#          "Fac": 50,
+#          "FlowConsumptionBattery": false,
+#          "FlowConsumptionGrid": true,
+#          "FlowConsumptionProduction": false,
+#          "FlowGridBattery": true,
+#          "FlowProductionBattery": false,
+#          "FlowProductionGrid": false,
+  #          "GridFeedIn_W": -1211,
+#          "IsSystemInstalled": 1,
+#          "OperatingMode": "2",
+#          "Pac_total_W": -693,
+  #          "Production_W": 0,
+  #          "RSOC": 98,
+#          "SystemStatus": "OnGrid",
+#          "Timestamp": "2019-08-07 17:40:38",
+#          "USOC": 98,
+#          "Uac": 229,
+#          "Ubat": 53
+
+# ##########################################################################
 # SolarEdge
 # ##########################################################################
 - platform: solaredge
