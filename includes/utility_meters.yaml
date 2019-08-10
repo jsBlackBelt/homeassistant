@@ -1,0 +1,47 @@
+daily_energy_pool:
+  source: sensor.pool_power
+  cycle: daily
+
+daily_energy_espresso:
+  source: sensor.espresso_power
+  cycle: daily
+
+daily_energy_dehumidifier:
+  source: sensor.dehumidifier_power
+  cycle: daily
+
+daily_energy_dryer:
+  source: sensor.dryer_power
+  cycle: daily
+
+daily_energy_humidifier:
+  source: sensor.humidifier_power
+  cycle: daily
+
+daily_energy_light_bedroom:
+  source: sensor.light_bedroom_power
+  cycle: daily
+
+daily_energy_light_stairs_egkg:
+  source: sensor.light_stairs_egkg_power
+  cycle: daily
+
+daily_energy_washing_machine:
+  source: sensor.washing_machine_power
+  cycle: daily
+
+daily_energy_waterbed:
+  source: sensor.waterbed_power
+  cycle: daily
+
+daily_energy_sonnen_pv_production:
+  source: sensor.sonnen_pv_production
+  cycle: daily
+
+daily_energy_sonnen_house_consuption:
+  source: sensor.sonnen_house_consumption
+  cycle: daily
+
+daily_energy_sonnen_pv_gridfeedin:
+  source: sensor.sonnen_pv_gridfeedin
+  cycle: daily

@@ -162,6 +162,9 @@ sensor: !include includes/sensors.yaml
 # Include binary sensors
 binary_sensor: !include includes/binary_sensors.yaml
 
+# Include utility meters
+utility_meter: !include includes/utility_meters.yaml
+
 # Include input booleans
 input_boolean: !include includes/input_booleans.yaml
 

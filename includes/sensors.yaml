@@ -4,56 +4,99 @@
 - platform: rest
   name: JSON sonnen
   json_attributes:
+    - BackupBuffer
     - BatteryCharging
+    - BatteryDischarging
     - Consumption_W
+    - Fac
+    - FlowConsumptionBattery
+    - FlowConsumptionGrid
+    - FlowConsumptionProduction
+    - FlowGridBattery
+    - FlowProductionBattery
+    - FlowProductionGrid
     - GridFeedIn_W
+    - IsSystemInstalled
+    - OperatingMode
+    - Pac_total_W
     - Production_W
+    - RSOC
+    - SystemStatus
+    - Timestamp
     - USOC
+    - Uac
+    - Ubat
   resource: !secret sonnen_status
   value_template: '{{ value_json.sonnen }}'
+
 - platform: template
   sensors:
+    sonnen_backup_buffer:
+      friendly_name: 'Backup Buffer'
+      value_template: '{{ states.sensor.json_sonnen.attributes["BackupBuffer"] }}'
     sonnen_charging:
       friendly_name: 'Charging'
       value_template: '{{ states.sensor.json_sonnen.attributes["BatteryCharging"] }}'
-    sonnen_stromverbrauch:
-      friendly_name: 'Stromverbrauch W'
+    sonnen_disharging:
+      friendly_name: 'Discharging'
+      value_template: '{{ states.sensor.json_sonnen.attributes["BatteryDischarging"] }}'
+    sonnen_house_consumption:
+      friendly_name: 'House Consumption'
       value_template: '{{ states.sensor.json_sonnen.attributes["Consumption_W"] }}'
       unit_of_measurement: 'W'
-    sonnen_stromeinspeisung:
-      friendly_name: 'Stromeinspeisung W'
+    sonnen_ac_frequency:
+      friendly_name: 'AC Frequency'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Fac"] }}'
+      unit_of_measurement: 'Hz'
+    sonnen_flow_consumption_battery:
+      friendly_name: 'Flow Consumption Battery'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowConsumptionBattery"] }}'
+    sonnen_flow_consumption_grid:
+      friendly_name: 'Flow Consumption Grid'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowConsumptionGrid"] }}'
+    sonnen_flow_consumption_production:
+      friendly_name: 'Flow Consumption Production'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowConsumptionProduction"] }}'
+    sonnen_flow_grid_battery:
+      friendly_name: 'Flow Grid Battery'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowGridBattery"] }}'
+    sonnen_flow_production_battery:
+      friendly_name: 'Flow Production Battery'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowProductionBattery"] }}'
+    sonnen_flow_production_grid:
+      friendly_name: 'Flow Production Grid'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowProductionGrid"] }}'
+    sonnen_pv_gridfeedin:
+      friendly_name: 'PV Grid Feed-in'
       value_template: '{{ states.sensor.json_sonnen.attributes["GridFeedIn_W"] }}'
       unit_of_measurement: 'W'
-    sonnen_stromerzeugung:
-      friendly_name: 'Stromeinspeisung W'
+    sonnen_inverter_power:
+      friendly_name: 'Inverter Power'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Pac_total_W"] }}'
+      unit_of_measurement: 'W'
+    sonnen_pv_production:
+      friendly_name: 'PV Production'
       value_template: '{{ states.sensor.json_sonnen.attributes["Production_W"] }}'
       unit_of_measurement: 'W'
-    sonnen_stromspeicher:
-      friendly_name: 'Batteriespeicher %'
+    sonnen_relative_charge_state:
+      friendly_name: 'Relative State of Charge'
+      value_template: '{{ states.sensor.json_sonnen.attributes["RSOC"] }}'
+      unit_of_measurement: '%'
+    sonnen_system_status:
+      friendly_name: 'System Status'
+      value_template: '{{ states.sensor.json_sonnen.attributes["SystemStatus"] }}'
+    sonnen_user_charge_state:
+      friendly_name: 'User State of Charge'
       value_template: '{{ states.sensor.json_sonnen.attributes["USOC"] }}'
       unit_of_measurement: '%'
-#          "BackupBuffer": "0",
-#          "BatteryCharging": true,
-#          "BatteryDischarging": false,
-  #          "Consumption_W": 517,
-#          "Fac": 50,
-#          "FlowConsumptionBattery": false,
-#          "FlowConsumptionGrid": true,
-#          "FlowConsumptionProduction": false,
-#          "FlowGridBattery": true,
-#          "FlowProductionBattery": false,
-#          "FlowProductionGrid": false,
-  #          "GridFeedIn_W": -1211,
-#          "IsSystemInstalled": 1,
-#          "OperatingMode": "2",
-#          "Pac_total_W": -693,
-  #          "Production_W": 0,
-  #          "RSOC": 98,
-#          "SystemStatus": "OnGrid",
-#          "Timestamp": "2019-08-07 17:40:38",
-#          "USOC": 98,
-#          "Uac": 229,
-#          "Ubat": 53
+    sonnen_ac_voltage:
+      friendly_name: 'AC Voltage'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Uac"] }}'
+      unit_of_measurement: 'V'
+    sonnen_battery_voltage:
+      friendly_name: 'Battery Voltage'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Ubat"] }}'
+      unit_of_measurement: 'V'
 
 # ##########################################################################
 # SolarEdge
