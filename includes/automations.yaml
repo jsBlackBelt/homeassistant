@@ -1,3 +1,93 @@
+- alias: Sonnen House Power Consumption at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_sonnen_house_consumption_previous
+        value: "{{ states.input_number.midnight_sonnen_house_consumption.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_sonnen_house_consumption
+        value: "{{ states.sensor.sensor_sonnen_house_consumption_integral.state }}"
+
+- alias: Sonnen House Power Consumption hourly
+  trigger:
+    platform: time_pattern
+    hours: /1
+    minutes: 00
+    seconds: 00
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.hourly_sonnen_house_consumption_previous
+        value: "{{ states.input_number.hourly_sonnen_house_consumption.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.hourly_sonnen_house_consumption
+        value: "{{ states.sensor.sensor_sonnen_house_consumption_integral.state }}"
+
+- alias: Sonnen Grid Feedin at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_sonnen_pv_gridfeedin_previous
+        value: "{{ states.input_number.midnight_sonnen_pv_gridfeedin.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_sonnen_pv_gridfeedin
+        value: "{{ states.sensor.sensor_sonnen_pv_gridfeedin_integral.state }}"
+
+- alias: Sonnen Grid Feedin hourly
+  trigger:
+    platform: time_pattern
+    hours: /1
+    minutes: 00
+    seconds: 00
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.hourly_sonnen_pv_gridfeedin_previous
+        value: "{{ states.input_number.hourly_sonnen_pv_gridfeedin.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.hourly_sonnen_pv_gridfeedin
+        value: "{{ states.sensor.sensor_sonnen_pv_gridfeedin_integral.state }}"
+
+- alias: Sonnen PV Production at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_sonnen_pv_production_previous
+        value: "{{ states.input_number.midnight_sonnen_pv_production.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_sonnen_pv_production
+        value: "{{ states.sensor.sensor_sonnen_pv_production_integral.state }}"
+
+- alias: Sonnen PV Production hourly
+  trigger:
+    platform: time_pattern
+    hours: /1
+    minutes: 00
+    seconds: 00
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.hourly_sonnen_pv_production_previous
+        value: "{{ states.input_number.hourly_sonnen_pv_production.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.hourly_sonnen_pv_production
+        value: "{{ states.sensor.sensor_sonnen_pv_production_integral.state }}"
+
 # ##########################################################################
 # Robonect Automation
 # ##########################################################################

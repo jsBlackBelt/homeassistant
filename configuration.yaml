@@ -14,7 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
 logger:
-  default: info
+  default: warning
 #  logs:
 #    custom_components.alexa_media: debug
 
@@ -168,6 +168,9 @@ utility_meter: !include includes/utility_meters.yaml
 # Include input booleans
 input_boolean: !include includes/input_booleans.yaml
 
+# Include input numbers
+input_number: !include includes/input_numbers.yaml
+
 # Include timer
 timer: !include includes/timers.yaml
 
@@ -225,17 +228,17 @@ zigbee2mqtt_networkmap:
 # ##########################################################################
 # Configure some special devices
 # ##########################################################################
-apple_tv:
-  - host: !secret apple_tv_3_ip
-    login_id: !secret apple_tv_3_login_id
-    name: Apple TV 3
+#apple_tv:
+#  - host: !secret apple_tv_3_ip
+#    login_id: !secret apple_tv_3_login_id
+#    name: Apple TV 3
 ##    start_off: true
-    credentials: !secret apple_tv_3_credential
-  - host: !secret apple_tv_4_ip
-    login_id: !secret apple_tv_4_login_id
-    name: Apple TV 4
+#    credentials: !secret apple_tv_3_credential
+#  - host: !secret apple_tv_4_ip
+#    login_id: !secret apple_tv_4_login_id
+#    name: Apple TV 4
 #    start_off: true
-    credentials: !secret apple_tv_4_credential
+#    credentials: !secret apple_tv_4_credential
 
 homekit:
   filter:

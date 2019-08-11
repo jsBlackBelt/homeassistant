@@ -1,5 +1,137 @@
+- platform: template
+  sensors:
+    sonnen_house_consumption_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_house_consumption_integral.state) - float(states.input_number.midnight_sonnen_house_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Sonnen House Consumption"
+
+- platform: template
+  sensors:
+    sonnen_house_consumption_hour:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_house_consumption_integral.state) - float(states.input_number.hourly_sonnen_house_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Hourly's Sonnen House Consumption"
+
+- platform: template
+  sensors:
+    sonnen_pv_gridfeedin_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_pv_gridfeedin_integral.state) - float(states.input_number.midnight_sonnen_pv_gridfeedin.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Sonnen PV Grid Feedin"
+
+- platform: template
+  sensors:
+    sonnen_pv_gridfeedin_hour:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_pv_gridfeedin_integral.state) - float(states.input_number.hourly_sonnen_pv_gridfeedin.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Hourly's Sonnen PV Grid Feedin"
+
+- platform: template
+  sensors:
+    sonnen_pv_production_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_pv_production_integral.state) - float(states.input_number.midnight_sonnen_pv_production.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Sonnen PV Production"
+
+- platform: template
+  sensors:
+    sonnen_pv_production_hour:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_pv_production_integral.state) - float(states.input_number.hourly_sonnen_pv_production.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Hourly's Sonnen PV Production"
+
 # ##########################################################################
-# Sonnenbatterie
+# Statistic Sensors
+# ##########################################################################
+- platform: statistics
+  entity_id: sensor.sonnen_house_consumption
+#  friendly_name: Sonnen Hour Consumption Plain
+  max_age:
+    hours: 24
+
+- platform: statistics
+  entity_id: sensor.sensor_sonnen_house_consumption_integral
+#  friendly_name: Sonnen Hour Consumption Integral
+  max_age:
+    hours: 24
+
+- platform: statistics
+  entity_id: sensor.daily_energy_sonnen_house_consuption
+#  friendly_name: Sonnen Hour Consumption Daily
+  max_age:
+    hours: 24
+
+# ##########################################################################
+# Integration Sensors
+# ##########################################################################
+- platform: integration
+  source: sensor.pool_power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.espresso_power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.dehumidifier_power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.dryer_power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.humidifier_power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.light_bedroom_power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.light_stairs_egkg_power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.washing_machine_power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.waterbed_power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.sonnen_pv_production
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.sonnen_house_consumption
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.sonnen_pv_gridfeedin
+  unit_prefix: k
+  round: 2
+
+# ##########################################################################
+# Sonnen
 # ##########################################################################
 - platform: rest
   name: JSON sonnen
@@ -504,7 +636,6 @@
 - platform: mqtt
   state_topic: "robonect/mower/stopped"
   name: "Robonect Sileno Stopped"
-
 - platform: mqtt
   state_topic: "robonect/mqtt"
   name: "Robonect Sileno Online"
