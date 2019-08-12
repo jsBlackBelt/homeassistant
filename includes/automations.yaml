@@ -1,3 +1,7 @@
+# ##########################################################################
+# Photovoltaic
+# ##########################################################################
+# Sonnen House Power Consumption
 - alias: Sonnen House Power Consumption at start of the day
   trigger:
     platform: time
@@ -6,7 +10,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_sonnen_house_consumption_previous
-        value: "{{ states.input_number.midnight_sonnen_house_consumption.state }}"
+        value: "{{ states.sensor.sonnen_house_consumption_today.state }}"
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_sonnen_house_consumption
@@ -22,12 +26,13 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.hourly_sonnen_house_consumption_previous
-        value: "{{ states.input_number.hourly_sonnen_house_consumption.state }}"
+        value: "{{ states.sensor.sonnen_house_consumption_hour.state }}"
     - service: input_number.set_value
       data_template:
         entity_id: input_number.hourly_sonnen_house_consumption
         value: "{{ states.sensor.sensor_sonnen_house_consumption_integral.state }}"
 
+# Sonnen Grid Feedin
 - alias: Sonnen Grid Feedin at start of the day
   trigger:
     platform: time
@@ -36,7 +41,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_sonnen_pv_gridfeedin_previous
-        value: "{{ states.input_number.midnight_sonnen_pv_gridfeedin.state }}"
+        value: "{{ states.sensor.sonnen_pv_gridfeedin_today.state }}"
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_sonnen_pv_gridfeedin
@@ -52,12 +57,44 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.hourly_sonnen_pv_gridfeedin_previous
-        value: "{{ states.input_number.hourly_sonnen_pv_gridfeedin.state }}"
+        value: "{{ states.sensor.sonnen_pv_gridfeedin_hour.state }}"
     - service: input_number.set_value
       data_template:
         entity_id: input_number.hourly_sonnen_pv_gridfeedin
         value: "{{ states.sensor.sensor_sonnen_pv_gridfeedin_integral.state }}"
 
+# Sonnen Inverter Power
+- alias: Sonnen Inverter Power at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_sonnen_inverter_power_previous
+        value: "{{ states.sensor.sonnen_inverter_power_today.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_sonnen_inverter_power
+        value: "{{ states.sensor.sensor_sonnen_inverter_power_integral.state }}"
+
+- alias: Sonnen Inverter Power hourly
+  trigger:
+    platform: time_pattern
+    hours: /1
+    minutes: 00
+    seconds: 00
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.hourly_sonnen_inverter_power_previous
+        value: "{{ states.sensor.sonnen_inverter_power_hour.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.hourly_sonnen_inverter_power
+        value: "{{ states.sensor.sensor_sonnen_inverter_power_integral.state }}"
+
+# Sonnen PV Production
 - alias: Sonnen PV Production at start of the day
   trigger:
     platform: time
@@ -66,7 +103,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_sonnen_pv_production_previous
-        value: "{{ states.input_number.midnight_sonnen_pv_production.state }}"
+        value: "{{ states.sensor.sonnen_pv_production_today.state }}"
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_sonnen_pv_production
@@ -82,14 +119,107 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.hourly_sonnen_pv_production_previous
-        value: "{{ states.input_number.hourly_sonnen_pv_production.state }}"
+        value: "{{ states.sensor.sonnen_pv_production_hour.state }}"
     - service: input_number.set_value
       data_template:
         entity_id: input_number.hourly_sonnen_pv_production
         value: "{{ states.sensor.sensor_sonnen_pv_production_integral.state }}"
 
 # ##########################################################################
-# Robonect Automation
+# Power Consumptions
+# ##########################################################################
+# Espresso Consumption
+- alias: Espresso Consumption at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_espresso_consumption_previous
+        value: "{{ states.sensor.espresso_consumption_today.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_espresso_consumption
+        value: "{{ states.sensor.sensor_espresso_consumption_integral.state }}"
+
+# Humidifier Consumption
+- alias: Humidifier Consumption at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_humidifier_consumption_previous
+        value: "{{ states.sensor.humidifier_consumption_today.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_humidifier_consumption
+        value: "{{ states.sensor.sensor_humidifier_consumption_integral.state }}"
+
+# Dehumidifier Consumption
+- alias: Dehumidifier Consumption at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_dehumidifier_consumption_previous
+        value: "{{ states.sensor.dehumidifier_consumption_today.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_dehumidifier_consumption
+        value: "{{ states.sensor.sensor_dehumidifier_consumption_integral.state }}"
+
+# Washing Machine Consumption
+- alias: Washing Machine Consumption at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_washing_machine_consumption_previous
+        value: "{{ states.sensor.washing_machine_consumption_today.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_washing_machine_consumption
+        value: "{{ states.sensor.sensor_washing_machine_consumption_integral.state }}"
+
+# Dryer Consumption
+- alias: Dryer Consumption at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_dryer_consumption_previous
+        value: "{{ states.sensor.dryer_consumption_today.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_dryer_consumption
+        value: "{{ states.sensor.sensor_dryer_consumption_integral.state }}"
+
+# Waterbed Consumption
+- alias: Waterbed Consumption at start of the day
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_waterbed_consumption_previous
+        value: "{{ states.sensor.waterbed_consumption_today.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.midnight_waterbed_consumption
+        value: "{{ states.sensor.sensor_waterbed_consumption_integral.state }}"
+
+# ##########################################################################
+# Robonect
 # ##########################################################################
 - id: 'robonect_command_mode'
   alias: Robonect Sileno Command Control

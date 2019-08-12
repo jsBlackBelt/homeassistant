@@ -1,3 +1,12 @@
+# ##########################################################################
+# Photovoltaic
+# ##########################################################################
+# Sonnen House Power Consumption
+- platform: integration
+  source: sensor.sonnen_house_consumption
+  unit_prefix: k
+  round: 2
+
 - platform: template
   sensors:
     sonnen_house_consumption_today:
@@ -14,6 +23,12 @@
       unit_of_measurement: 'kWh'
       friendly_name: "Hourly's Sonnen House Consumption"
 
+# Sonnen Grid Feedin
+- platform: integration
+  source: sensor.sonnen_pv_gridfeedin
+  unit_prefix: k
+  round: 2
+
 - platform: template
   sensors:
     sonnen_pv_gridfeedin_today:
@@ -29,6 +44,34 @@
         {{ (float(states.sensor.sensor_sonnen_pv_gridfeedin_integral.state) - float(states.input_number.hourly_sonnen_pv_gridfeedin.state)) | round(3) }}
       unit_of_measurement: 'kWh'
       friendly_name: "Hourly's Sonnen PV Grid Feedin"
+
+# Sonnen Inverter
+- platform: integration
+  source: sensor.sonnen_inverter_power
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    sonnen_inverter_power_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_inverter_power_integral.state) - float(states.input_number.midnight_sonnen_inverter_power.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Sonnen Inverter Power"
+
+- platform: template
+  sensors:
+    sonnen_inverter_power_hour:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_inverter_power_integral.state) - float(states.input_number.hourly_sonnen_inverter_power.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Hourly's Sonnen Inverter Power"
+
+# Sonnen PV Production
+- platform: integration
+  source: sensor.sonnen_pv_production
+  unit_prefix: k
+  round: 2
 
 - platform: template
   sensors:
@@ -47,7 +90,94 @@
       friendly_name: "Hourly's Sonnen PV Production"
 
 # ##########################################################################
-# Statistic Sensors
+# Power Consumptions
+# ##########################################################################
+# Espresso Consumption
+- platform: integration
+  source: sensor.espresso_power
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    espresso_consumption_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_espresso_power_integral.state) - float(states.input_number.midnight_espresso_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Espresso Consumption"
+
+# Humidifier Consumption
+- platform: integration
+  source: sensor.humidifier_power
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    humidifier_consumption_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_humidifier_power_integral.state) - float(states.input_number.midnight_humidifier_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Humidifier Consumption"
+
+# Dehumidifier Consumption
+- platform: integration
+  source: sensor.dehumidifier_power
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    dehumidifier_consumption_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_dehumidifier_power_integral.state) - float(states.input_number.midnight_dehumidifier_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Dehumidifier Consumption"
+
+# Washing Machine Consumption
+- platform: integration
+  source: sensor.washing_machine_power
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    washing_machine_consumption_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_washing_machine_power_integral.state) - float(states.input_number.midnight_washing_machine_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Washing Machine Consumption"
+
+# Dryer Consumption
+- platform: integration
+  source: sensor.dryer_power
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    dryer_consumption_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_dryer_power_integral.state) - float(states.input_number.midnight_dryer_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Dryer Consumption"
+
+# Waterbed Consumption
+- platform: integration
+  source: sensor.waterbed_power
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    waterbed_consumption_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_waterbed_power_integral.state) - float(states.input_number.midnight_waterbed_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Waterbed Consumption"
+
+# ##########################################################################
+# Statistic
 # ##########################################################################
 - platform: statistics
   entity_id: sensor.sonnen_house_consumption
@@ -66,69 +196,6 @@
 #  friendly_name: Sonnen Hour Consumption Daily
   max_age:
     hours: 24
-
-# ##########################################################################
-# Integration Sensors
-# ##########################################################################
-- platform: integration
-  source: sensor.pool_power
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.espresso_power
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.dehumidifier_power
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.dryer_power
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.humidifier_power
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.light_bedroom_power
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.light_stairs_egkg_power
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.washing_machine_power
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.waterbed_power
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.sonnen_pv_production
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.sonnen_house_consumption
-  unit_prefix: k
-  round: 2
-
-- platform: integration
-  source: sensor.sonnen_pv_gridfeedin
-  unit_prefix: k
-  round: 2
 
 # ##########################################################################
 # Sonnen

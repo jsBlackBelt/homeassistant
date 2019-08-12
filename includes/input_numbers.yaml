@@ -1,3 +1,7 @@
+# ##########################################################################
+# Photovoltaic
+# ##########################################################################
+# Sonnen House Power Consumption
 midnight_sonnen_house_consumption:
   name: Midnight Sonnen House Consumption
   min: -999999999
@@ -16,6 +20,7 @@ hourly_sonnen_house_consumption_previous:
   min: -999999999
   max: 999999999
 
+# Sonnen Grid Feedin
 midnight_sonnen_pv_gridfeedin:
   name: Midnight Sonnen Grid Feedin
   min: -999999999
@@ -34,6 +39,26 @@ hourly_sonnen_pv_gridfeedin_previous:
   min: -999999999
   max: 999999999
 
+# Sonnen Inverter
+midnight_sonnen_inverter_power:
+  name: Midnight Sonnen Inverter Power
+  min: -999999999
+  max: 999999999
+midnight_sonnen_inverter_power_previous:
+  name: Midnight Sonnen Inverter Power  previous
+  min: -999999999
+  max: 999999999
+
+hourly_sonnen_inverter_power:
+  name: Hourly Sonnen Inverter Power
+  min: -999999999
+  max: 999999999
+hourly_sonnen_inverter_power_previous:
+  name: Hourly Sonnen Grid Inverter Power previous
+  min: -999999999
+  max: 999999999
+
+# Sonnen PV Production
 midnight_sonnen_pv_production:
   name: Midnight Sonnen PV Production
   min: -999999999
@@ -51,3 +76,79 @@ hourly_sonnen_pv_production_previous:
   name: Hourly Sonnen PV Production previous
   min: -999999999
   max: 999999999
+
+# ##########################################################################
+# Power Consumptions
+# ##########################################################################
+# Espresso Consumption
+midnight_espresso_consumption:
+  name: Midnight Espresso Consumption
+  initial: 0
+  min: -999999999
+  max: 999999999
+midnight_espresso_consumption_previous:
+  name: Midnight Espresso Consumption previous
+  initial: 0
+  min: -999999999
+  max: 999999999
+
+# Humidifier Consumption
+midnight_humidifier_consumption:
+  name: Midnight Humidifier Consumption
+  initial: 0
+  min: -999999999
+  max: 999999999
+midnight_humidifier_consumption_previous:
+  name: Midnight Humidifier Consumption previous
+  initial: 0
+  min: -999999999
+  max: 999999999
+
+# Dehumidifier Consumption
+midnight_dehumidifier_consumption:
+  name: Midnight Dehumidifier Consumption
+  initial: 0
+  min: -999999999
+  max: 999999999
+midnight_dehumidifier_consumption_previous:
+  name: Midnight Dehumidifier Consumption previous
+  initial: 0
+  min: -999999999
+  max: 999999999
+
+# Washing Machine Consumption
+midnight_washing_machine_consumption:
+  name: Midnight Washing Machine Consumption
+  initial: 0
+  min: -999999999
+  max: 999999999
+midnight_washing_machine_consumption_previous:
+  name: Midnight Washing Machine Consumption previous
+  initial: 0
+  min: -999999999
+  max: 999999999
+
+# Dryer Consumption
+midnight_dryer_consumption:
+  name: Midnight Dryer Consumption
+  initial: 0
+  min: -999999999
+  max: 999999999
+midnight_dryer_consumption_previous:
+  name: Midnight Dryer Consumption previous
+  initial: 0
+  min: -999999999
+  max: 999999999
+
+# Waterbed Consumption
+midnight_waterbed_consumption:
+  name: Midnight Waterbed Consumption
+  initial: 0
+  min: -999999999
+  max: 999999999
+midnight_waterbed_consumption_previous:
+  name: Midnight Waterbed Consumption previous
+  initial: 0
+  min: -999999999
+  max: 999999999
+
