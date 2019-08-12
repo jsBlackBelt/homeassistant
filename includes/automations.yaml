@@ -141,7 +141,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_espresso_consumption
-        value: "{{ states.sensor.sensor_espresso_consumption_integral.state }}"
+        value: "{{ states.sensor.sensor_espresso_power_integral.state }}"
 
 # Humidifier Consumption
 - alias: Humidifier Consumption at start of the day
@@ -156,7 +156,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_humidifier_consumption
-        value: "{{ states.sensor.sensor_humidifier_consumption_integral.state }}"
+        value: "{{ states.sensor.sensor_humidifier_power_integral.state }}"
 
 # Dehumidifier Consumption
 - alias: Dehumidifier Consumption at start of the day
@@ -171,7 +171,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_dehumidifier_consumption
-        value: "{{ states.sensor.sensor_dehumidifier_consumption_integral.state }}"
+        value: "{{ states.sensor.sensor_dehumidifier_power_integral.state }}"
 
 # Washing Machine Consumption
 - alias: Washing Machine Consumption at start of the day
@@ -186,7 +186,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_washing_machine_consumption
-        value: "{{ states.sensor.sensor_washing_machine_consumption_integral.state }}"
+        value: "{{ states.sensor.sensor_washing_machine_power_integral.state }}"
 
 # Dryer Consumption
 - alias: Dryer Consumption at start of the day
@@ -201,7 +201,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_dryer_consumption
-        value: "{{ states.sensor.sensor_dryer_consumption_integral.state }}"
+        value: "{{ states.sensor.sensor_dryer_power_integral.state }}"
 
 # Waterbed Consumption
 - alias: Waterbed Consumption at start of the day
@@ -216,7 +216,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_waterbed_consumption
-        value: "{{ states.sensor.sensor_waterbed_consumption_integral.state }}"
+        value: "{{ states.sensor.sensor_waterbed_power_integral.state }}"
 
 # ##########################################################################
 # Robonect
