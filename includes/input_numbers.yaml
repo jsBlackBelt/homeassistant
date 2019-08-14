@@ -83,72 +83,60 @@ hourly_sonnen_pv_production_previous:
 # Espresso Consumption
 midnight_espresso_consumption:
   name: Midnight Espresso Consumption
-  initial: 0
   min: -999999999
   max: 999999999
 midnight_espresso_consumption_previous:
   name: Midnight Espresso Consumption previous
-  initial: 0
   min: -999999999
   max: 999999999
 
 # Humidifier Consumption
 midnight_humidifier_consumption:
   name: Midnight Humidifier Consumption
-  initial: 0
   min: -999999999
   max: 999999999
 midnight_humidifier_consumption_previous:
   name: Midnight Humidifier Consumption previous
-  initial: 0
   min: -999999999
   max: 999999999
 
 # Dehumidifier Consumption
 midnight_dehumidifier_consumption:
   name: Midnight Dehumidifier Consumption
-  initial: 0
   min: -999999999
   max: 999999999
 midnight_dehumidifier_consumption_previous:
   name: Midnight Dehumidifier Consumption previous
-  initial: 0
   min: -999999999
   max: 999999999
 
 # Washing Machine Consumption
 midnight_washing_machine_consumption:
   name: Midnight Washing Machine Consumption
-  initial: 0
   min: -999999999
   max: 999999999
 midnight_washing_machine_consumption_previous:
   name: Midnight Washing Machine Consumption previous
-  initial: 0
   min: -999999999
   max: 999999999
 
 # Dryer Consumption
 midnight_dryer_consumption:
   name: Midnight Dryer Consumption
-  initial: 0
   min: -999999999
   max: 999999999
 midnight_dryer_consumption_previous:
   name: Midnight Dryer Consumption previous
-  initial: 0
   min: -999999999
   max: 999999999
 
 # Waterbed Consumption
 midnight_waterbed_consumption:
   name: Midnight Waterbed Consumption
-  initial: 0
   min: -999999999
   max: 999999999
 midnight_waterbed_consumption_previous:
   name: Midnight Waterbed Consumption previous
-  initial: 0
   min: -999999999
   max: 999999999
 

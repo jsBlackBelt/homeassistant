@@ -153,6 +153,9 @@ netatmo:
 # ##########################################################################
 # Include sub config files
 # ##########################################################################
+# Scenes
+scene: !include includes/scenes.yaml
+
 # Activates device trackers
 device_tracker: !include includes/device_trackers.yaml
 

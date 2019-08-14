@@ -1,0 +1,47 @@
+- name: Living Room Movie
+  entities:
+#    light.living_room_group:
+#      state: on
+#      brightness: 129
+#      rgb_color: [48, 255, 218]
+#    light.living_room_color_floor_lamp_group:
+#      state: on
+#      brightness: 134
+#      rgb_color: [41, 255, 115]
+    light.living_room_showcase:
+      state: on
+    light.living_room_iris:
+      state: on
+      brightness: 205
+      rgb_color: [147, 85, 255]
+    light.living_room_play_1:
+      state: on
+      brightness: 131
+      rgb_color: [255, 46, 166]
+    light.living_room_play_2:
+      state: on
+      brightness: 132
+      rgb_color: [255, 55, 33]
+    light.living_room_color_floor_lamp_candle_1:
+      state: on
+      brightness: 131
+      rgb_color: [255, 45, 73]
+    light.living_room_color_floor_lamp_candle_2:
+      state: on
+      brightness: 137
+      rgb_color: [255, 192, 46]
+    light.living_room_color_floor_lamp_candle_3:
+      state: on
+      brightness: 136
+      rgb_color: [255, 137, 31]
+#    light.entertainment_bereich:
+#      state: on
+#      brightness: 136
+#      rgb_color: [255, 137, 31]
+    switch.living_room_showcase:
+      state: on
+    switch.hyperion_switch:
+      state: on
+    light.living_room_wall_lamp:
+      state: on
+      brightness: 33
