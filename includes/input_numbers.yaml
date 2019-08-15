@@ -81,6 +81,10 @@ hourly_sonnen_pv_production_previous:
 # Power Consumptions
 # ##########################################################################
 # Espresso Consumption
+continuous_espresso_power:
+  name: Espresso Continuous Power
+  min: -999999999
+  max: 999999999
 midnight_espresso_consumption:
   name: Midnight Espresso Consumption
   min: -999999999

@@ -129,6 +129,16 @@
 # Power Consumptions
 # ##########################################################################
 # Espresso Consumption
+- alias: Espresso Consumption Actual
+  trigger:
+    platform: time_pattern
+    seconds: /10
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.continuous_espresso_power
+        value: "{{ states.sensor.espresso_power.state }}"
+
 - alias: Espresso Consumption at start of the day
   trigger:
     platform: time

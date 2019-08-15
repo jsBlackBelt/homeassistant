@@ -94,7 +94,7 @@
 # ##########################################################################
 # Espresso Consumption
 - platform: integration
-  source: sensor.espresso_power
+  source: input_number.continuous_espresso_power
   unit_prefix: k
   round: 2
 
@@ -102,7 +102,8 @@
   sensors:
     espresso_consumption_today:
       value_template: >
-        {{ (float(states.sensor.sensor_espresso_power_integral.state) - float(states.input_number.midnight_espresso_consumption.state)) | round(3) }}
+        {{ (float(states.sensor.input_number_continuous_espresso_power_integral.state) - float(states.input_number.midnight_espresso_consumption.state)) | round(3) }}
+#        {{ (float(states.sensor.sensor_espresso_power_integral.state) - float(states.input_number.midnight_espresso_consumption.state)) | round(3) }}
       unit_of_measurement: 'kWh'
       friendly_name: "Today's Espresso Consumption"
 
