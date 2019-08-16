@@ -129,31 +129,41 @@
 # Power Consumptions
 # ##########################################################################
 # Espresso Consumption
-- alias: Espresso Consumption Actual
+- alias: Espresso Machine Consumption Actual
   trigger:
     platform: time_pattern
     seconds: /10
   action:
     - service: input_number.set_value
       data_template:
-        entity_id: input_number.continuous_espresso_power
+        entity_id: input_number.continuous_espresso_machine_power
         value: "{{ states.sensor.espresso_power.state }}"
 
-- alias: Espresso Consumption at start of the day
+- alias: Espresso Machine Consumption at start of the day
   trigger:
     platform: time
     at: '00:00:00'
   action:
     - service: input_number.set_value
       data_template:
-        entity_id: input_number.midnight_espresso_consumption_previous
-        value: "{{ states.sensor.espresso_consumption_today.state }}"
+        entity_id: input_number.midnight_espresso_machine_consumption_previous
+        value: "{{ states.sensor.espresso_machine_consumption_today.state }}"
     - service: input_number.set_value
       data_template:
-        entity_id: input_number.midnight_espresso_consumption
-        value: "{{ states.sensor.sensor_espresso_power_integral.state }}"
+        entity_id: input_number.midnight_espresso_machine_consumption
+        value: "{{ states.sensor.input_number_continuous_espresso_machine_power_integral.state }}"
 
 # Humidifier Consumption
+- alias: Humidifier Consumption Actual
+  trigger:
+    platform: time_pattern
+    seconds: /10
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.continuous_humidifier_power
+        value: "{{ states.sensor.humidifier_power.state }}"
+
 - alias: Humidifier Consumption at start of the day
   trigger:
     platform: time
@@ -166,9 +176,19 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_humidifier_consumption
-        value: "{{ states.sensor.sensor_humidifier_power_integral.state }}"
+        value: "{{ states.sensor.input_number_continuous_humidifier_power_integral.state }}"
 
 # Dehumidifier Consumption
+- alias: Dehumidifier Consumption Actual
+  trigger:
+    platform: time_pattern
+    seconds: /10
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.continuous_dehumidifier_power
+        value: "{{ states.sensor.dehumidifier_power.state }}"
+
 - alias: Dehumidifier Consumption at start of the day
   trigger:
     platform: time
@@ -181,9 +201,19 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_dehumidifier_consumption
-        value: "{{ states.sensor.sensor_dehumidifier_power_integral.state }}"
+        value: "{{ states.sensor.input_number_continuous_dehumidifier_power_integral.state }}"
 
 # Washing Machine Consumption
+- alias: Washing Machine Consumption Actual
+  trigger:
+    platform: time_pattern
+    seconds: /10
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.continuous_washing_machine_power
+        value: "{{ states.sensor.washing_machine_power.state }}"
+
 - alias: Washing Machine Consumption at start of the day
   trigger:
     platform: time
@@ -196,9 +226,19 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_washing_machine_consumption
-        value: "{{ states.sensor.sensor_washing_machine_power_integral.state }}"
+        value: "{{ states.sensor.input_number_continuous_washing_machine_power_integral.state }}"
 
 # Dryer Consumption
+- alias: Dryer Consumption Actual
+  trigger:
+    platform: time_pattern
+    seconds: /10
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.continuous_dryer_power
+        value: "{{ states.sensor.dryer_power.state }}"
+
 - alias: Dryer Consumption at start of the day
   trigger:
     platform: time
@@ -211,9 +251,19 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_dryer_consumption
-        value: "{{ states.sensor.sensor_dryer_power_integral.state }}"
+        value: "{{ states.sensor.input_number_continuous_dryer_power_integral.state }}"
 
 # Waterbed Consumption
+- alias: Waterbed Consumption Actual
+  trigger:
+    platform: time_pattern
+    seconds: /10
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.continuous_waterbed_power
+        value: "{{ states.sensor.waterbed_power.state }}"
+
 - alias: Waterbed Consumption at start of the day
   trigger:
     platform: time
@@ -226,7 +276,7 @@
     - service: input_number.set_value
       data_template:
         entity_id: input_number.midnight_waterbed_consumption
-        value: "{{ states.sensor.sensor_waterbed_power_integral.state }}"
+        value: "{{ states.sensor.input_number_continuous_waterbed_power_integral.state }}"
 
 # ##########################################################################
 # Robonect

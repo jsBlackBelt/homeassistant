@@ -94,22 +94,24 @@
 # ##########################################################################
 # Espresso Consumption
 - platform: integration
-  source: input_number.continuous_espresso_power
+  source: input_number.continuous_espresso_machine_power
+#  source: sensor.espresso_power
   unit_prefix: k
   round: 2
 
 - platform: template
   sensors:
-    espresso_consumption_today:
+    espresso_machine_consumption_today:
       value_template: >
-        {{ (float(states.sensor.input_number_continuous_espresso_power_integral.state) - float(states.input_number.midnight_espresso_consumption.state)) | round(3) }}
+        {{ (float(states.sensor.input_number_continuous_espresso_machine_power_integral.state) - float(states.input_number.midnight_espresso_machine_consumption.state)) | round(3) }}
 #        {{ (float(states.sensor.sensor_espresso_power_integral.state) - float(states.input_number.midnight_espresso_consumption.state)) | round(3) }}
       unit_of_measurement: 'kWh'
       friendly_name: "Today's Espresso Consumption"
 
 # Humidifier Consumption
 - platform: integration
-  source: sensor.humidifier_power
+  source: input_number.continuous_humidifier_power
+#  source: sensor.humidifier_power
   unit_prefix: k
   round: 2
 
@@ -117,13 +119,15 @@
   sensors:
     humidifier_consumption_today:
       value_template: >
-        {{ (float(states.sensor.sensor_humidifier_power_integral.state) - float(states.input_number.midnight_humidifier_consumption.state)) | round(3) }}
+        {{ (float(states.sensor.input_number_continuous_humidifier_power_integral.state) - float(states.input_number.midnight_humidifier_consumption.state)) | round(3) }}
+#        {{ (float(states.sensor.sensor_humidifier_power_integral.state) - float(states.input_number.midnight_humidifier_consumption.state)) | round(3) }}
       unit_of_measurement: 'kWh'
       friendly_name: "Today's Humidifier Consumption"
 
 # Dehumidifier Consumption
 - platform: integration
-  source: sensor.dehumidifier_power
+  source: input_number.continuous_dehumidifier_power
+#  source: sensor.dehumidifier_power
   unit_prefix: k
   round: 2
 
@@ -131,13 +135,15 @@
   sensors:
     dehumidifier_consumption_today:
       value_template: >
-        {{ (float(states.sensor.sensor_dehumidifier_power_integral.state) - float(states.input_number.midnight_dehumidifier_consumption.state)) | round(3) }}
+        {{ (float(states.sensor.input_number_continuous_dehumidifier_power_integral.state) - float(states.input_number.midnight_dehumidifier_consumption.state)) | round(3) }}
+#        {{ (float(states.sensor.sensor_dehumidifier_power_integral.state) - float(states.input_number.midnight_dehumidifier_consumption.state)) | round(3) }}
       unit_of_measurement: 'kWh'
       friendly_name: "Today's Dehumidifier Consumption"
 
 # Washing Machine Consumption
 - platform: integration
-  source: sensor.washing_machine_power
+  source: input_number.continuous_washing_machine_power
+#  source: sensor.washing_machine_power
   unit_prefix: k
   round: 2
 
@@ -145,13 +151,15 @@
   sensors:
     washing_machine_consumption_today:
       value_template: >
-        {{ (float(states.sensor.sensor_washing_machine_power_integral.state) - float(states.input_number.midnight_washing_machine_consumption.state)) | round(3) }}
+        {{ (float(states.sensor.input_number_continuous_washing_machine_power_integral.state) - float(states.input_number.midnight_washing_machine_consumption.state)) | round(3) }}
+#        {{ (float(states.sensor.sensor_washing_machine_power_integral.state) - float(states.input_number.midnight_washing_machine_consumption.state)) | round(3) }}
       unit_of_measurement: 'kWh'
       friendly_name: "Today's Washing Machine Consumption"
 
 # Dryer Consumption
 - platform: integration
-  source: sensor.dryer_power
+  source: input_number.continuous_dryer_power
+#  source: sensor.dryer_power
   unit_prefix: k
   round: 2
 
@@ -159,13 +167,15 @@
   sensors:
     dryer_consumption_today:
       value_template: >
-        {{ (float(states.sensor.sensor_dryer_power_integral.state) - float(states.input_number.midnight_dryer_consumption.state)) | round(3) }}
+        {{ (float(states.sensor.input_number_continuous_dryer_power_integral.state) - float(states.input_number.midnight_dryer_consumption.state)) | round(3) }}
+#        {{ (float(states.sensor.sensor_dryer_power_integral.state) - float(states.input_number.midnight_dryer_consumption.state)) | round(3) }}
       unit_of_measurement: 'kWh'
       friendly_name: "Today's Dryer Consumption"
 
 # Waterbed Consumption
 - platform: integration
-  source: sensor.waterbed_power
+  source: input_number.continuous_waterbed_power
+#  source: sensor.waterbed_power
   unit_prefix: k
   round: 2
 
@@ -173,7 +183,8 @@
   sensors:
     waterbed_consumption_today:
       value_template: >
-        {{ (float(states.sensor.sensor_waterbed_power_integral.state) - float(states.input_number.midnight_waterbed_consumption.state)) | round(3) }}
+        {{ (float(states.sensor.input_number_continuous_waterbed_power_integral.state) - float(states.input_number.midnight_waterbed_consumption.state)) | round(3) }}
+#        {{ (float(states.sensor.sensor_waterbed_power_integral.state) - float(states.input_number.midnight_waterbed_consumption.state)) | round(3) }}
       unit_of_measurement: 'kWh'
       friendly_name: "Today's Waterbed Consumption"
 

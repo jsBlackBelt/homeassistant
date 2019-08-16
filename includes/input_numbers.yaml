@@ -81,20 +81,24 @@ hourly_sonnen_pv_production_previous:
 # Power Consumptions
 # ##########################################################################
 # Espresso Consumption
-continuous_espresso_power:
-  name: Espresso Continuous Power
+continuous_espresso_machine_power:
+  name: Espresso Machine Continuous Power
   min: -999999999
   max: 999999999
-midnight_espresso_consumption:
-  name: Midnight Espresso Consumption
+midnight_espresso_machine_consumption:
+  name: Midnight Espresso Machine Consumption
   min: -999999999
   max: 999999999
-midnight_espresso_consumption_previous:
-  name: Midnight Espresso Consumption previous
+midnight_espresso_machine_consumption_previous:
+  name: Midnight Espresso Machine Consumption previous
   min: -999999999
   max: 999999999
 
 # Humidifier Consumption
+continuous_humidifier_power:
+  name: Humidifier Continuous Power
+  min: -999999999
+  max: 999999999
 midnight_humidifier_consumption:
   name: Midnight Humidifier Consumption
   min: -999999999
@@ -105,6 +109,10 @@ midnight_humidifier_consumption_previous:
   max: 999999999
 
 # Dehumidifier Consumption
+continuous_dehumidifier_power:
+  name: Dehumidifier Continuous Power
+  min: -999999999
+  max: 999999999
 midnight_dehumidifier_consumption:
   name: Midnight Dehumidifier Consumption
   min: -999999999
@@ -115,6 +123,10 @@ midnight_dehumidifier_consumption_previous:
   max: 999999999
 
 # Washing Machine Consumption
+continuous_washing_machine_power:
+  name: Washing Machine Continuous Power
+  min: -999999999
+  max: 999999999
 midnight_washing_machine_consumption:
   name: Midnight Washing Machine Consumption
   min: -999999999
@@ -125,6 +137,10 @@ midnight_washing_machine_consumption_previous:
   max: 999999999
 
 # Dryer Consumption
+continuous_dryer_power:
+  name: Dryer Continuous Power
+  min: -999999999
+  max: 999999999
 midnight_dryer_consumption:
   name: Midnight Dryer Consumption
   min: -999999999
@@ -135,6 +151,10 @@ midnight_dryer_consumption_previous:
   max: 999999999
 
 # Waterbed Consumption
+continuous_waterbed_power:
+  name: Waterbed Continuous Power
+  min: -999999999
+  max: 999999999
 midnight_waterbed_consumption:
   name: Midnight Waterbed Consumption
   min: -999999999
@@ -143,4 +163,3 @@ midnight_waterbed_consumption_previous:
   name: Midnight Waterbed Consumption previous
   min: -999999999
   max: 999999999
-
