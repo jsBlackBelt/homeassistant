@@ -271,11 +271,11 @@ gardena:
   username : !secret gardena_user
   password : !secret gardena_password
 
-#xiaomi_aqara:
-#  discovery_retry: 5
-#  gateways:
-#    - mac: !secret xiaomi_aqara_mac
-#      key: !secret xiaomi_aqara_key
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - mac: !secret xiaomi_aqara_mac
+      key: !secret xiaomi_aqara_key
 
 #homematicip_cloud:
 #  accesspoint: !secret homematicip_accesspoint
