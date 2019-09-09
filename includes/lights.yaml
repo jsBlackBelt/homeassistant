@@ -36,7 +36,7 @@
     - light.kitchen_counter_top_north
     - light.kitchen_dining_table
     - light.kitchen_ceiling_light
-    - light.kitchen_tetris
+    - light.switch_kitchen_tetris
 
 - platform: group
   name: living_room_group
@@ -47,7 +47,7 @@
     - light.living_room_iris
     - light.living_room_play_1
     - light.living_room_play_2
-    - light.living_room_showcase
+    - light.switch_living_room_showcase
     - light.living_room_wall_lamp
 
 - platform: group
@@ -91,10 +91,10 @@
     - light.studio_ceiling_light_1
     - light.studio_ceiling_light_2
     - light.studio_desk_lamp
-    - light.studio_floor_lamp
-    - light.studio_floor_lamp_2
+    - light.switch_studio_floor_lamp_1
+    - light.switch_studio_floor_lamp_2
     - light.studio_iris
-    - light.studio_showcase
+    - light.switch_studio_showcase
     - light.studio_sofa
 
 - platform: group

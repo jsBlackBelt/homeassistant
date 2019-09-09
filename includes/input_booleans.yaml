@@ -32,39 +32,3 @@ tts_mode:
 zigbee_permit_join:
   name: Allow devices to join
   initial: off
-
-# ##########################################################################
-# Activate Scenes via Node-Red
-# ##########################################################################
-living_room_scene_movie:
-  name: Living Room Scene Movie
-  initial: off
-
-living_room_scene_reading:
-  name: Living Room Scene Reading
-  initial: off
-
-living_room_scene_vaporwave:
-  name: Living Room Scene Vaporwave
-  initial: off
-
-living_room_scene_lounging:
-  name: Living Room Scene Lounging
-  initial: off
-
-studio_scene_work:
-  name: Studio Scene Work
-  initial: off
-
-studio_scene_reading:
-  name: Studio Scene Reading
-  initial: off
-
-bedroom_scene_sex:
-  name: Bedroom Scene Sex
-  initial: off
-
-bedroom_scene_reading:
-  name: Bedroom Scene Reading
-  initial: off
-
