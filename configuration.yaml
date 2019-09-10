@@ -14,7 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
 logger:
-  default: warning
+  default: info
 #  logs:
 #    custom_components.alexa_media: debug
 
