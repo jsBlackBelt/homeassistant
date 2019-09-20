@@ -23,13 +23,13 @@
 # ##########################################################################
 # Unifi
 # ##########################################################################
-- platform: unifi
-  host: !secret unifi_controller
-  username: !secret unifi_username
-  password: !secret unifi_password
-  verify_ssl: false
-  ssid_filter:
-    - 'Holonet'
+#- platform: unifi
+#  host: !secret unifi_controller
+#  username: !secret unifi_username
+#  password: !secret unifi_password
+#  verify_ssl: false
+#  ssid_filter:
+#    - 'Holonet'
 
 # ##########################################################################
 # Ping

@@ -130,10 +130,10 @@ panel_iframe:
     title: 'States'
     icon: 'mdi:power-socket-us'
     url: !secret states_view_url
-  networkmap:
-    title: 'Zigbee Map'
-    url: '/local/zigbee2mqtt_networkmap/map.html'
-    icon: 'mdi:graphql'
+#  networkmap:
+#    title: 'Zigbee Map'
+#    url: '/local/zigbee2mqtt_networkmap/map.html'
+#    icon: 'mdi:graphql'
 
 # ##########################################################################
 # Enable cloud connections
@@ -229,7 +229,7 @@ remote:
 
 # Zigbee Network Map
 webhook:
-zigbee2mqtt_networkmap:
+#zigbee2mqtt_networkmap:
 
 # ##########################################################################
 # Configure some special devices

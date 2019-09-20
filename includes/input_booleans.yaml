@@ -29,6 +29,6 @@ tts_mode:
 # ##########################################################################
 # Zigbee Permit Join
 # ##########################################################################
-zigbee_permit_join:
-  name: Allow devices to join
-  initial: off
+#zigbee_permit_join:
+#  name: Allow devices to join
+#  initial: off
