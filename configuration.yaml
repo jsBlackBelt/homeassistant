@@ -232,7 +232,7 @@ remote:
 
 # Zigbee Network Map
 webhook:
-#zigbee2mqtt_networkmap:
+zigbee2mqtt_networkmap:
 
 # ##########################################################################
 # Configure some special devices

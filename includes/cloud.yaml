@@ -98,7 +98,7 @@ alexa:
       - light.garden_south
 
     include_domains:
-#      - lock
+      - lock
       - scene
       - cover
 
