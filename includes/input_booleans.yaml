@@ -1,14 +1,21 @@
 # ##########################################################################
 # Away Mode Automation
 # ##########################################################################
-away_mode:
+away_mode_automation:
   name: Away mode automation
   initial: off
 
 # ##########################################################################
+# Outside Motion Detection
+# ##########################################################################
+outside_motion_detection:
+  name: Outside motion detection
+  initial: on
+
+# ##########################################################################
 # Wellness Mode Automation
 # ##########################################################################
-wellness_mode:
+wellness_mode_automation:
   name: Wellness mode automation
   initial: off
 
@@ -20,6 +27,13 @@ cover_automation:
   initial: on
 
 # ##########################################################################
+# Pool Pump Automation
+# ##########################################################################
+pool_pump_automation:
+  name: Pool pump automation
+  initial: off
+
+# ##########################################################################
 # TTS Messages
 # ##########################################################################
 tts_mode:
@@ -29,6 +43,10 @@ tts_mode:
 # ##########################################################################
 # Zigbee Permit Join
 # ##########################################################################
-#zigbee_permit_join:
-#  name: Allow devices to join
-#  initial: off
+zigbee1_permit_join:
+  name: Allow devices to join
+  initial: off
+
+zigbee2_permit_join:
+  name: Allow devices to join
+  initial: off

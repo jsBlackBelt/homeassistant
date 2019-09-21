@@ -111,24 +111,24 @@
   name: 'Markus Presence'
   probability_threshold: 0.8
   observations:
-    - entity_id: 'device_tracker.b0_19_c6_e7_4a_27'
-      prob_given_true: 0.9
-      prob_given_false: 0.4
+    - entity_id: 'device_tracker.markus_nodered'
+      prob_given_true: 0.8
+      prob_given_false: 0.2
       platform: 'state'
       to_state: 'home'
-    - entity_id: 'device_tracker.markus_iphone_8_2'
+    - entity_id: 'device_tracker.markus_router'
       prob_given_true: 0.9
-      prob_given_false: 0.4
+      prob_given_false: 0.1
       platform: 'state'
       to_state: 'home'
-    - entity_id: 'device_tracker.markus_d79762c2_b7ff_4e48_8b3d_5bdda255521f'
+    - entity_id: 'device_tracker.markus_owntracks'
       prob_given_true: 0.9
-      prob_given_false: 0.3
+      prob_given_false: 0.4
       platform: 'state'
       to_state: 'home'
     - entity_id: 'device_tracker.markus_ping'
       prob_given_true: 0.9
-      prob_given_false: 0.4
+      prob_given_false: 0.1
       platform: 'state'
       to_state: 'home'
 
@@ -137,23 +137,23 @@
   name: 'Magda Presence'
   probability_threshold: 0.8
   observations:
-    - entity_id: 'device_tracker.80_82_23_12_6d_95'
-      prob_given_true: 0.9
-      prob_given_false: 0.4
+    - entity_id: 'device_tracker.magda_nodered'
+      prob_given_true: 0.8
+      prob_given_false: 0.2
       platform: 'state'
       to_state: 'home'
-    - entity_id: 'device_tracker.magdas_iphone_8_2'
+    - entity_id: 'device_tracker.magda_router'
       prob_given_true: 0.9
-      prob_given_false: 0.4
+      prob_given_false: 0.1
       platform: 'state'
       to_state: 'home'
-    - entity_id: 'device_tracker.magda_5b9e4342_2ef1_431e_aee2_d85a7e9db173'
+    - entity_id: 'device_tracker.magda_owntracks'
       prob_given_true: 0.9
-      prob_given_false: 0.3
+      prob_given_false: 0.4
       platform: 'state'
       to_state: 'home'
     - entity_id: 'device_tracker.magda_ping'
       prob_given_true: 0.9
-      prob_given_false: 0.4
+      prob_given_false: 0.1
       platform: 'state'
       to_state: 'home'

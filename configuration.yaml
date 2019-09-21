@@ -130,10 +130,10 @@ panel_iframe:
     title: 'States'
     icon: 'mdi:power-socket-us'
     url: !secret states_view_url
-#  networkmap:
-#    title: 'Zigbee Map'
-#    url: '/local/zigbee2mqtt_networkmap/map.html'
-#    icon: 'mdi:graphql'
+  networkmap:
+    title: 'Zigbee Map'
+    url: '/local/zigbee2mqtt_networkmap/map.html'
+    icon: 'mdi:graphql'
 
 # ##########################################################################
 # Enable cloud connections
@@ -176,6 +176,9 @@ input_boolean: !include includes/input_booleans.yaml
 
 # Include input numbers
 input_number: !include includes/input_numbers.yaml
+
+# Include input texts
+input_text: !include includes/input_texts.yaml
 
 # Include timer
 timer: !include includes/timers.yaml

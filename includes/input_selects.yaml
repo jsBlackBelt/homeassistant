@@ -17,15 +17,25 @@ robonect_command:
 ############################################################
 # Zigbee2mqtt Controls
 ############################################################
-#zigbee2mqtt_log_level:
-#  name: Zigbee2mqtt Log Level
-#  options:
-#   - debug
-#   - info
-#   - warn
-#   - error
-#  initial: info
-#  icon: mdi:format-list-bulleted
+zigbee2mqtt1_log_level:
+  name: Zigbee2mqtt1 Log Level
+  options:
+   - debug
+   - info
+   - warn
+   - error
+  initial: info
+  icon: mdi:format-list-bulleted
+
+zigbee2mqtt2_log_level:
+  name: Zigbee2mqtt2 Log Level
+  options:
+   - debug
+   - info
+   - warn
+   - error
+  initial: info
+  icon: mdi:format-list-bulleted
 
 ############################################################
 # Logitech Harmony Controls

@@ -1,6 +1,10 @@
 # ##########################################################################
 # Zigbee Permit Join
 # ##########################################################################
-#zigbee_permit_join:
-#  name: Time remaining
-#  duration: 600 # Updated this to the number of seconds you wish
+zigbee1_permit_join:
+  name: Time remaining
+  duration: 600 # Updated this to the number of seconds you wish
+
+zigbee2_permit_join:
+  name: Time remaining
+  duration: 600 # Updated this to the number of seconds you wish

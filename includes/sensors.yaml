@@ -338,6 +338,53 @@
     solaredge_energy_this_year_template:
       value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 
+- platform: template
+  sensors:
+    grid_feed_template:
+      value_template: >-
+        {% if is_state("sensor.sonnen_flow_consumption_grid", "False") and
+              is_state("sensor.sonnen_flow_production_grid", "True") -%}
+          Einspeisung
+        {% elif is_state("sensor.sonnen_flow_consumption_grid", "True") and
+                is_state("sensor.sonnen_flow_production_grid", "False") -%}
+          Verbrauch
+        {% else %}
+          Neutral
+        {% endif %}
+      icon_template: >-
+        {% if is_state("sensor.sonnen_flow_consumption_grid", "False") and
+              is_state("sensor.sonnen_flow_production_grid", "True") -%}
+          mdi:chevron-up-circle-outline
+        {% elif is_state("sensor.sonnen_flow_consumption_grid", "True") and
+                is_state("sensor.sonnen_flow_production_grid", "False") -%}
+          mdi:chevron-down-circle-outline
+        {% else %}
+          mdi:circle-outline
+        {% endif %}
+- platform: template
+  sensors:
+    battery_feed_template:
+      value_template: >-
+        {% if is_state("sensor.sonnen_flow_consumption_battery", "False") and
+              is_state("sensor.sonnen_flow_production_battery", "True") -%}
+          Laden
+        {% elif is_state("sensor.sonnen_flow_consumption_battery", "True") and
+                is_state("sensor.sonnen_flow_production_battery", "False") -%}
+          Entladen
+        {% else %}
+          Neutral
+        {% endif %}
+      icon_template: >-
+        {% if is_state("sensor.sonnen_flow_consumption_battery", "False") and
+              is_state("sensor.sonnen_flow_production_battery", "True") -%}
+          mdi:chevron-up-circle-outline
+        {% elif is_state("sensor.sonnen_flow_consumption_battery", "True") and
+                is_state("sensor.sonnen_flow_production_battery", "False") -%}
+          mdi:chevron-down-circle-outline
+        {% else %}
+          mdi:circle-outline
+        {% endif %}
+
 # ##########################################################################
 # Pi-Hole
 # ##########################################################################
@@ -1165,10 +1212,41 @@
 # ##########################################################################
 # Zigbee Bridge State
 # ##########################################################################
-#- platform: mqtt
-#  name: Bridge state
-#  state_topic: "zigbee2mqtt/bridge/state"
-#  icon: mdi:router-wireless
+# Sensor for monitoring the bridge state
+- platform: mqtt
+  name: Zigbee2mqtt1 Bridge state
+  state_topic: "zigbee2mqtt1/bridge/state"
+  icon: mdi:router-wireless
+# Sensor for Showing the Zigbee2mqtt Version
+- platform: mqtt
+  name: Zigbee2mqtt1 Version
+  state_topic: "zigbee2mqtt1/bridge/config"
+  value_template: "{{ value_json.version }}"
+  icon: mdi:zigbee
+# Sensor for Showing the Coordinator Version
+- platform: mqtt
+  name: Coordinator1 Version
+  state_topic: "zigbee2mqtt1/bridge/config"
+  value_template: "{{ value_json.coordinator }}"
+  icon: mdi:chip
+
+# Sensor for monitoring the bridge state
+- platform: mqtt
+  name: Zigbee2mqtt2 Bridge state
+  state_topic: "zigbee2mqtt2/bridge/state"
+  icon: mdi:router-wireless
+# Sensor for Showing the Zigbee2mqtt Version
+- platform: mqtt
+  name: Zigbee2mqtt2 Version
+  state_topic: "zigbee2mqtt2/bridge/config"
+  value_template: "{{ value_json.version }}"
+  icon: mdi:zigbee
+# Sensor for Showing the Coordinator Version
+- platform: mqtt
+  name: Coordinator2 Version
+  state_topic: "zigbee2mqtt2/bridge/config"
+  value_template: "{{ value_json.coordinator }}"
+  icon: mdi:chip
 
 # ##########################################################################
 # Special HASS related sensors
