@@ -180,6 +180,9 @@ input_number: !include includes/input_numbers.yaml
 # Include input texts
 input_text: !include includes/input_texts.yaml
 
+# Include notifiers
+notify: !include includes/notifiers.yml
+
 # Include timer
 timer: !include includes/timers.yaml
 
@@ -260,12 +263,16 @@ climate:
 apcupsd:
   host: 192.168.1.115
 
+hacs:
+  token: 79f51723afac3f20c1bc4caea10511ee0247f893
+  
+
 # Include Alexa
-#alexa_media:
-#  accounts:
-#    - email: !secret amazon_email
-#      password: !secret amazon_password
-#      url: amazon.de
+alexa_media:
+  accounts:
+    - email: !secret amazon_email
+      password: !secret amazon_password
+      url: amazon.de
 
 # Include Gardena
 #gardena_smart:  # old
@@ -274,11 +281,11 @@ gardena:
   username : !secret gardena_user
   password : !secret gardena_password
 
-xiaomi_aqara:
-  discovery_retry: 5
-  gateways:
-    - mac: !secret xiaomi_aqara_mac
-      key: !secret xiaomi_aqara_key
+#xiaomi_aqara:
+#  discovery_retry: 5
+#  gateways:
+#    - mac: !secret xiaomi_aqara_mac
+#      key: !secret xiaomi_aqara_key
 
 #homematicip_cloud:
 #  accesspoint: !secret homematicip_accesspoint
@@ -316,11 +323,6 @@ telegram_bot:
     api_key: !secret telegram_api_key
     allowed_chat_ids:
       - !secret telegram_chat_id
-
-notify:
-  - name: telegram
-    platform: telegram
-    chat_id: !secret telegram_chat_id
 
 #alert:
 #  cam1_motion:

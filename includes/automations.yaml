@@ -1,3 +1,43 @@
+- alias: Sonnen House Power Consumption per day
+  trigger:
+    platform: time
+    at: '23:59:45'
+  action:
+  - service: notify.sonnen_house_consumption_today
+    data_template:
+      message: >
+        {{ now().strftime('%d/%m/%Y') }},{{ states.sensor.sonnen_house_consumption_today.state }}
+
+- alias: Sonnen Grid Feedin per day
+  trigger:
+    platform: time
+    at: '23:59:45'
+  action:
+  - service: notify.sonnen_pv_gridfeedin_today
+    data_template:
+      message: >
+        {{ now().strftime('%d/%m/%Y') }},{{ states.sensor.sonnen_pv_gridfeedin_today.state }}
+
+- alias: Sonnen PV Production per day
+  trigger:
+    platform: time
+    at: '23:59:45'
+  action:
+  - service: notify.sonnen_pv_production_today
+    data_template:
+      message: >
+        {{ now().strftime('%d/%m/%Y') }},{{ states.sensor.sonnen_pv_production_today.state }}
+
+- alias: Sonnen Inverter Power per day
+  trigger:
+    platform: time
+    at: '23:59:45'
+  action:
+  - service: notify.sonnen_inverter_power_today
+    data_template:
+      message: >
+        {{ now().strftime('%d/%m/%Y') }},{{ states.sensor.sonnen_inverter_power_today.state }}
+
 # ##########################################################################
 # Photovoltaic
 # ##########################################################################

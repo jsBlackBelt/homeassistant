@@ -1,4 +1,17 @@
 # ##########################################################################
+# Unifi
+# ##########################################################################
+- platform: unifigateway
+  host: !secret unifi_controller
+  username: !secret unifi_username
+  password: !secret unifi_password
+  monitored_conditions:
+    - www
+    - wlan
+    - alerts
+    - firmware
+
+# ##########################################################################
 # Photovoltaic
 # ##########################################################################
 # Sonnen House Power Consumption
