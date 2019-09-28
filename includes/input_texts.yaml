@@ -11,3 +11,6 @@ zigbee2mqtt2_new_name:
   name: Zigbee2mqtt New Name
 zigbee2mqtt2_remove:
   name: Zigbee2mqtt Remove
+
+robonect_garden_active:
+  name: Robonect Garden Active

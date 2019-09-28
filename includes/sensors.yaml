@@ -322,35 +322,6 @@
       value_template: '{{ states.sensor.json_sonnen.attributes["Ubat"] }}'
       unit_of_measurement: 'V'
 
-# ##########################################################################
-# SolarEdge
-# ##########################################################################
-- platform: solaredge
-  api_key: !secret solaredge_api_key
-  site_id: !secret solaredge_site_id
-  name: SolarEdge
-  monitored_conditions:
-    - current_power
-    - energy_today
-    - energy_this_month
-    - energy_this_year
-    - lifetime_energy
-    - site_details
-    - meters
-    - sensors
-    - gateways
-    - batteries
-    - inverters
-    - power_consumption
-    - solar_power
-    - grid_power
-    - storage_power
-
-- platform: template
-  sensors:
-    solaredge_energy_this_year_template:
-      value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
-
 - platform: template
   sensors:
     grid_feed_template:
@@ -397,6 +368,35 @@
         {% else %}
           mdi:circle-outline
         {% endif %}
+
+# ##########################################################################
+# SolarEdge
+# ##########################################################################
+#- platform: solaredge
+#  api_key: !secret solaredge_api_key
+#  site_id: !secret solaredge_site_id
+#  name: SolarEdge
+#  monitored_conditions:
+#    - current_power
+#    - energy_today
+#    - energy_this_month
+#    - energy_this_year
+#    - lifetime_energy
+#    - site_details
+#    - meters
+#    - sensors
+#    - gateways
+#    - batteries
+#    - inverters
+#    - power_consumption
+#    - solar_power
+#    - grid_power
+#    - storage_power
+
+- platform: template
+  sensors:
+    solaredge_energy_this_year_template:
+      value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 
 # ##########################################################################
 # Pi-Hole

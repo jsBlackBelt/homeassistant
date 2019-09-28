@@ -233,6 +233,11 @@ remote:
     name: living_room
     host: !secret harmony_ip
 
+# Include SolarEdge
+solaredge:
+  api_key: !secret solaredge_api_key
+  site_id: !secret solaredge_site_id
+
 # Zigbee Network Map
 webhook:
 zigbee2mqtt_networkmap:
