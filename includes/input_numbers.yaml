@@ -163,3 +163,12 @@ midnight_waterbed_consumption_previous:
   name: Midnight Waterbed Consumption previous
   min: -999999999
   max: 999999999
+
+# ##########################################################################
+# Sun
+# ##########################################################################
+# Sun minimal previous elevation
+sun_minimal_elevation:
+  name: Minimal elevation of sun
+  min: -90
+  max: 90
