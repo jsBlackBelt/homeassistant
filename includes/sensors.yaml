@@ -372,27 +372,6 @@
 # ##########################################################################
 # SolarEdge
 # ##########################################################################
-#- platform: solaredge
-#  api_key: !secret solaredge_api_key
-#  site_id: !secret solaredge_site_id
-#  name: SolarEdge
-#  monitored_conditions:
-#    - current_power
-#    - energy_today
-#    - energy_this_month
-#    - energy_this_year
-#    - lifetime_energy
-#    - site_details
-#    - meters
-#    - sensors
-#    - gateways
-#    - batteries
-#    - inverters
-#    - power_consumption
-#    - solar_power
-#    - grid_power
-#    - storage_power
-
 - platform: template
   sensors:
     solaredge_energy_this_year_template:
@@ -437,151 +416,6 @@
     - maxlinev
     - minlinev
     - outputv
-
-# ##########################################################################
-# System Monitor
-# ##########################################################################
-#- platform: systemmonitor
-#  resources:
-#    - type: disk_use_percent
-#      arg: /
-#    - type: disk_use
-#    - type: disk_free
-#    - type: memory_use_percent
-#    - type: memory_use
-#    - type: memory_free
-#    - type: load_1m
-#    - type: load_5m
-#    - type: load_15m
-#    - type: network_in
-#    - type: network_out
-#    - type: processor_use
-#    - type: last_boot
-
-#- platform: glances
-#  host: !secret smarthome_ip
-#  name: SmartHome
-#  version: 3
-#  resources:
-#    - disk_use_percent
-#    - disk_use
-#    - disk_free
-#    - memory_use_percent
-#    - memory_use
-#    - memory_free
-#    - swap_use_percent
-#    - swap_use
-#    - swap_free
-#    - processor_load
-#    - process_running
-#    - process_total
-#    - process_thread
-#    - process_sleeping
-##    - cpu_use_percent
-#    - cpu_temp
-#    - docker_active
-#    - docker_cpu_use
-#    - docker_memory_use
-
-#- platform: glances
-#  host: !secret k8smaster_ip
-#  name: K8s Master
-#  version: 3
-#  resources:
-#    - disk_use_percent
-#    - disk_use
-#    - disk_free
-#    - memory_use_percent
-#    - memory_use
-#    - memory_free
-#    - swap_use_percent
-#    - swap_use
-#    - swap_free
-#    - processor_load
-#    - process_running
-#    - process_total
-#    - process_thread
-#    - process_sleeping
-##    - cpu_use_percent
-#    - cpu_temp
-#    - docker_active
-#    - docker_cpu_use
-#    - docker_memory_use
-
-#- platform: glances
-#  host: !secret k8sworker1_ip
-#  name: K8s Worker 1
-#  version: 3
-#  resources:
-#    - disk_use_percent
-#    - disk_use
-#    - disk_free
-#    - memory_use_percent
-#    - memory_use
-#    - memory_free
-#    - swap_use_percent
-#    - swap_use
-#    - swap_free
-#    - processor_load
-#    - process_running
-#    - process_total
-#    - process_thread
-#    - process_sleeping
-##    - cpu_use_percent
-#    - cpu_temp
-#    - docker_active
-#    - docker_cpu_use
-#    - docker_memory_use
-
-#- platform: glances
-#  host: !secret k8sworker2_ip
-#  name: K8s Worker 2
-#  version: 3
-#  resources:
-#    - disk_use_percent
-#    - disk_use
-#    - disk_free
-#    - memory_use_percent
-#    - memory_use
-#    - memory_free
-#    - swap_use_percent
-#    - swap_use
-#    - swap_free
-#    - processor_load
-#    - process_running
-#    - process_total
-#    - process_thread
-#    - process_sleeping
-##    - cpu_use_percent
-#    - cpu_temp
-#    - docker_active
-#    - docker_cpu_use
-#    - docker_memory_use
-
-#- platform: glances
-#  host: !secret k8sworker3_ip
-#  name: K8s Worker 3
-#  version: 3
-#  resources:
-#    - disk_use_percent
-#    - disk_use
-#    - disk_free
-#    - memory_use_percent
-#    - memory_use
-#    - memory_free
-#    - swap_use_percent
-#    - swap_use
-#    - swap_free
-#    - processor_load
-#    - process_running
-#    - process_total
-#    - process_thread
-#    - process_sleeping
-##    - cpu_use_percent
-#    - cpu_temp
-#    - docker_active
-#    - docker_cpu_use
-#    - docker_memory_use
 
 # ##########################################################################
 # Arlo
@@ -652,72 +486,21 @@
     - nearest_storm_bearing
 
 # ##########################################################################
-# Weather Underground
-# ##########################################################################
-#- platform: wunderground
-#  api_key: !secret wunderground_api_key
-#  pws_id: !secret wunderground_pws_id
-#  monitored_conditions:
-#    - weather
-#    - station_id
-#    - feelslike_c
-#    - feelslike_string
-#    - heat_index_c
-#    - heat_index_string
-#    - dewpoint_c
-#    - dewpoint_string
-#    - UV
-#    - pressure_in
-#    - pressure_mb
-#    - wind_dir
-#    - wind_string
-#    - relative_humidity
-#    - visibility_km
-#    - precip_today_in
-#    - precip_today_metric
-#    - precip_today_string
-#    - solarradiation
-#    # Daily Forecast
-#    - weather_1d_metric
-#    - weather_1n_metric
-#    - weather_2d_metric
-#    - weather_2n_metric
-#    - weather_3d_metric
-#    - weather_3n_metric
-#    - weather_4d_metric
-#    - weather_4n_metric
-#    # Weather Overview
-#    - temp_high_record_c
-#    - temp_high_1d_c
-#    - temp_c
-#    - temp_low_1d_c
-#    - temp_low_record_c
-#    - precip_1d
-#    - precip_1d_mm
-#    - wind_kph
-#    - wind_1d_kph
-#    - alerts
-
-# ##########################################################################
 # Netatmo
 # ##########################################################################
 - platform: netatmo
   station: Villa
   modules:
-    Innenmodul:
-      - temperature
-      - humidity
-      - co2
-      - wifi_status
-      - noise
-      - pressure
-    Aussenmodul:
-      - temperature
-      - humidity
-      - min_temp
-      - max_temp
-      - battery_vp
-      - rf_status
+    - Aussenmodul
+    - Regenmesser
+    - Windmesser
+    - Innenmodul
+#      - temperature
+#      - humidity
+#      - co2
+#      - wifi_status
+#      - noise
+#      - pressure
 
 # ##########################################################################
 # Robonect
@@ -730,12 +513,10 @@
   state_topic: "robonect/health/climate/humidity"
   name: "Robonect Sileno Health Humidity"
   unit_of_measurement: '%'
-#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/health/climate/temperature"
   name: "Robonect Sileno Health Temperature"
   unit_of_measurement: '°C'
-#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/health/voltage/batt"
   name: "Robonect Sileno Health Voltage Battery"
@@ -788,17 +569,14 @@
   state_topic: "robonect/weather/data/humidity"
   name: "Robonect Sileno Weather Humidity"
   unit_of_measurement: '%'
-#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/weather/data/rain"
   name: "Robonect Sileno Weather Rain"
   unit_of_measurement: 'mm'
-#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/weather/data/temperature"
   name: "Robonect Sileno Weather Temperature"
   unit_of_measurement: '°C'
-#  device_class: climate
 - platform: mqtt
   state_topic: "robonect/weather/service"
 - platform: mqtt
@@ -1205,17 +983,11 @@
 # MQTT iPhone Sensors
 # ##########################################################################
 - platform: mqtt
-  state_topic: owntracks/markus/D79762C2-B7FF-4E48-8B3D-5BDDA255521F
-  name: "Markus iPhone 8 Akku"
+  state_topic: owntracks/markus/21B73B57-3F05-415B-BB0B-F5B7299CBEDC
+  name: "Markus iPhone 11 Akku"
   unit_of_measurement: "%"
   value_template: '{{ value_json.batt }}'
       
-- platform: mqtt
-  state_topic: owntracks/markus2/7D4E4247-B276-4807-B766-9A1FEDC2E1C7
-  name: "Markus iPhone 7 Akku"
-  unit_of_measurement: "%"
-  value_template: '{{ value_json.batt }}'
-
 - platform: mqtt
   state_topic: owntracks/magda/5B9E4342-2EF1-431E-AEE2-D85A7E9DB173
   name: "Magda iPhone 8 Akku"
