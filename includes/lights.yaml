@@ -34,7 +34,8 @@
   name: kitchen_group
   entities:
     - light.kitchen_counter_top_north
-    - light.kitchen_dining_table
+    - light.kitchen_dining_table_light_up
+    - light.kitchen_dining_table_light_down
     - light.kitchen_ceiling_light
     - light.switch_kitchen_tetris
 

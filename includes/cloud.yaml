@@ -1,128 +1,12 @@
 # Activate Alexa integration
 alexa:
-  filter:
-    include_entities:
-# Entrance
-      - light.entrance_group
-
-      - light.entrance_ceiling_light_1
-      - light.entrance_ceiling_light_2
-
-# Kitchen
-      - light.kitchen_group
-
-      - light.kitchen_counter_top_north
-      - light.kitchen_dining_table
-      - light.kitchen_ceiling_light
-      - light.switch_kitchen_tetris
-      - switch.espresso
-
-# Living Room
-      - light.living_room_group
-
-      - light.living_room_color_floor_lamp_group
-      - light.living_room_iris
-      - light.living_room_play_1
-      - light.living_room_play_2
-      - light.living_room_wall_lamp
-      - light.xmas_tree
-      - light.xmas_star
-      - switch.humidifier
-      - light.switch_living_room_showcase
-      - script.living_room_xmas_on
-      - script.living_room_vaporwave_on
-      - script.living_room_relax_on
-      - script.living_room_movie_on
-
-# Toilet
-      - light.toilet_group
-
-      - light.toilet_ceiling_light
-
-# Kidsroom Amelie
-      - light.kidsroom_amelie_group
-
-      - light.kidsroom_amelie_ceiling_light
-
-# Kidsroom Marlene
-      - light.kidsroom_marlene_group
-
-      - light.kidsroom_marlene_wall_lamp
-
-# Bedroom
-      - light.bedroom_group
-
-      - light.bedroom_ceiling_light
-      - light.bedroom_wardrobe
-      - light.bedroom_wall_lamp
-      - switch.light_bedroom
-      - script.bedroom_play_time_on
-
-# Bathroom
-      - light.bathroom_group
-
-      - light.bathroom_mirror
-      - light.bathroom_ceiling_light
-
-# Studio
-      - light.studio_group
-
-      - light.studio_ceiling_light_1
-      - light.studio_ceiling_light_2
-      - light.studio_desk_lamp
-      - light.switch_studio_floor_lamp_1
-      - light.switch_studio_floor_lamp_2
-      - light.studio_iris
-      - light.switch_studio_showcase
-      - light.studio_sofa
-      - switch.blower_switch
-      - script.studio_vaporwave_on
-      - script.studio_smooth_jazz_on
-
-# Fitness
-      - light.fitness_group
-
-      - light.fitness_ceiling_light_1
-      - light.fitness_ceiling_light_2
-      - light.fitness_pillar_1
-      - light.fitness_pillar_2
-      - switch.dehumidifier
-#      - script.fitness_wellness_on
-
-# Stairs
-      - switch.light_stairs_egkg
-
-# Garden
-      - light.garden_group
-
-      - light.garden_south
-
-    include_domains:
-      - lock
-      - scene
-      - cover
 
 # ##########################################################################
 # Entity Config
 # ##########################################################################
   entity_config:
-    light.entrance:
-      name: Flurlicht
-      display_categories: LIGHT
-    light.kitchen:
-      name: Küchenlicht
-    light.living_room:
-      name: Wohnzimmerlicht
     light.living_room_color_floor_lamp:
       name: Wohnzimmerstehlampe
-    light.bathroom:
-      name: Badezimmerlicht
-    light.bedroom:
-      name: Schlafzimmerlicht
-    light.studio_room:
-      name: Studiolicht
-    light.fitness:
-      name: Fitnesslicht
     light.kidsroom_amelie:
       name: Kinderzimmer Amelie
     light.kidsroom_marlene:
