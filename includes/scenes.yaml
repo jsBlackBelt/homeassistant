@@ -1,13 +1,5 @@
 - name: Living Room Movie
   entities:
-#    light.living_room_group:
-#      state: on
-#      brightness: 129
-#      rgb_color: [48, 255, 218]
-#    light.living_room_color_floor_lamp_group:
-#      state: on
-#      brightness: 134
-#      rgb_color: [41, 255, 115]
     light.living_room_showcase:
       state: on
     light.living_room_iris:
@@ -34,10 +26,6 @@
       state: on
       brightness: 136
       rgb_color: [255, 137, 31]
-#    light.entertainment_bereich:
-#      state: on
-#      brightness: 136
-#      rgb_color: [255, 137, 31]
     switch.living_room_showcase:
       state: on
     switch.hyperion_switch:
@@ -45,3 +33,107 @@
     light.living_room_wall_lamp:
       state: on
       brightness: 33
+
+- name: Living Room Spring
+  entities:
+    light.living_room_iris:
+      state: on
+      brightness: 252
+      rgb_color: [255, 150, 199]
+    light.living_room_play_1:
+      state: on
+      brightness: 252
+      rgb_color: [255, 200, 133]
+    light.living_room_play_2:
+      state: on
+      brightness: 252
+      rgb_color: [255, 199, 234]
+    light.living_room_color_floor_lamp_candle_1:
+      state: on
+      brightness: 252
+      rgb_color: [255, 167, 152]
+    light.living_room_color_floor_lamp_candle_2:
+      state: on
+      brightness: 252
+      rgb_color: [255, 205, 192]
+    light.living_room_color_floor_lamp_candle_3:
+      state: on
+      brightness: 252
+      rgb_color: [255, 215, 116]
+    light.switch_living_room_showcase:
+      state: on
+    light.living_room_wall_lamp:
+      state: on
+      brightness: 33
+
+- name: Studio Evening Work
+  entities:
+#    light.studio_group:
+#      state: on
+#      brightness: 210
+#      rgb_color: [255, 149, 57]
+    light.switch_studio_showcase:
+      state: on
+    light.studio_desk_lamp:
+      state: on
+      brightness: 199
+      rgb_color: [255, 210, 163]
+    light.studio_sofa:
+      state: on
+      brightness: 178
+      rgb_color: [255, 185, 44]
+    light.switch_studio_floor_lamp_1:
+      state: on
+    light.switch_studio_floor_lamp_2:
+      state: on
+    light.studio_iris:
+      state: on
+      brightness: 197
+      rgb_color: [255, 107, 8]
+    light.studio_ceiling_light_1:
+      state: on
+      brightness: 239
+      rgb_color: [255, 81, 37]
+    light.studio_ceiling_light_2:
+      state: on
+      brightness: 240
+      rgb_color: [255, 153, 33]
+#    light.studio:
+#      state: on
+#      brightness: 199
+#      rgb_color: [255, 210, 163]
+
+- name: Studio Reading
+  entities:
+#    light.studio_group:
+#      state: on
+#      brightness: 198
+#      rgb_color: [255, 210, 129]
+    light.switch_studio_showcase:
+      state: on
+    light.studio_desk_lamp:
+      state: off
+    light.studio_sofa:
+      state: on
+      brightness: 254
+      rgb_color: [255, 210, 129]
+    light.studio_iris:
+      state: on
+      brightness: 254
+      rgb_color: [255, 210, 129]
+    light.switch_studio_floor_lamp_1:
+      state: on
+    light.switch_studio_floor_lamp_2:
+      state: unavailable
+    light.studio_ceiling_light_1:
+      state: on
+      brightness: 143
+      rgb_color: [255, 210, 129]
+    light.studio_ceiling_light_2:
+      state: on
+      brightness: 144
+      rgb_color: [255, 210, 129]
+#    light.studio:
+#      state: on
+#      brightness: 254
+#      rgb_color: [255, 210, 129]

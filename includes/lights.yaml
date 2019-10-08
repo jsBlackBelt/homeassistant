@@ -5,21 +5,21 @@
   name: living_room_showcase
   entity_id: switch.living_room_showcase
 
-- platform: switch
-  name: studio_floor_lamp_2
-  entity_id: switch.studio_floor_lamp_2
+#- platform: switch
+#  name: studio_floor_lamp_2
+#  entity_id: switch.studio_floor_lamp_2
 
 - platform: switch
   name: kitchen_tetris
   entity_id: switch.kitchen_tetris
 
-- platform: switch
-  name: studio_showcase
-  entity_id: switch.studio_showcase
+#- platform: switch
+#  name: studio_showcase
+#  entity_id: switch.studio_showcase
 
-- platform: switch
-  name: studio_floor_lamp
-  entity_id: switch.studio_floor_lamp
+#- platform: switch
+#  name: studio_floor_lamp
+#  entity_id: switch.studio_floor_lamp
 
 # ##########################################################################
 # Rooms - Link to Alexa Groups
