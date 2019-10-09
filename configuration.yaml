@@ -139,7 +139,7 @@ panel_iframe:
 # Enable cloud connections
 # ##########################################################################
 # Enable home assistant cloud
-cloud: !include includes/cloud.yaml
+cloud: !include cloud.yaml
 
 # Text to speech
 tts:
@@ -157,64 +157,64 @@ netatmo:
 # Include sub config files
 # ##########################################################################
 # Scenes
-scene: !include includes/scenes.yaml
+scene: !include scenes.yaml
 
 # Activates device trackers
-device_tracker: !include includes/device_trackers.yaml
+device_tracker: !include device_trackers.yaml
 
 # Include sensors
-sensor: !include includes/sensors.yaml
+sensor: !include sensors.yaml
 
 # Include binary sensors
-binary_sensor: !include includes/binary_sensors.yaml
+binary_sensor: !include binary_sensors.yaml
 
 # Include utility meters
-utility_meter: !include includes/utility_meters.yaml
+utility_meter: !include utility_meters.yaml
 
 # Include input booleans
-input_boolean: !include includes/input_booleans.yaml
+input_boolean: !include input_booleans.yaml
 
 # Include input numbers
-input_number: !include includes/input_numbers.yaml
+input_number: !include input_numbers.yaml
 
 # Include input texts
-input_text: !include includes/input_texts.yaml
+input_text: !include input_texts.yaml
 
 # Include notifiers
-notify: !include includes/notifiers.yml
+notify: !include notifiers.yml
 
 # Include timer
-timer: !include includes/timers.yaml
+timer: !include timers.yaml
 
 # Include switches
-switch: !include includes/switches.yaml
+switch: !include switches.yaml
 
 # Include group definitions
-group: !include includes/groups.yaml
+group: !include groups.yaml
 
 # Include automation scripts
-automation: !include includes/automations.yaml
+automation: !include automations.yaml
 
 # Include scripts
-script: !include includes/scripts.yaml
+script: !include scripts.yaml
 
 # Include media players
-media_player: !include includes/media_players.yaml
+media_player: !include media_players.yaml
 
 # Include iOS
-ios: !include includes/ios.yaml
+ios: !include ios.yaml
 
 # Include input selects
-input_select: !include includes/input_selects.yaml
+input_select: !include input_selects.yaml
 
 # Include intent scripts
-intent_script: !include includes/intents.yaml
+intent_script: !include intents.yaml
 
 # Include lights
-light: !include includes/lights.yaml
+light: !include lights.yaml
 
 # Include cameras
-camera: !include includes/camera.yaml
+camera: !include camera.yaml
 
 # Include Calendar
 calendar:
