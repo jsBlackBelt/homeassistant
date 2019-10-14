@@ -126,6 +126,10 @@ panel_iframe:
     title: JupyterLab
     url: !secret jupyterlab_url  # URL GOES HERE
     icon: mdi:database-search
+  grafana:
+    title: Grafana
+    url: http://192.168.1.115:3000
+    icon: mdi:chart-histogram
   states_view:
     title: 'States'
     icon: 'mdi:power-socket-us'

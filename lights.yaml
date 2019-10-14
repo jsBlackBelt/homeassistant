@@ -67,6 +67,7 @@
   name: kidsroom_amelie_group
   entities:
     - light.kidsroom_amelie_ceiling_light
+    - light.kidsroom_amelie_globe
 
 - platform: group
   name: kidsroom_marlene_group
