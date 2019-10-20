@@ -1,17 +1,26 @@
 homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
+
   # Location required to calculate the time the sun rises and sets
   latitude: !secret zone_home_latitude
   longitude: !secret zone_home_longitude
+
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: !secret zone_home_elevation
+
   # metric for Metric, imperial for Imperial
   unit_system: metric
+
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Berlin
+
   # Customization file
   customize: !include customize.yaml
+
+  # Include packages
+  packages:
+    pack_sonnen: !include packages/sonnen/package.yaml
 
 logger:
   default: info
@@ -185,7 +194,7 @@ input_number: !include input_numbers.yaml
 input_text: !include input_texts.yaml
 
 # Include notifiers
-notify: !include notifiers.yml
+notify: !include notifiers.yaml
 
 # Include timer
 timer: !include timers.yaml
@@ -223,7 +232,7 @@ camera: !include camera.yaml
 # Include Calendar
 calendar:
   - platform: caldav
-    url: https://caldav.icloud.com 
+    url: https://caldav.icloud.com
     username: !secret icloud_username
     password: !secret icloud_password
     calendars:
@@ -274,7 +283,7 @@ apcupsd:
 
 hacs:
   token: !secret hacs_token
-  
+
 
 # Include Alexa
 alexa_media:
@@ -283,8 +292,6 @@ alexa_media:
       password: !secret amazon_password
       url: amazon.de
 
-# Include Gardena
-#gardena_smart:  # old
 #example_sensor: # testing
 gardena:
   username : !secret gardena_user

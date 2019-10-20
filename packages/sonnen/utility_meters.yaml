@@ -1,0 +1,12 @@
+# Currently not used
+daily_energy_sonnen_pv_production:
+  source: sensor.sensor_sonnen_pv_production_integral
+  cycle: daily
+
+daily_energy_sonnen_house_consuption:
+  source: sensor.sensor_sonnen_house_consumption_integral
+  cycle: daily
+
+daily_energy_sonnen_pv_gridfeedin:
+  source: sensor.sensor_sonnen_pv_gridfeedin_integral
+  cycle: daily

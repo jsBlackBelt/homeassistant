@@ -59,35 +59,3 @@ zigbee2mqtt2_remove:
 #      data:
 #        group_name: "Wohnzimmer"
 #        scene_name: "Xmas"
-
-# ##########################################################################
-# Cam 1 Dafang
-# ##########################################################################
-cam_1_dafang_right:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: myhome/cam_1_dafang/motors/horizontal/set
-        payload: right
-
-cam_1_dafang_left:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: myhome/cam_1_dafang/motors/horizontal/set
-        payload: left
-
-cam_1_dafang_up:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: myhome/cam_1_dafang/motors/vertical/set
-        payload: up
-
-cam_1_dafang_down:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: myhome/cam_1_dafang/motors/vertical/set
-        payload: down
-

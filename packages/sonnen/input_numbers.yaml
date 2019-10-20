@@ -1,0 +1,78 @@
+# ##########################################################################
+# Sonnne Battery
+# ##########################################################################
+# Sonnen House Power Consumption
+midnight_sonnen_house_consumption:
+  name: Midnight Sonnen House Consumption
+  min: -999999999
+  max: 999999999
+midnight_sonnen_house_consumption_previous:
+  name: Midnight Sonnen House Consumption previous
+  min: -999999999
+  max: 999999999
+
+hourly_sonnen_house_consumption:
+  name: Hourly Sonnen House Consumption
+  min: -999999999
+  max: 999999999
+hourly_sonnen_house_consumption_previous:
+  name: Hourly Sonnen House Consumption previous
+  min: -999999999
+  max: 999999999
+
+# Sonnen Grid Feedin
+midnight_sonnen_pv_gridfeedin:
+  name: Midnight Sonnen Grid Feedin
+  min: -999999999
+  max: 999999999
+midnight_sonnen_pv_gridfeedin_previous:
+  name: Midnight Sonnen Grid Feedin previous
+  min: -999999999
+  max: 999999999
+
+hourly_sonnen_pv_gridfeedin:
+  name: Hourly Sonnen Grid Feedin
+  min: -999999999
+  max: 999999999
+hourly_sonnen_pv_gridfeedin_previous:
+  name: Hourly Sonnen Grid Feedin previous
+  min: -999999999
+  max: 999999999
+
+# Sonnen Inverter
+midnight_sonnen_inverter_power:
+  name: Midnight Sonnen Inverter Power
+  min: -999999999
+  max: 999999999
+midnight_sonnen_inverter_power_previous:
+  name: Midnight Sonnen Inverter Power  previous
+  min: -999999999
+  max: 999999999
+
+hourly_sonnen_inverter_power:
+  name: Hourly Sonnen Inverter Power
+  min: -999999999
+  max: 999999999
+hourly_sonnen_inverter_power_previous:
+  name: Hourly Sonnen Grid Inverter Power previous
+  min: -999999999
+  max: 999999999
+
+# Sonnen PV Production
+midnight_sonnen_pv_production:
+  name: Midnight Sonnen PV Production
+  min: -999999999
+  max: 999999999
+midnight_sonnen_pv_production_previous:
+  name: Midnight Sonnen PV Production previous
+  min: -999999999
+  max: 999999999
+
+hourly_sonnen_pv_production:
+  name: Hourly Sonnen PV Production
+  min: -999999999
+  max: 999999999
+hourly_sonnen_pv_production_previous:
+  name: Hourly Sonnen PV Production previous
+  min: -999999999
+  max: 999999999

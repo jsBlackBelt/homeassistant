@@ -1,0 +1,15 @@
+- name: sonnen_house_consumption_today
+  platform: file
+  filename: sensor.sonnen_house_consumption_today.csv
+
+- name: sonnen_pv_gridfeedin_today
+  platform: file
+  filename: sensor.sonnen_pv_gridfeedin_today.csv
+
+- name: sonnen_pv_production_today
+  platform: file
+  filename: sensor.sonnen_pv_production_today.csv
+
+- name: sonnen_inverter_power_today
+  platform: file
+  filename: sensor.sonnen_inverter_power_today.csv

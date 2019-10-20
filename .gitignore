@@ -1,5 +1,5 @@
 # A * ensures that everything will be ignored.
-*
+#*
 
 # You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
@@ -11,17 +11,30 @@
 !themes
 !www
 !custom_components
+!packages
 
 # Ignore folders.
+.aarlo
 .storage
 .cloud
 .google.token
+tts
 icloud
+www
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+.homekit.state
+.ios.conf
+.ring_cache.pickle
+.uuid
+
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 entity_registry.yaml
 phue-*.conf
+*.csv
 *.pyc
+*.pickle
+*.conf
+*.log

@@ -1,0 +1,259 @@
+# ##########################################################################
+# Sonnne Measure
+# ##########################################################################
+# Sonnen House Power Consumption
+- platform: integration
+  source: sensor.sonnen_house_consumption
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    sonnen_house_consumption_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_house_consumption_integral.state) - float(states.input_number.midnight_sonnen_house_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Sonnen House Consumption"
+
+- platform: template
+  sensors:
+    sonnen_house_consumption_hour:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_house_consumption_integral.state) - float(states.input_number.hourly_sonnen_house_consumption.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Hourly's Sonnen House Consumption"
+
+# Sonnen Grid Feedin
+- platform: integration
+  source: sensor.sonnen_pv_gridfeedin
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    sonnen_pv_gridfeedin_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_pv_gridfeedin_integral.state) - float(states.input_number.midnight_sonnen_pv_gridfeedin.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Sonnen PV Grid Feedin"
+
+- platform: template
+  sensors:
+    sonnen_pv_gridfeedin_hour:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_pv_gridfeedin_integral.state) - float(states.input_number.hourly_sonnen_pv_gridfeedin.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Hourly's Sonnen PV Grid Feedin"
+
+# Sonnen Inverter
+- platform: integration
+  source: sensor.sonnen_inverter_power
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    sonnen_inverter_power_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_inverter_power_integral.state) - float(states.input_number.midnight_sonnen_inverter_power.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Sonnen Inverter Power"
+
+- platform: template
+  sensors:
+    sonnen_inverter_power_hour:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_inverter_power_integral.state) - float(states.input_number.hourly_sonnen_inverter_power.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Hourly's Sonnen Inverter Power"
+
+# Sonnen PV Production
+- platform: integration
+  source: sensor.sonnen_pv_production
+  unit_prefix: k
+  round: 2
+
+- platform: template
+  sensors:
+    sonnen_pv_production_today:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_pv_production_integral.state) - float(states.input_number.midnight_sonnen_pv_production.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Today's Sonnen PV Production"
+
+- platform: template
+  sensors:
+    sonnen_pv_production_hour:
+      value_template: >
+        {{ (float(states.sensor.sensor_sonnen_pv_production_integral.state) - float(states.input_number.hourly_sonnen_pv_production.state)) | round(3) }}
+      unit_of_measurement: 'kWh'
+      friendly_name: "Hourly's Sonnen PV Production"
+
+# ##########################################################################
+# Sonnen API
+# ##########################################################################
+- platform: rest
+  name: JSON sonnen
+  json_attributes:
+    - BackupBuffer
+    - BatteryCharging
+    - BatteryDischarging
+    - Consumption_W
+    - Fac
+    - FlowConsumptionBattery
+    - FlowConsumptionGrid
+    - FlowConsumptionProduction
+    - FlowGridBattery
+    - FlowProductionBattery
+    - FlowProductionGrid
+    - GridFeedIn_W
+    - IsSystemInstalled
+    - OperatingMode
+    - Pac_total_W
+    - Production_W
+    - RSOC
+    - SystemStatus
+    - Timestamp
+    - USOC
+    - Uac
+    - Ubat
+  resource: !secret sonnen_status
+  value_template: '{{ value_json.sonnen }}'
+
+- platform: template
+  sensors:
+    sonnen_backup_buffer:
+      friendly_name: 'Backup Buffer'
+      value_template: '{{ states.sensor.json_sonnen.attributes["BackupBuffer"] }}'
+    sonnen_charging:
+      friendly_name: 'Charging'
+      value_template: '{{ states.sensor.json_sonnen.attributes["BatteryCharging"] }}'
+    sonnen_disharging:
+      friendly_name: 'Discharging'
+      value_template: '{{ states.sensor.json_sonnen.attributes["BatteryDischarging"] }}'
+    sonnen_house_consumption:
+      friendly_name: 'House Consumption'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Consumption_W"] }}'
+      unit_of_measurement: 'W'
+    sonnen_ac_frequency:
+      friendly_name: 'AC Frequency'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Fac"] }}'
+      unit_of_measurement: 'Hz'
+    sonnen_flow_consumption_battery:
+      friendly_name: 'Flow Consumption Battery'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowConsumptionBattery"] }}'
+    sonnen_flow_consumption_grid:
+      friendly_name: 'Flow Consumption Grid'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowConsumptionGrid"] }}'
+    sonnen_flow_consumption_production:
+      friendly_name: 'Flow Consumption Production'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowConsumptionProduction"] }}'
+    sonnen_flow_grid_battery:
+      friendly_name: 'Flow Grid Battery'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowGridBattery"] }}'
+    sonnen_flow_production_battery:
+      friendly_name: 'Flow Production Battery'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowProductionBattery"] }}'
+    sonnen_flow_production_grid:
+      friendly_name: 'Flow Production Grid'
+      value_template: '{{ states.sensor.json_sonnen.attributes["FlowProductionGrid"] }}'
+    sonnen_pv_gridfeedin:
+      friendly_name: 'PV Grid Feed-in'
+      value_template: '{{ states.sensor.json_sonnen.attributes["GridFeedIn_W"] }}'
+      unit_of_measurement: 'W'
+    sonnen_inverter_power:
+      friendly_name: 'Inverter Power'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Pac_total_W"] }}'
+      unit_of_measurement: 'W'
+    sonnen_pv_production:
+      friendly_name: 'PV Production'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Production_W"] }}'
+      unit_of_measurement: 'W'
+    sonnen_relative_charge_state:
+      friendly_name: 'Relative State of Charge'
+      value_template: '{{ states.sensor.json_sonnen.attributes["RSOC"] }}'
+      unit_of_measurement: '%'
+    sonnen_system_status:
+      friendly_name: 'System Status'
+      value_template: '{{ states.sensor.json_sonnen.attributes["SystemStatus"] }}'
+    sonnen_user_charge_state:
+      friendly_name: 'User State of Charge'
+      value_template: '{{ states.sensor.json_sonnen.attributes["USOC"] }}'
+      unit_of_measurement: '%'
+    sonnen_ac_voltage:
+      friendly_name: 'AC Voltage'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Uac"] }}'
+      unit_of_measurement: 'V'
+    sonnen_battery_voltage:
+      friendly_name: 'Battery Voltage'
+      value_template: '{{ states.sensor.json_sonnen.attributes["Ubat"] }}'
+      unit_of_measurement: 'V'
+
+# ##########################################################################
+# Sonnen Flows
+# ##########################################################################
+- platform: template
+  sensors:
+    grid_feed_template:
+      value_template: >-
+        {% if is_state("sensor.sonnen_flow_consumption_grid", "False") and
+              is_state("sensor.sonnen_flow_production_grid", "True") -%}
+          Einspeisung
+        {% elif is_state("sensor.sonnen_flow_consumption_grid", "True") and
+                is_state("sensor.sonnen_flow_production_grid", "False") -%}
+          Verbrauch
+        {% else %}
+          Neutral
+        {% endif %}
+      icon_template: >-
+        {% if is_state("sensor.sonnen_flow_consumption_grid", "False") and
+              is_state("sensor.sonnen_flow_production_grid", "True") -%}
+          mdi:chevron-up-circle-outline
+        {% elif is_state("sensor.sonnen_flow_consumption_grid", "True") and
+                is_state("sensor.sonnen_flow_production_grid", "False") -%}
+          mdi:chevron-down-circle-outline
+        {% else %}
+          mdi:circle-outline
+        {% endif %}
+- platform: template
+  sensors:
+    battery_feed_template:
+      value_template: >-
+        {% if is_state("sensor.sonnen_flow_consumption_battery", "False") and
+              is_state("sensor.sonnen_flow_production_battery", "True") -%}
+          Laden
+        {% elif is_state("sensor.sonnen_flow_consumption_battery", "True") and
+                is_state("sensor.sonnen_flow_production_battery", "False") -%}
+          Entladen
+        {% else %}
+          Neutral
+        {% endif %}
+      icon_template: >-
+        {% if is_state("sensor.sonnen_flow_consumption_battery", "False") and
+              is_state("sensor.sonnen_flow_production_battery", "True") -%}
+          mdi:chevron-up-circle-outline
+        {% elif is_state("sensor.sonnen_flow_consumption_battery", "True") and
+                is_state("sensor.sonnen_flow_production_battery", "False") -%}
+          mdi:chevron-down-circle-outline
+        {% else %}
+          mdi:circle-outline
+        {% endif %}
+
+
+# ##########################################################################
+# Sonnen Statistics
+# ##########################################################################
+- platform: statistics
+  entity_id: sensor.sonnen_house_consumption
+  max_age:
+    hours: 24
+
+- platform: statistics
+  entity_id: sensor.sensor_sonnen_house_consumption_integral
+  max_age:
+    hours: 24
+
+- platform: statistics
+  entity_id: sensor.daily_energy_sonnen_house_consuption
+  max_age:
+    hours: 24
