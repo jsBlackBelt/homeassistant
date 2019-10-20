@@ -20,7 +20,9 @@ homeassistant:
 
   # Include packages
   packages:
+    pack_mower: !include packages/mower/package.yaml
     pack_sonnen: !include packages/sonnen/package.yaml
+    pack_zigbee: !include packages/zigbee/package.yaml
 
 logger:
   default: info
@@ -40,7 +42,7 @@ zone:
     radius: 25
 
 # Show links to resources in log and frontend
-#introduction:
+# introduction:
 
 # Enables the frontend
 frontend:
@@ -53,9 +55,6 @@ mobile_app:
 # Enable system health
 system_health:
 
-#lovelace:
-#  mode: yaml
-
 # Enables configuration UI
 config:
 
@@ -64,11 +63,11 @@ http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
-#  trusted_networks:
-#    - 127.0.0.1
-#    - ::1
-#  ip_ban_enabled: True
-#  login_attempts_threshold: 5
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+  ip_ban_enabled: True
+  login_attempts_threshold: 5
 
 # Enables the api
 api:
@@ -81,7 +80,6 @@ api:
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   include_used_components: true
-
 
 # ##########################################################################
 # Enable central functionalities and network connections

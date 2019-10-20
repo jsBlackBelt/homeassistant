@@ -37,19 +37,6 @@
 - platform: apcupsd
 
 # ##########################################################################
-# Gardena (DEV)
-# ##########################################################################
-- platform: template
-  sensors:
-    sileno_charging:
-      friendly_name: "Sileno lädt"
-      device_class: plug
-      value_template: "{{ states.sensor.sileno_city.attributes.charging_status }}"
-    sileno_manual_mode:
-      friendly_name: "Sileno Modus manuell"
-      value_template: "{{ states.sensor.sileno_city.attributes.in_manual_mode }}"
-
-# ##########################################################################
 # Air Dehumidifier
 # ##########################################################################
 - platform: template

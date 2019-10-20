@@ -1,0 +1,15 @@
+############################################################
+# Robonect Controls
+############################################################
+robonect_command:
+  name: Robonect Sileno Set State
+  options:
+   - _
+   - start
+   - stop
+   - auto
+   - home
+   - man
+   - eod
+  initial: _
+  icon: mdi:robot

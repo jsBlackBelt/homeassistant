@@ -1,0 +1,53 @@
+# ##########################################################################
+# Robonect
+# ##########################################################################
+- id: 'robonect_command_mode'
+  alias: Robonect Sileno Command Control
+  trigger:
+  - entity_id: input_select.robonect_command
+    from: _
+    platform: state
+    to: start
+  - entity_id: input_select.robonect_command
+    from: _
+    platform: state
+    to: stop
+  condition: []
+  action:
+  - data:
+      payload_template: '{{ states(''input_select.robonect_command'') }}'
+      topic: robonect/control
+    service: mqtt.publish
+  - data:
+      entity_id: input_select.robonect_command
+      option: _
+    service: input_select.select_option
+- id: 'robonect_command_control_mode'
+  alias: Robonect Sileno Command Control Mode
+  trigger:
+  - entity_id: input_select.robonect_command
+    from: _
+    platform: state
+    to: auto
+  - entity_id: input_select.robonect_command
+    from: _
+    platform: state
+    to: home
+  - entity_id: input_select.robonect_command
+    from: _
+    platform: state
+    to: man
+  - entity_id: input_select.robonect_command
+    from: _
+    platform: state
+    to: eod
+  condition: []
+  action:
+  - data:
+      payload_template: '{{ states(''input_select.robonect_command'') }}'
+      topic: robonect/control/mode
+    service: mqtt.publish
+  - data:
+      entity_id: input_select.robonect_command
+      option: _
+    service: input_select.select_option

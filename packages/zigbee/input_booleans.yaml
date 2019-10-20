@@ -1,0 +1,10 @@
+# ##########################################################################
+# Zigbee Permit Join
+# ##########################################################################
+zigbee1_permit_join:
+  name: Allow devices to join
+  initial: off
+
+zigbee2_permit_join:
+  name: Allow devices to join
+  initial: off

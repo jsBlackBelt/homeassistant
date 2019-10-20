@@ -1,0 +1,16 @@
+############################################################
+# Zigbee2mqtt Texts
+############################################################
+zigbee2mqtt1_old_name:
+  name: Zigbee2mqtt Old Name
+zigbee2mqtt1_new_name:
+  name: Zigbee2mqtt New Name
+zigbee2mqtt1_remove:
+  name: Zigbee2mqtt Remove
+
+zigbee2mqtt2_old_name:
+  name: Zigbee2mqtt Old Name
+zigbee2mqtt2_new_name:
+  name: Zigbee2mqtt New Name
+zigbee2mqtt2_remove:
+  name: Zigbee2mqtt Remove

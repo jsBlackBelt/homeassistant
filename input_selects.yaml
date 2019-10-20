@@ -1,43 +1,4 @@
 ############################################################
-# Robonect Controls
-############################################################
-robonect_command:
-  name: Robonect Sileno Set State
-  options:
-   - _
-   - start
-   - stop
-   - auto
-   - home
-   - man
-   - eod
-  initial: _
-  icon: mdi:robot
-
-############################################################
-# Zigbee2mqtt Controls
-############################################################
-zigbee2mqtt1_log_level:
-  name: Zigbee2mqtt1 Log Level
-  options:
-   - debug
-   - info
-   - warn
-   - error
-  initial: info
-  icon: mdi:format-list-bulleted
-
-zigbee2mqtt2_log_level:
-  name: Zigbee2mqtt2 Log Level
-  options:
-   - debug
-   - info
-   - warn
-   - error
-  initial: info
-  icon: mdi:format-list-bulleted
-
-############################################################
 # Logitech Harmony Controls
 ############################################################
 
@@ -52,4 +13,3 @@ zigbee2mqtt2_log_level:
 #    - Spotify
 #    - Musik
 #    - Power Off
-

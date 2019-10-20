@@ -1,45 +1,4 @@
 # ##########################################################################
-# Zigbee2MQTT
-# ##########################################################################
-zigbee2mqtt1_rename:
-  alias: Zigbee2mqtt1 Rename
-  sequence:
-    service: mqtt.publish
-    data_template:
-      topic: zigbee2mqtt1/bridge/config/rename
-      payload_template: >-
-        {
-          "old": "{{ states.input_text.zigbee2mqtt1_old_name.state | string }}",
-          "new": "{{ states.input_text.zigbee2mqtt1_new_name.state | string }}"
-        }
-zigbee2mqtt1_remove:
-  alias: Zigbee2mqtt1 Remove
-  sequence:
-    service: mqtt.publish
-    data_template:
-      topic: zigbee2mqtt1/bridge/config/remove
-      payload_template: "{{ states.input_text.zigbee2mqtt1_remove.state | string }}"
-
-zigbee2mqtt2_rename:
-  alias: Zigbee2mqtt2 Rename
-  sequence:
-    service: mqtt.publish
-    data_template:
-      topic: zigbee2mqtt2/bridge/config/rename
-      payload_template: >-
-        {
-          "old": "{{ states.input_text.zigbee2mqtt2_old_name.state | string }}",
-          "new": "{{ states.input_text.zigbee2mqtt2_new_name.state | string }}"
-        }
-zigbee2mqtt2_remove:
-  alias: Zigbee2mqtt2 Remove
-  sequence:
-    service: mqtt.publish
-    data_template:
-      topic: zigbee2mqtt2/bridge/config/remove
-      payload_template: "{{ states.input_text.zigbee2mqtt2_remove.state | string }}"
-
-# ##########################################################################
 # Hue Scenes
 # ##########################################################################
 # Living Room

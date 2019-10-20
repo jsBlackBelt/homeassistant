@@ -1,0 +1,14 @@
+# Include automations
+automation: !include automations.yaml
+
+# Include input selects
+input_select: !include input_selects.yaml
+
+# Include input texts
+input_text: !include input_texts.yaml
+
+# Include sensors
+sensor: !include sensors.yaml
+
+# Include switches
+switch: !include switches.yaml

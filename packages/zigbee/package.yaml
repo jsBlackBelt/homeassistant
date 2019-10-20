@@ -1,0 +1,26 @@
+# Include automations
+automation: !include automations.yaml
+
+# Include group definitions
+group: !include groups.yaml
+
+# Include input booleans
+input_boolean: !include input_booleans.yaml
+
+# Include input selects
+input_select: !include input_selects.yaml
+
+# Include input texts
+input_text: !include input_texts.yaml
+
+# Include scripts
+script: !include scripts.yaml
+
+# Include sensors
+sensor: !include sensors.yaml
+
+# Include switches
+switch: !include switches.yaml
+
+# Include timer
+timer: !include timers.yaml
