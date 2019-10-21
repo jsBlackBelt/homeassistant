@@ -1,11 +1,11 @@
-#push:
+# push:
 #  categories:
 #    - name: cameras
 #      identifier: 'camera'
 #      actions:
 #        - identifier: 'TRIGGER_ALARM'
 #          title: 'Trigger Alarm'
-#          destructive: 'true' 
+#          destructive: 'true'
 #        - identifier: 'POLICE_ALL'
 #          title: 'Turn on Police Lights'
 #        - identifier: 'PORCH_LIGHTS'
