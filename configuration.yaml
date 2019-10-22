@@ -63,9 +63,9 @@ http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
-  trusted_networks:
-    - 127.0.0.1
-    - ::1
+  #trusted_networks:
+  #  - 127.0.0.1
+  #  - ::1
   ip_ban_enabled: True
   login_attempts_threshold: 5
 
@@ -133,14 +133,6 @@ panel_iframe:
     title: JupyterLab
     url: !secret jupyterlab_url  # URL GOES HERE
     icon: mdi:database-search
-  grafana:
-    title: Grafana
-    url: http://192.168.1.115:3000
-    icon: mdi:chart-histogram
-  states_view:
-    title: 'States'
-    icon: 'mdi:power-socket-us'
-    url: !secret states_view_url
   networkmap:
     title: 'Zigbee Map'
     url: '/local/zigbee2mqtt_networkmap/map.html'

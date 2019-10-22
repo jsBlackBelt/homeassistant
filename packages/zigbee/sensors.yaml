@@ -36,3 +36,20 @@
   state_topic: "zigbee2mqtt2/bridge/config"
   value_template: "{{ value_json.coordinator }}"
   icon: mdi:chip
+
+- platform: mqtt
+  name: Zigbee2mqtt Networkmap 1
+  # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
+  state_topic: zigbee2mqtt1/bridge/networkmap/raw
+  value_template: >-
+    {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+  # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
+  json_attributes_topic: zigbee2mqtt2/bridge/networkmap/raw
+- platform: mqtt
+  name: Zigbee2mqtt Networkmap 2
+  # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
+  state_topic: zigbee2mqtt2/bridge/networkmap/raw
+  value_template: >-
+    {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+  # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
+  json_attributes_topic: zigbee2mqtt2/bridge/networkmap/raw
