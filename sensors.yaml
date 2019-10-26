@@ -18,6 +18,7 @@
 - platform: integration
   source: input_number.continuous_espresso_machine_power
 #  source: sensor.espresso_power
+  method: right
   unit_prefix: k
   round: 2
 
@@ -34,6 +35,7 @@
 - platform: integration
   source: input_number.continuous_humidifier_power
 #  source: sensor.humidifier_power
+  method: right
   unit_prefix: k
   round: 2
 
@@ -50,6 +52,7 @@
 - platform: integration
   source: input_number.continuous_dehumidifier_power
 #  source: sensor.dehumidifier_power
+  method: right
   unit_prefix: k
   round: 2
 
@@ -66,6 +69,7 @@
 - platform: integration
   source: input_number.continuous_washing_machine_power
 #  source: sensor.washing_machine_power
+  method: right
   unit_prefix: k
   round: 2
 
@@ -82,6 +86,7 @@
 - platform: integration
   source: input_number.continuous_dryer_power
 #  source: sensor.dryer_power
+  method: right
   unit_prefix: k
   round: 2
 
@@ -98,6 +103,7 @@
 - platform: integration
   source: input_number.continuous_waterbed_power
 #  source: sensor.waterbed_power
+  method: right
   unit_prefix: k
   round: 2
 

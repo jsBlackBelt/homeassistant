@@ -4,6 +4,7 @@
 # Sonnen House Power Consumption
 - platform: integration
   source: sensor.sonnen_house_consumption
+  method: right
   unit_prefix: k
   round: 2
 
@@ -26,6 +27,7 @@
 # Sonnen Grid Feedin
 - platform: integration
   source: sensor.sonnen_pv_gridfeedin
+  method: right
   unit_prefix: k
   round: 2
 
@@ -48,6 +50,7 @@
 # Sonnen Inverter
 - platform: integration
   source: sensor.sonnen_inverter_power
+  method: right
   unit_prefix: k
   round: 2
 
@@ -70,6 +73,7 @@
 # Sonnen PV Production
 - platform: integration
   source: sensor.sonnen_pv_production
+  method: right
   unit_prefix: k
   round: 2
 
