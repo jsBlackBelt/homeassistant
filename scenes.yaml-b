@@ -101,38 +101,6 @@
       state: on
       brightness: 254
 
-- name: Living Room Energy
-  entities:
-    light.living_room_play_1:
-      state: on
-      brightness: 254
-      rgb_color: [246, 255, 254]
-    light.living_room_play_2:
-      state: on
-      brightness: 254
-      rgb_color: [246, 255, 254]
-    light.switch_living_room_showcase:
-      state: on
-    light.living_room_iris:
-      state: on
-      brightness: 254
-      rgb_color: [246, 255, 254]
-    light.living_room_color_floor_lamp_candle_1:
-      state: on
-      brightness: 254
-      rgb_color: [246, 255, 254]
-    light.living_room_color_floor_lamp_candle_2:
-      state: on
-      brightness: 254
-      rgb_color: [246, 255, 254]
-    light.living_room_color_floor_lamp_candle_3:
-      state: on
-      brightness: 254
-      rgb_color: [246, 255, 254]
-    light.living_room_wall_lamp:
-      state: on
-      brightness: 254
-
 # ##########################################################################
 # Studio
 # ##########################################################################

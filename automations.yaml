@@ -205,7 +205,7 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: light.hyperion
+      entity_id: light.hyperion_service
       to: 'on'
   action:
     - service: light.turn_on

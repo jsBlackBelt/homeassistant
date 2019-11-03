@@ -248,22 +248,18 @@ zigbee2mqtt_networkmap:
 # ##########################################################################
 # Configure some special devices
 # ##########################################################################
-#apple_tv:
-#  - host: !secret apple_tv_3_ip
-#    login_id: !secret apple_tv_3_login_id
-#    name: Apple TV 3
-##    start_off: true
-#    credentials: !secret apple_tv_3_credential
-#  - host: !secret apple_tv_4_ip
-#    login_id: !secret apple_tv_4_login_id
-#    name: Apple TV 4
-#    start_off: true
-#    credentials: !secret apple_tv_4_credential
-
 homekit:
   filter:
     include_domains:
+      - alarm_control_panel
       - light
+      - media_player
+#      - sensor
+      - switch
+      - lock
+#      - binary_sensor
+#      - climate
+      - cover
 
 climate:
   - platform: netatmo
