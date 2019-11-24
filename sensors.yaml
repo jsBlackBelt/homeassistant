@@ -7,6 +7,9 @@
   password: !secret unifi_password
   monitored_conditions:
     - www
+    - vpn
+    - lan
+    - wan
     - wlan
     - alerts
     - firmware

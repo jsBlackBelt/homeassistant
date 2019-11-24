@@ -20,7 +20,7 @@
   scan_options: " --privileged -sP "
   consider_home: 1800
   new_device_defaults:
-    track_new_devices: true
+    track_new_devices: false
     hide_if_away: false
 
 # ##########################################################################
