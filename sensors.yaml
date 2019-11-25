@@ -240,11 +240,11 @@
 # ##########################################################################
 - platform: netatmo
   station: Villa
-  modules:
-    - Aussenmodul
-    - Regenmesser
-    - Windmesser
-    - Innenmodul
+#  modules:
+#    - Aussenmodul
+#    - Regenmesser
+#    - Windmesser
+#    - Innenmodul
 #      - temperature
 #      - humidity
 #      - co2

@@ -129,7 +129,7 @@
       prob_given_false: 0.2
       platform: 'state'
       to_state: 'home'
-    - entity_id: 'device_tracker.magda_router'
+    - entity_id: 'device_tracker.magda_iphone_8'
       prob_given_true: 0.9
       prob_given_false: 0.1
       platform: 'state'

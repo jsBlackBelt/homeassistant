@@ -23,6 +23,7 @@ homeassistant:
     pack_mower: !include packages/mower/package.yaml
     pack_sonnen: !include packages/sonnen/package.yaml
     pack_zigbee: !include packages/zigbee/package.yaml
+    pack_battery_alert: !include packages/battery_alert/battery_alert.yaml
 
 logger:
   default: info
