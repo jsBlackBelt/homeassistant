@@ -26,7 +26,7 @@ homeassistant:
     pack_battery_alert: !include packages/battery_alert/battery_alert.yaml
 
 logger:
-  default: info
+  default: debug
 #  logs:
 #    custom_components.alexa_media: debug
 
@@ -86,7 +86,7 @@ updater:
 # Enable central functionalities and network connections
 # ##########################################################################
 # Discover some devices automatically
-discovery:
+#discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -150,12 +150,12 @@ tts:
   - platform: google_translate
     service_name: google_say
 
-netatmo:
-  api_key: !secret netatmo_api_key
-  secret_key: !secret netatmo_secret
-  username: !secret netatmo_login_id
-  password: !secret netatmo_password
-  discovery: true
+#netatmo:
+#  api_key: !secret netatmo_api_key
+#  secret_key: !secret netatmo_secret
+#  username: !secret netatmo_login_id
+#  password: !secret netatmo_password
+#  discovery: true
 
 # ##########################################################################
 # Include sub config files
@@ -272,11 +272,11 @@ apcupsd:
 #  token: !secret hacs_token
 
 # Include Alexa
-alexa_media:
-  accounts:
-    - email: !secret amazon_email
-      password: !secret amazon_password
-      url: amazon.de
+#alexa_media:
+#  accounts:
+#    - email: !secret amazon_email
+#      password: !secret amazon_password
+#      url: amazon.de
 
 #example_sensor: # testing
 gardena:
