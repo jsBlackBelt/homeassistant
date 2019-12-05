@@ -26,7 +26,7 @@ homeassistant:
     pack_battery_alert: !include packages/battery_alert/battery_alert.yaml
 
 logger:
-  default: debug
+  default: info
 #  logs:
 #    custom_components.alexa_media: debug
 
@@ -59,16 +59,8 @@ system_health:
 # Enables configuration UI
 config:
 
+# Enable http
 http:
-  # Secrets are defined in the file secrets.yaml
-  #api_password: !secret http_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
-  #trusted_networks:
-  #  - 127.0.0.1
-  #  - ::1
-  # ip_ban_enabled: True
-  # login_attempts_threshold: 5
 
 # Enables the api
 api:
@@ -78,15 +70,15 @@ api:
 # the developers to assist with development of Home Assistant.
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
+#updater:
   # Optional, allows Home Assistant developers to focus on popular components.
-  include_used_components: true
+#  include_used_components: true
 
 # ##########################################################################
 # Enable central functionalities and network connections
 # ##########################################################################
 # Discover some devices automatically
-#discovery:
+discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -124,7 +116,7 @@ mqtt:
     topic: 'homeassistant/status'
     payload: 'offline'
 
-# Integrate Node-Red, Jupyter and States in panel
+# Integrate Panel
 panel_iframe:
   nodered:
     title: 'Node-Red'
@@ -134,46 +126,80 @@ panel_iframe:
     title: JupyterLab
     url: !secret jupyterlab_url  # URL GOES HERE
     icon: mdi:database-search
-  networkmap:
-    title: 'Zigbee Map'
-    url: '/local/zigbee2mqtt_networkmap/map.html'
-    icon: 'mdi:graphql'
 
 # ##########################################################################
 # Enable cloud connections
 # ##########################################################################
-# Enable home assistant cloud
-cloud: !include cloud.yaml
-
 # Text to speech
 tts:
   - platform: google_translate
     service_name: google_say
 
-#netatmo:
-#  api_key: !secret netatmo_api_key
-#  secret_key: !secret netatmo_secret
-#  username: !secret netatmo_login_id
-#  password: !secret netatmo_password
-#  discovery: true
+# Netatmo
+netatmo:
+  api_key: !secret netatmo_api_key
+  secret_key: !secret netatmo_secret
+  username: !secret netatmo_login_id
+  password: !secret netatmo_password
+  discovery: true
+
+# Include SolarEdge
+solaredge:
+  api_key: !secret solaredge_api_key
+  site_id: !secret solaredge_site_id
+
+# Gardena
+gardena:
+  username : !secret gardena_user
+  password : !secret gardena_password
+
+# Telegram
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+
+# Include Calendar
+#calendar:
+#  - platform: caldav
+#    url: https://caldav.icloud.com
+#    username: !secret icloud_username
+#    password: !secret icloud_password
+#    calendars:
+##      - 'Calendar Name'
+
+# Ring
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+# Weather
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_api_key
 
 # ##########################################################################
 # Include sub config files
 # ##########################################################################
-# Scenes
-scene: !include scenes.yaml
 
-# Activates device trackers
-device_tracker: !include device_trackers.yaml
-
-# Include sensors
-sensor: !include sensors.yaml
+# Include automation scripts
+automation: !include automations.yaml
 
 # Include binary sensors
 binary_sensor: !include binary_sensors.yaml
 
-# Include utility meters
-utility_meter: !include utility_meters.yaml
+# Include cameras
+camera: !include camera.yaml
+
+# Enable home assistant cloud
+cloud: !include cloud.yaml
+
+# Activates device trackers
+device_tracker: !include device_trackers.yaml
+
+# Include group definitions
+group: !include groups.yaml
 
 # Include input booleans
 input_boolean: !include input_booleans.yaml
@@ -181,85 +207,66 @@ input_boolean: !include input_booleans.yaml
 # Include input numbers
 input_number: !include input_numbers.yaml
 
-# Include input texts
-input_text: !include input_texts.yaml
-
-# Include notifiers
-notify: !include notifiers.yaml
-
-# Include timer
-timer: !include timers.yaml
-
-# Include switches
-switch: !include switches.yaml
-
-# Include group definitions
-group: !include groups.yaml
-
-# Include automation scripts
-automation: !include automations.yaml
-
-# Include scripts
-script: !include scripts.yaml
-
-# Include media players
-media_player: !include media_players.yaml
-
-# Include iOS
-ios: !include ios.yaml
-
 # Include input selects
 input_select: !include input_selects.yaml
+
+# Include input texts
+input_text: !include input_texts.yaml
 
 # Include intent scripts
 intent_script: !include intents.yaml
 
+# Include iOS
+ios: !include ios.yaml
+
 # Include lights
 light: !include lights.yaml
 
-# Include cameras
-camera: !include camera.yaml
+# Include media players
+media_player: !include media_players.yaml
 
-# Include Calendar
-calendar:
-  - platform: caldav
-    url: https://caldav.icloud.com
-    username: !secret icloud_username
-    password: !secret icloud_password
-    calendars:
-#      - 'Calendar Name'
+# Include notifiers
+notify: !include notifiers.yaml
 
-stream:
+# Scenes
+scene: !include scenes.yaml
 
+# Include scripts
+script: !include scripts.yaml
+
+# Include sensors
+sensor: !include sensors.yaml
+
+# Include switches
+switch: !include switches.yaml
+
+# Include timer
+timer: !include timers.yaml
+
+# Include utility meters
+utility_meter: !include utility_meters.yaml
+
+# Zigbee Network Map
+#webhook:
+#zigbee2mqtt_networkmap:
+
+# ##########################################################################
+# Configure some special devices
+# ##########################################################################
 # Include Harmony
 remote:
   - platform: harmony
     name: living_room
     host: !secret harmony_ip
 
-# Include SolarEdge
-solaredge:
-  api_key: !secret solaredge_api_key
-  site_id: !secret solaredge_site_id
-
-# Zigbee Network Map
-webhook:
-zigbee2mqtt_networkmap:
-
-# ##########################################################################
-# Configure some special devices
-# ##########################################################################
 homekit:
   filter:
     include_domains:
       - alarm_control_panel
       - light
       - media_player
-#      - sensor
       - switch
       - lock
-#      - binary_sensor
-#      - climate
       - cover
 
 climate:
@@ -268,30 +275,15 @@ climate:
 apcupsd:
   host: 192.168.1.115
 
-#hacs:
-#  token: !secret hacs_token
+hacs:
+  token: !secret hacs_token
 
 # Include Alexa
-#alexa_media:
-#  accounts:
-#    - email: !secret amazon_email
-#      password: !secret amazon_password
-#      url: amazon.de
-
-#example_sensor: # testing
-gardena:
-  username : !secret gardena_user
-  password : !secret gardena_password
-
-#xiaomi_aqara:
-#  discovery_retry: 5
-#  gateways:
-#    - mac: !secret xiaomi_aqara_mac
-#      key: !secret xiaomi_aqara_key
-
-#homematicip_cloud:
-#  accesspoint: !secret homematicip_accesspoint
-#  authtoken: !secret homematicip_authtoken
+alexa_media:
+  accounts:
+    - email: !secret amazon_email
+      password: !secret amazon_password
+      url: amazon.de
 
 homematic:
   interfaces:
@@ -320,11 +312,6 @@ homematic:
 #    -host: bridge2_ip
 #     filename: phue2.conf
 
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api_key
-    allowed_chat_ids:
-      - !secret telegram_chat_id
 
 #alert:
 #  cam1_motion:
@@ -336,13 +323,7 @@ telegram_bot:
 #    notifiers:
 #      - notify.telegram
 
-#arlo:
-#  username: !secret arlo_username
-#  password: !secret arlo_password
-
-#alarm_control_panel:
-#  - platform: arlo
-
+# Arlo Cameras
 aarlo:
   username: !secret arlo_username
   password: !secret arlo_password
@@ -365,19 +346,12 @@ alarm_control_panel:
     trigger_time: 30
     alarm_volume: 8
 
-ring:
-  username: !secret ring_username
-  password: !secret ring_password
+#arlo:
+#  username: !secret arlo_username
+#  password: !secret arlo_password
 
-# Only in Lovelace YAML mode :-(
-#custom_updater:
-#  track:
-#    - cards
-#    - components
-#  card_urls:
-#    - https://raw.githubusercontent.com/bramkragten/custom-ui/master/updater.json
-#    - https://raw.githubusercontent.com/nervetattoo/simple-thermostat/master/tracker.json
+#alarm_control_panel:
+#  - platform: arlo
 
-weather:
-  - platform: darksky
-    api_key: !secret dark_sky_api_key
+# Include Stream
+stream:

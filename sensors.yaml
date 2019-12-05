@@ -1,18 +1,18 @@
 # ##########################################################################
 # Unifi
 # ##########################################################################
-#- platform: unifigateway
-#  host: !secret unifi_controller
-#  username: !secret unifi_username
-#  password: !secret unifi_password
-#  monitored_conditions:
-#    - www
-#    - vpn
-#    - lan
-#    - wan
-#    - wlan
-#    - alerts
-#    - firmware
+- platform: unifigateway
+  host: !secret unifi_controller
+  username: !secret unifi_username
+  password: !secret unifi_password
+  monitored_conditions:
+    - www
+    - vpn
+    - lan
+    - wan
+    - wlan
+    - alerts
+    - firmware
 
 # ##########################################################################
 # Power Consumptions
@@ -240,17 +240,6 @@
 # ##########################################################################
 - platform: netatmo
   station: Villa
-#  modules:
-#    - Aussenmodul
-#    - Regenmesser
-#    - Windmesser
-#    - Innenmodul
-#      - temperature
-#      - humidity
-#      - co2
-#      - wifi_status
-#      - noise
-#      - pressure
 
 # ##########################################################################
 # Gardena
