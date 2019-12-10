@@ -38,6 +38,7 @@
     - light.living_room_play_2
     - light.switch_living_room_showcase
     - light.living_room_wall_lamp
+    - light.xmas_star
 
 - platform: group
   name: living_room_color_floor_lamp_group
