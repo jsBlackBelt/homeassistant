@@ -38,6 +38,8 @@
     - light.living_room_play_2
     - light.switch_living_room_showcase
     - light.living_room_wall_lamp
+    - light.living_room_table_lamp
+    - light.living_room_heart
     - light.xmas_star
 
 - platform: group
