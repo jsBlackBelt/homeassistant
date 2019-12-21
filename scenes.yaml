@@ -1,222 +1,567 @@
-# ##########################################################################
-# Living Room
-# ##########################################################################
 - name: Living Room Movie
   entities:
     light.living_room_showcase:
-      state: on
+      state: true
     light.living_room_iris:
-      state: on
+      state: true
       brightness: 205
-      rgb_color: [147, 85, 255]
+      rgb_color:
+      - 147
+      - 85
+      - 255
     light.living_room_play_1:
-      state: on
+      state: true
       brightness: 131
-      rgb_color: [255, 46, 166]
+      rgb_color:
+      - 255
+      - 46
+      - 166
     light.living_room_play_2:
-      state: on
+      state: true
       brightness: 132
-      rgb_color: [255, 55, 33]
+      rgb_color:
+      - 255
+      - 55
+      - 33
     light.living_room_color_floor_lamp_candle_1:
-      state: on
+      state: true
       brightness: 131
-      rgb_color: [255, 45, 73]
+      rgb_color:
+      - 255
+      - 45
+      - 73
     light.living_room_color_floor_lamp_candle_2:
-      state: on
+      state: true
       brightness: 137
-      rgb_color: [255, 192, 46]
+      rgb_color:
+      - 255
+      - 192
+      - 46
     light.living_room_color_floor_lamp_candle_3:
-      state: on
+      state: true
       brightness: 136
-      rgb_color: [255, 137, 31]
+      rgb_color:
+      - 255
+      - 137
+      - 31
     switch.living_room_showcase:
-      state: on
+      state: true
     switch.hyperion_switch:
-      state: on
+      state: true
     light.living_room_wall_lamp:
-      state: on
+      state: true
       brightness: 33
-
+  id: 1eee0ee5e2a44463b3f230fd6627ec32
 - name: Living Room Spring
   entities:
     light.living_room_iris:
-      state: on
+      state: true
       brightness: 252
-      rgb_color: [255, 150, 199]
+      rgb_color:
+      - 255
+      - 150
+      - 199
     light.living_room_play_1:
-      state: on
+      state: true
       brightness: 252
-      rgb_color: [255, 200, 133]
+      rgb_color:
+      - 255
+      - 200
+      - 133
     light.living_room_play_2:
-      state: on
+      state: true
       brightness: 252
-      rgb_color: [255, 199, 234]
+      rgb_color:
+      - 255
+      - 199
+      - 234
     light.living_room_color_floor_lamp_candle_1:
-      state: on
+      state: true
       brightness: 252
-      rgb_color: [255, 167, 152]
+      rgb_color:
+      - 255
+      - 167
+      - 152
     light.living_room_color_floor_lamp_candle_2:
-      state: on
+      state: true
       brightness: 252
-      rgb_color: [255, 205, 192]
+      rgb_color:
+      - 255
+      - 205
+      - 192
     light.living_room_color_floor_lamp_candle_3:
-      state: on
+      state: true
       brightness: 252
-      rgb_color: [255, 215, 116]
+      rgb_color:
+      - 255
+      - 215
+      - 116
     light.switch_living_room_showcase:
-      state: on
+      state: true
     light.living_room_wall_lamp:
-      state: on
+      state: true
       brightness: 100
-
+  id: a3ff8c0ba5a34db3919294ae51a8ee79
 - name: Living Room Reading
   entities:
     light.living_room_iris:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [255, 210, 129]
+      rgb_color:
+      - 255
+      - 210
+      - 129
     light.living_room_play_1:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [255, 210, 129]
+      rgb_color:
+      - 255
+      - 210
+      - 129
     light.living_room_play_2:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [255, 210, 129]
+      rgb_color:
+      - 255
+      - 210
+      - 129
     light.living_room_color_floor_lamp_candle_1:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [255, 210, 129]
+      rgb_color:
+      - 255
+      - 210
+      - 129
     light.living_room_color_floor_lamp_candle_2:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [255, 210, 129]
+      rgb_color:
+      - 255
+      - 210
+      - 129
     light.living_room_color_floor_lamp_candle_3:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [255, 210, 129]
+      rgb_color:
+      - 255
+      - 210
+      - 129
     light.switch_living_room_showcase:
-      state: on
+      state: true
     light.living_room_wall_lamp:
-      state: on
+      state: true
       brightness: 254
-
+  id: 27d1006edf554ff19216f3cf1c76d818
 - name: Living Room Energy
   entities:
     light.living_room_play_1:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [246, 255, 254]
+      rgb_color:
+      - 246
+      - 255
+      - 254
     light.living_room_play_2:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [246, 255, 254]
+      rgb_color:
+      - 246
+      - 255
+      - 254
     light.switch_living_room_showcase:
-      state: on
+      state: true
     light.living_room_iris:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [246, 255, 254]
+      rgb_color:
+      - 246
+      - 255
+      - 254
     light.living_room_color_floor_lamp_candle_1:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [246, 255, 254]
+      rgb_color:
+      - 246
+      - 255
+      - 254
     light.living_room_color_floor_lamp_candle_2:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [246, 255, 254]
+      rgb_color:
+      - 246
+      - 255
+      - 254
     light.living_room_color_floor_lamp_candle_3:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [246, 255, 254]
+      rgb_color:
+      - 246
+      - 255
+      - 254
     light.living_room_wall_lamp:
-      state: on
+      state: true
       brightness: 254
-
-# ##########################################################################
-# Studio
-# ##########################################################################
+  id: b51a4662efa24ff1b8cd4e012032cef1
 - name: Studio Evening Work
   entities:
     light.switch_studio_showcase:
-      state: on
+      state: true
     light.studio_desk_lamp:
-      state: on
+      state: true
       brightness: 199
-      rgb_color: [255, 210, 163]
+      rgb_color:
+      - 255
+      - 210
+      - 163
     light.studio_sofa:
-      state: on
+      state: true
       brightness: 178
-      rgb_color: [255, 185, 44]
+      rgb_color:
+      - 255
+      - 185
+      - 44
     light.switch_studio_floor_lamp_1:
-      state: on
+      state: true
     light.switch_studio_floor_lamp_2:
-      state: on
+      state: true
     light.studio_iris:
-      state: on
+      state: true
       brightness: 197
-      rgb_color: [255, 107, 8]
+      rgb_color:
+      - 255
+      - 107
+      - 8
     light.studio_ceiling_light_1:
-      state: on
+      state: true
       brightness: 239
-      rgb_color: [255, 81, 37]
+      rgb_color:
+      - 255
+      - 81
+      - 37
     light.studio_ceiling_light_2:
-      state: on
+      state: true
       brightness: 240
-      rgb_color: [255, 153, 33]
-
+      rgb_color:
+      - 255
+      - 153
+      - 33
+  id: 211cc13a9e114c41950588c65e32de25
 - name: Studio Reading
   entities:
     light.switch_studio_showcase:
-      state: on
+      state: true
     light.studio_desk_lamp:
-      state: off
+      state: false
     light.studio_sofa:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [255, 210, 129]
+      rgb_color:
+      - 255
+      - 210
+      - 129
     light.studio_iris:
-      state: on
+      state: true
       brightness: 254
-      rgb_color: [255, 210, 129]
+      rgb_color:
+      - 255
+      - 210
+      - 129
     light.switch_studio_floor_lamp_1:
-      state: on
+      state: true
     light.switch_studio_floor_lamp_2:
-      state: on
+      state: true
     light.studio_ceiling_light_1:
-      state: on
+      state: true
       brightness: 143
-      rgb_color: [255, 210, 129]
+      rgb_color:
+      - 255
+      - 210
+      - 129
     light.studio_ceiling_light_2:
-      state: on
+      state: true
       brightness: 144
-      rgb_color: [255, 210, 129]
-
+      rgb_color:
+      - 255
+      - 210
+      - 129
+  id: 42ce4345d50f48f6b826a301516d04c8
 - name: Studio Presentation
   entities:
     light.switch_studio_showcase:
-      state: on
+      state: true
     light.studio_desk_lamp:
-      state: on
+      state: true
       brightness: 199
-      rgb_color: [255, 210, 163]
+      rgb_color:
+      - 255
+      - 210
+      - 163
     light.studio_sofa:
-      state: on
+      state: true
       brightness: 178
-      rgb_color: [255, 111, 20]
+      rgb_color:
+      - 255
+      - 111
+      - 20
     light.studio_iris:
-      state: on
+      state: true
       brightness: 197
-      rgb_color: [255, 114, 1]
+      rgb_color:
+      - 255
+      - 114
+      - 1
     light.switch_studio_floor_lamp_1:
-      state: on
+      state: true
     light.switch_studio_floor_lamp_2:
-      state: on
+      state: true
     light.studio_ceiling_light_1:
-      state: on
+      state: true
       brightness: 239
-      rgb_color: [255, 43, 54]
+      rgb_color:
+      - 255
+      - 43
+      - 54
     light.studio_ceiling_light_2:
-      state: on
+      state: true
       brightness: 240
-      rgb_color: [255, 43, 45]
+      rgb_color:
+      - 255
+      - 43
+      - 45
+  id: c5bbbfd3f3d045f1991ea80a70ef70c4
+- id: '1576918375968'
+  name: Studio Yoga
+  entities:
+    light.studio_ceiling_light_1:
+      brightness: 214
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Deckenlampe 1 Studio
+      hs_color:
+      - 31.829
+      - 64.314
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 177
+      - 90
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.511
+      - 0.398
+    light.studio_ceiling_light_2:
+      brightness: 214
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Deckenlampe 2 Studio
+      hs_color:
+      - 46.977
+      - 50.588
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 227
+      - 126
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.433
+      - 0.428
+    light.studio_desk_lamp:
+      brightness: 214
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Schreibtischlampe Studio
+      hs_color:
+      - 324.343
+      - 68.627
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 80
+      - 184
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.474
+      - 0.226
+    light.studio_iris:
+      brightness: 214
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Iris Studio
+      hs_color:
+      - 2.707
+      - 52.157
+      rgb_color:
+      - 255
+      - 128
+      - 121
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.532
+      - 0.319
+    light.studio_sofa:
+      brightness: 214
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Sofalampe Studio
+      hs_color:
+      - 271.395
+      - 67.451
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 172
+      - 82
+      - 255
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.27
+      - 0.133
+    light.switch_studio_floor_lamp_1:
+      friendly_name: Stehlampe 1 Studio
+      state: 'on'
+      supported_features: 40
+    light.switch_studio_floor_lamp_2:
+      friendly_name: Stehlampe 2 Studio
+      state: 'on'
+      supported_features: 40
+    light.switch_studio_showcase:
+      friendly_name: Vitrine Studio
+      state: 'on'
+      supported_features: 40
+- id: '1576919608931'
+  name: Studio Energie
+  entities:
+    light.studio_ceiling_light_1:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Deckenlampe 1 Studio
+      hs_color:
+      - 173.333
+      - 3.529
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 246
+      - 255
+      - 254
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.314
+      - 0.331
+    light.studio_ceiling_light_2:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Deckenlampe 2 Studio
+      hs_color:
+      - 173.333
+      - 3.529
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 246
+      - 255
+      - 254
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.314
+      - 0.331
+    light.studio_desk_lamp:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Schreibtischlampe Studio
+      hs_color:
+      - 173.333
+      - 3.529
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 246
+      - 255
+      - 254
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.314
+      - 0.331
+    light.studio_iris:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Iris Studio
+      hs_color:
+      - 173.333
+      - 3.529
+      rgb_color:
+      - 246
+      - 255
+      - 254
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.314
+      - 0.331
+    light.studio_sofa:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Sofalampe Studio
+      hs_color:
+      - 173.333
+      - 3.529
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 246
+      - 255
+      - 254
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.314
+      - 0.331
+    light.switch_studio_floor_lamp_1:
+      friendly_name: Stehlampe 1 Studio
+      state: 'on'
+      supported_features: 40
+    light.switch_studio_floor_lamp_2:
+      friendly_name: Stehlampe 2 Studio
+      state: unavailable
+      supported_features: 40
+    light.switch_studio_showcase:
+      friendly_name: Vitrine Studio
+      state: 'on'
+      supported_features: 40
