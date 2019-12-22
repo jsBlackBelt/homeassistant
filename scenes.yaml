@@ -1,57 +1,185 @@
-- name: Living Room Movie
+- id: 1eee0ee5e2a44463b3f230fd6627ec32
+  name: Living Room Movie
   entities:
-    light.living_room_showcase:
-      state: true
-    light.living_room_iris:
-      state: true
-      brightness: 205
-      rgb_color:
-      - 147
-      - 85
-      - 255
-    light.living_room_play_1:
-      state: true
-      brightness: 131
-      rgb_color:
-      - 255
-      - 46
-      - 166
-    light.living_room_play_2:
-      state: true
-      brightness: 132
-      rgb_color:
-      - 255
-      - 55
-      - 33
     light.living_room_color_floor_lamp_candle_1:
-      state: true
       brightness: 131
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Wohnzimmer Farbstehlampe Licht 1
+      hs_color:
+      - 352.427
+      - 80.784
+      max_mireds: 500
+      min_mireds: 153
       rgb_color:
       - 255
-      - 45
-      - 73
+      - 49
+      - 75
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.642
+      - 0.29
     light.living_room_color_floor_lamp_candle_2:
-      state: true
       brightness: 137
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Wohnzimmer Farbstehlampe Licht 2
+      hs_color:
+      - 41.914
+      - 81.961
+      max_mireds: 500
+      min_mireds: 153
       rgb_color:
       - 255
       - 192
-      - 46
+      - 45
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.517
+      - 0.439
     light.living_room_color_floor_lamp_candle_3:
-      state: true
       brightness: 136
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Wohnzimmer Farbstehlampe Licht 3
+      hs_color:
+      - 28.235
+      - 86.667
+      max_mireds: 500
+      min_mireds: 153
       rgb_color:
       - 255
       - 137
-      - 31
-    switch.living_room_showcase:
-      state: true
-    switch.hyperion_switch:
-      state: true
+      - 33
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.593
+      - 0.379
+    light.living_room_heart:
+      brightness: 214
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Herz Wohnzimmer
+      hs_color:
+      - 1.651
+      - 85.49
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 42
+      - 37
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.677
+      - 0.303
+    light.living_room_iris:
+      brightness: 205
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Wohnzimmer Iris
+      hs_color:
+      - 261.557
+      - 65.49
+      rgb_color:
+      - 148
+      - 88
+      - 255
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.239
+      - 0.126
+    light.living_room_play_1:
+      brightness: 131
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Hue play 1 Wohnzimmer
+      hs_color:
+      - 325.756
+      - 80.392
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 50
+      - 167
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.509
+      - 0.225
+    light.living_room_play_2:
+      brightness: 132
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Hue play 2 Wohnzimmer
+      hs_color:
+      - 6.027
+      - 85.882
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 57
+      - 36
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.67
+      - 0.31
+    light.living_room_showcase:
+      friendly_name: living_room_showcase
+      state: unavailable
+      supported_features: 0
     light.living_room_wall_lamp:
-      state: true
       brightness: 33
-  id: 1eee0ee5e2a44463b3f230fd6627ec32
+      friendly_name: Wohnzimmer Wandlampe
+      id: 0008D8A9A98117
+      interface: ip
+      level: 0.13
+      state: 'on'
+      supported_features: 1
+      working: 'No'
+    light.xmas_star:
+      brightness: 252
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Weihnachtsstern
+      hs_color:
+      - 1.651
+      - 85.49
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 42
+      - 37
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.677
+      - 0.303
 - name: Living Room Spring
   entities:
     light.living_room_iris:
