@@ -693,3 +693,176 @@
       friendly_name: Vitrine Studio
       state: 'on'
       supported_features: 40
+- id: '1577101706259'
+  name: Living Room Xmas
+  entities:
+    light.living_room_color_floor_lamp_candle_1:
+      brightness: 251
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Wohnzimmer Farbstehlampe Licht 1
+      hs_color:
+      - 34.839
+      - 85.098
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 164
+      - 38
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.556
+      - 0.409
+    light.living_room_color_floor_lamp_candle_2:
+      brightness: 251
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Wohnzimmer Farbstehlampe Licht 2
+      hs_color:
+      - 48.904
+      - 57.255
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 227
+      - 108
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.445
+      - 0.443
+    light.living_room_color_floor_lamp_candle_3:
+      brightness: 251
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Wohnzimmer Farbstehlampe Licht 3
+      hs_color:
+      - 40.664
+      - 82.745
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 187
+      - 44
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.524
+      - 0.434
+    light.living_room_heart:
+      brightness: 247
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Herz Wohnzimmer
+      hs_color:
+      - 359.717
+      - 83.137
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 43
+      - 44
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.672
+      - 0.301
+    light.living_room_iris:
+      brightness: 251
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Wohnzimmer Iris
+      hs_color:
+      - 309.032
+      - 72.941
+      rgb_color:
+      - 255
+      - 69
+      - 227
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.416
+      - 0.188
+    light.living_room_play_1:
+      brightness: 247
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Hue play 1 Wohnzimmer
+      hs_color:
+      - 22.723
+      - 92.157
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 108
+      - 19
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.632
+      - 0.353
+    light.living_room_play_2:
+      brightness: 247
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Hue play 2 Wohnzimmer
+      hs_color:
+      - 340.472
+      - 83.137
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 43
+      - 111
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.598
+      - 0.265
+    light.living_room_table_lamp:
+      brightness: 247
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tischlampe Wohnzimmer
+      hs_color:
+      - 11.172
+      - 56.863
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 136
+      - 109
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.538
+      - 0.337
+    light.switch_living_room_showcase:
+      friendly_name: Vitrine Wohnzimmer
+      state: 'on'
+      supported_features: 40
