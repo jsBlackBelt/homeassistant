@@ -32,12 +32,14 @@
   name: LG OLED65C7D
   timeout: 5
 
-#- platform: onkyo
+- platform: onkyo
+  host: 192.168.1.97
+  name: Receiver
 
-#- platform: pioneer
-#  host: 192.168.1.97
-#  port: 8102
-#  name: VSX-1131
+# - platform: pioneer
+#   host: 192.168.1.97
+#   port: 8102
+#   name: VSX-1131
 
 #- platform: alexa
 #  email: !secret amazon_email
