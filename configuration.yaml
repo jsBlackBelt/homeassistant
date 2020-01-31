@@ -171,8 +171,8 @@ telegram_bot:
 
 # Ring
 ring:
-  username: !secret ring_username
-  password: !secret ring_password
+#   username: !secret ring_username
+#   password: !secret ring_password
 
 # Weather
 weather:
@@ -251,7 +251,7 @@ utility_meter: !include utility_meters.yaml
 #zigbee2mqtt_networkmap:
 
 # ##########################################################################
-# Configure some special devices
+# Configure some domains
 # ##########################################################################
 # Include Harmony
 remote:
@@ -304,6 +304,16 @@ homematic:
       host: !secret homematic_ip
       username: !secret homematic_username
       password: !secret homematic_password
+
+webostv:
+  host: !secret webostv_ip
+  name: LG TV
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: !secret webostv_mac
+  standby_connection: true
+  timeout: 5
 
 #hue:
 #  bridges:
