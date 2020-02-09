@@ -313,7 +313,9 @@ webostv:
     data:
       mac: !secret webostv_mac
   standby_connection: true
-  timeout: 5
+
+
+#  timeout: 5
 
 #hue:
 #  bridges:
