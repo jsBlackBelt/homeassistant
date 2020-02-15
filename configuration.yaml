@@ -171,8 +171,8 @@ telegram_bot:
 
 # Ring
 ring:
-#   username: !secret ring_username
-#   password: !secret ring_password
+  username: !secret ring_username
+  password: !secret ring_password
 
 # Weather
 weather:
