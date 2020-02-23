@@ -136,12 +136,12 @@ tts:
     service_name: google_say
 
 # Netatmo
-netatmo:
-  api_key: !secret netatmo_api_key
-  secret_key: !secret netatmo_secret
-  username: !secret netatmo_login_id
-  password: !secret netatmo_password
-  discovery: true
+# netatmo:
+#   api_key: !secret netatmo_api_key
+#   secret_key: !secret netatmo_secret
+#   username: !secret netatmo_login_id
+#   password: !secret netatmo_password
+#   discovery: true
 
 # Include SolarEdge
 solaredge:
@@ -269,8 +269,8 @@ homekit:
       - lock
       - cover
 
-climate:
-  - platform: netatmo
+# climate:
+#   - platform: netatmo
 
 apcupsd:
   host: 192.168.1.115
