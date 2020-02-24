@@ -1,106 +1,106 @@
 # ##########################################################################
 # Unifi
 # ##########################################################################
-- platform: unifigateway
-  host: !secret unifi_controller
-  username: !secret unifi_username
-  password: !secret unifi_password
-  monitored_conditions:
-    - www
-    - vpn
-    - lan
-    - wan
-    - wlan
-    - alerts
-    - firmware
+# - platform: unifigateway
+#   host: !secret unifi_controller
+#   username: !secret unifi_username
+#   password: !secret unifi_password
+#   monitored_conditions:
+#     - www
+#     - vpn
+#     - lan
+#     - wan
+#     - wlan
+#     - alerts
+#     - firmware
 
 # ##########################################################################
 # Power Consumptions
 # ##########################################################################
 # Espresso Consumption
-- platform: integration
-  source: input_number.continuous_espresso_machine_power
-#  source: sensor.espresso_power
-  method: right
-  unit_prefix: k
-  round: 2
-
-- platform: template
-  sensors:
-    espresso_machine_consumption_today:
-      value_template: >
-        {{ (float(states.sensor.input_number_continuous_espresso_machine_power_integral.state) - float(states.input_number.midnight_espresso_machine_consumption.state)) | round(3) }}
-#        {{ (float(states.sensor.sensor_espresso_power_integral.state) - float(states.input_number.midnight_espresso_consumption.state)) | round(3) }}
-      unit_of_measurement: 'kWh'
-      friendly_name: "Today's Espresso Consumption"
+# - platform: integration
+#   source: input_number.continuous_espresso_machine_power
+# #  source: sensor.espresso_power
+#   method: right
+#   unit_prefix: k
+#   round: 2
+#
+# - platform: template
+#   sensors:
+#     espresso_machine_consumption_today:
+#       value_template: >
+#         {{ (float(states.sensor.input_number_continuous_espresso_machine_power_integral.state) - float(states.input_number.midnight_espresso_machine_consumption.state)) | round(3) }}
+# #        {{ (float(states.sensor.sensor_espresso_power_integral.state) - float(states.input_number.midnight_espresso_consumption.state)) | round(3) }}
+#       unit_of_measurement: 'kWh'
+#       friendly_name: "Today's Espresso Consumption"
 
 # Humidifier Consumption
-- platform: integration
-  source: input_number.continuous_humidifier_power
-#  source: sensor.humidifier_power
-  method: right
-  unit_prefix: k
-  round: 2
-
-- platform: template
-  sensors:
-    humidifier_consumption_today:
-      value_template: >
-        {{ (float(states.sensor.input_number_continuous_humidifier_power_integral.state) - float(states.input_number.midnight_humidifier_consumption.state)) | round(3) }}
-#        {{ (float(states.sensor.sensor_humidifier_power_integral.state) - float(states.input_number.midnight_humidifier_consumption.state)) | round(3) }}
-      unit_of_measurement: 'kWh'
-      friendly_name: "Today's Humidifier Consumption"
+# - platform: integration
+#   source: input_number.continuous_humidifier_power
+# #  source: sensor.humidifier_power
+#   method: right
+#   unit_prefix: k
+#   round: 2
+#
+# - platform: template
+#   sensors:
+#     humidifier_consumption_today:
+#       value_template: >
+#         {{ (float(states.sensor.input_number_continuous_humidifier_power_integral.state) - float(states.input_number.midnight_humidifier_consumption.state)) | round(3) }}
+# #        {{ (float(states.sensor.sensor_humidifier_power_integral.state) - float(states.input_number.midnight_humidifier_consumption.state)) | round(3) }}
+#       unit_of_measurement: 'kWh'
+#       friendly_name: "Today's Humidifier Consumption"
 
 # Dehumidifier Consumption
-- platform: integration
-  source: input_number.continuous_dehumidifier_power
-#  source: sensor.dehumidifier_power
-  method: right
-  unit_prefix: k
-  round: 2
-
-- platform: template
-  sensors:
-    dehumidifier_consumption_today:
-      value_template: >
-        {{ (float(states.sensor.input_number_continuous_dehumidifier_power_integral.state) - float(states.input_number.midnight_dehumidifier_consumption.state)) | round(3) }}
-#        {{ (float(states.sensor.sensor_dehumidifier_power_integral.state) - float(states.input_number.midnight_dehumidifier_consumption.state)) | round(3) }}
-      unit_of_measurement: 'kWh'
-      friendly_name: "Today's Dehumidifier Consumption"
+# - platform: integration
+#   source: input_number.continuous_dehumidifier_power
+# #  source: sensor.dehumidifier_power
+#   method: right
+#   unit_prefix: k
+#   round: 2
+#
+# - platform: template
+#   sensors:
+#     dehumidifier_consumption_today:
+#       value_template: >
+#         {{ (float(states.sensor.input_number_continuous_dehumidifier_power_integral.state) - float(states.input_number.midnight_dehumidifier_consumption.state)) | round(3) }}
+# #        {{ (float(states.sensor.sensor_dehumidifier_power_integral.state) - float(states.input_number.midnight_dehumidifier_consumption.state)) | round(3) }}
+#       unit_of_measurement: 'kWh'
+#       friendly_name: "Today's Dehumidifier Consumption"
 
 # Washing Machine Consumption
-- platform: integration
-  source: input_number.continuous_washing_machine_power
-#  source: sensor.washing_machine_power
-  method: right
-  unit_prefix: k
-  round: 2
-
-- platform: template
-  sensors:
-    washing_machine_consumption_today:
-      value_template: >
-        {{ (float(states.sensor.input_number_continuous_washing_machine_power_integral.state) - float(states.input_number.midnight_washing_machine_consumption.state)) | round(3) }}
-#        {{ (float(states.sensor.sensor_washing_machine_power_integral.state) - float(states.input_number.midnight_washing_machine_consumption.state)) | round(3) }}
-      unit_of_measurement: 'kWh'
-      friendly_name: "Today's Washing Machine Consumption"
+# - platform: integration
+#   source: input_number.continuous_washing_machine_power
+# #  source: sensor.washing_machine_power
+#   method: right
+#   unit_prefix: k
+#   round: 2
+#
+# - platform: template
+#   sensors:
+#     washing_machine_consumption_today:
+#       value_template: >
+#         {{ (float(states.sensor.input_number_continuous_washing_machine_power_integral.state) - float(states.input_number.midnight_washing_machine_consumption.state)) | round(3) }}
+# #        {{ (float(states.sensor.sensor_washing_machine_power_integral.state) - float(states.input_number.midnight_washing_machine_consumption.state)) | round(3) }}
+#       unit_of_measurement: 'kWh'
+#       friendly_name: "Today's Washing Machine Consumption"
 
 # Dryer Consumption
-- platform: integration
-  source: input_number.continuous_dryer_power
-#  source: sensor.dryer_power
-  method: right
-  unit_prefix: k
-  round: 2
-
-- platform: template
-  sensors:
-    dryer_consumption_today:
-      value_template: >
-        {{ (float(states.sensor.input_number_continuous_dryer_power_integral.state) - float(states.input_number.midnight_dryer_consumption.state)) | round(3) }}
-#        {{ (float(states.sensor.sensor_dryer_power_integral.state) - float(states.input_number.midnight_dryer_consumption.state)) | round(3) }}
-      unit_of_measurement: 'kWh'
-      friendly_name: "Today's Dryer Consumption"
+# - platform: integration
+#   source: input_number.continuous_dryer_power
+# #  source: sensor.dryer_power
+#   method: right
+#   unit_prefix: k
+#   round: 2
+#
+# - platform: template
+#   sensors:
+#     dryer_consumption_today:
+#       value_template: >
+#         {{ (float(states.sensor.input_number_continuous_dryer_power_integral.state) - float(states.input_number.midnight_dryer_consumption.state)) | round(3) }}
+# #        {{ (float(states.sensor.sensor_dryer_power_integral.state) - float(states.input_number.midnight_dryer_consumption.state)) | round(3) }}
+#       unit_of_measurement: 'kWh'
+#       friendly_name: "Today's Dryer Consumption"
 
 # Waterbed Consumption
 - platform: integration
@@ -126,22 +126,6 @@
   sensors:
     solaredge_energy_this_year_template:
       value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
-
-# ##########################################################################
-# Pi-Hole
-# ##########################################################################
-#- platform: pi_hole
-#  host: !secret pi_hole_ip
-#  monitored_conditions:
-#    - ads_blocked_today
-#    - ads_percentage_today
-#    - dns_queries_today
-#    - domains_being_blocked
-#    - queries_cached
-#    - queries_forwarded
-#    - unique_clients
-#    - unique_domains
-#    - clients_ever_seen
 
 # ##########################################################################
 # APC UPS
@@ -170,14 +154,6 @@
 # ##########################################################################
 # Arlo
 # ##########################################################################
-#- platform: arlo
-#  monitored_conditions:
-#    - captured_today
-#    - last_capture
-#    - total_cameras
-#    - battery_level
-#    - signal_strength
-
 - platform: aarlo
   monitored_conditions:
     - last_capture
@@ -311,57 +287,57 @@
 # ##########################################################################
 # Measure Switches
 # ##########################################################################
-- platform: template
-  sensors:
-    pwr_dehumidifier:
-      friendly_name: "Luftentfeuchter Leistung"
-      unit_of_measurement: 'W'
-      value_template: '{% if states.switch.luftentfeuchter %}{{ states.switch.luftentfeuchter.attributes.current_power_w }}{% else %}Off{% endif %}'
-- platform: template
-  sensors:
-    pwr_dehumidifier_today:
-      friendly_name: "Luftentfeuchter Leistung heute"
-      unit_of_measurement: 'kWh'
-      value_template: '{% if states.switch.luftentfeuchter %}{{ states.switch.luftentfeuchter.attributes.today_energy_kwh }}{% else %}Off{% endif %}'
-
-- platform: template
-  sensors:
-    pwr_washingmachine:
-      friendly_name: "Waschmaschine Leistung"
-      unit_of_measurement: 'W'
-      value_template: '{% if states.switch.waschmaschine %}{{ states.switch.waschmaschine.attributes.current_power_w }}{% else %}Off{% endif %}'
-- platform: template
-  sensors:
-    pwr_washingmachine_today:
-      friendly_name: "Waschmaschine Leistung heute"
-      unit_of_measurement: 'kWh'
-      value_template: '{% if states.switch.waschmaschine %}{{ states.switch.waschmaschine.attributes.today_energy_kwh }}{% else %}Off{% endif %}'
-
-- platform: template
-  sensors:
-    pwr_dryer:
-      friendly_name: "Trockner Leistung"
-      unit_of_measurement: 'W'
-      value_template: '{% if states.switch.trockner %}{{ states.switch.trockner.attributes.current_power_w }}{% else %}Off{% endif %}'
-- platform: template
-  sensors:
-    pwr_dryer_today:
-      friendly_name: "Trockner Leistung heute"
-      unit_of_measurement: 'kWh'
-      value_template: '{% if states.switch.trockner %}{{ states.switch.trockner.attributes.today_energy_kwh }}{% else %}Off{% endif %}'
-
-- platform: template
-  sensors:
-    pwr_light_cellar:
-      friendly_name: "Licht Keller Leistung"
-      unit_of_measurement: 'W'
-      value_template: '{% if states.light.keller %}{{ states.light.keller.attributes.power_consumption }}{% else %}Off{% endif %}'
-- platform: template
-  sensors:
-    pwr_light_cellar_today:
-      friendly_name: "Licht Keller Leistung heute"
-      unit_of_measurement: 'kWh'
-      value_template: '{% if states.light.keller %}{{ states.light.keller.attributes.energie_counter_kwh }}{% else %}Off{% endif %}'
+# - platform: template
+#   sensors:
+#     pwr_dehumidifier:
+#       friendly_name: "Luftentfeuchter Leistung"
+#       unit_of_measurement: 'W'
+#       value_template: '{% if states.switch.luftentfeuchter %}{{ states.switch.luftentfeuchter.attributes.current_power_w }}{% else %}Off{% endif %}'
+# - platform: template
+#   sensors:
+#     pwr_dehumidifier_today:
+#       friendly_name: "Luftentfeuchter Leistung heute"
+#       unit_of_measurement: 'kWh'
+#       value_template: '{% if states.switch.luftentfeuchter %}{{ states.switch.luftentfeuchter.attributes.today_energy_kwh }}{% else %}Off{% endif %}'
+#
+# - platform: template
+#   sensors:
+#     pwr_washingmachine:
+#       friendly_name: "Waschmaschine Leistung"
+#       unit_of_measurement: 'W'
+#       value_template: '{% if states.switch.waschmaschine %}{{ states.switch.waschmaschine.attributes.current_power_w }}{% else %}Off{% endif %}'
+# - platform: template
+#   sensors:
+#     pwr_washingmachine_today:
+#       friendly_name: "Waschmaschine Leistung heute"
+#       unit_of_measurement: 'kWh'
+#       value_template: '{% if states.switch.waschmaschine %}{{ states.switch.waschmaschine.attributes.today_energy_kwh }}{% else %}Off{% endif %}'
+#
+# - platform: template
+#   sensors:
+#     pwr_dryer:
+#       friendly_name: "Trockner Leistung"
+#       unit_of_measurement: 'W'
+#       value_template: '{% if states.switch.trockner %}{{ states.switch.trockner.attributes.current_power_w }}{% else %}Off{% endif %}'
+# - platform: template
+#   sensors:
+#     pwr_dryer_today:
+#       friendly_name: "Trockner Leistung heute"
+#       unit_of_measurement: 'kWh'
+#       value_template: '{% if states.switch.trockner %}{{ states.switch.trockner.attributes.today_energy_kwh }}{% else %}Off{% endif %}'
+#
+# - platform: template
+#   sensors:
+#     pwr_light_cellar:
+#       friendly_name: "Licht Keller Leistung"
+#       unit_of_measurement: 'W'
+#       value_template: '{% if states.light.keller %}{{ states.light.keller.attributes.power_consumption }}{% else %}Off{% endif %}'
+# - platform: template
+#   sensors:
+#     pwr_light_cellar_today:
+#       friendly_name: "Licht Keller Leistung heute"
+#       unit_of_measurement: 'kWh'
+#       value_template: '{% if states.light.keller %}{{ states.light.keller.attributes.energie_counter_kwh }}{% else %}Off{% endif %}'
 
 # ##########################################################################
 # Homematic
@@ -537,14 +513,6 @@
 # ##########################################################################
 # Scraper
 # ##########################################################################
-
-# ##########################################################################
-# Media Players
-# ##########################################################################
-#- platform: plex
-#  host: !secret plex_ip
-#  port: !secret plex_port
-#  name: Plex
 
 # ##########################################################################
 # Harmony

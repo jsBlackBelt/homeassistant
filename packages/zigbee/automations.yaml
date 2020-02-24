@@ -3,7 +3,6 @@
 # ##########################################################################
 - id: update_networkmap
   alias: 'Zigbee Map aktualisieren'
-  hide_entity: true
   trigger:
     platform: time_pattern
     minutes: '/10'
@@ -57,7 +56,6 @@
 
 - id: enable_zigbee1_join
   alias: Enable Zigbee1 joining
-  hide_entity: true
   trigger:
     platform: state
     entity_id: input_boolean.zigbee1_permit_join
@@ -72,7 +70,6 @@
       entity_id: timer.zigbee1_permit_join
 - id: enable_zigbee2_join
   alias: Enable Zigbee2 joining
-  hide_entity: true
   trigger:
     platform: state
     entity_id: input_boolean.zigbee2_permit_join
@@ -88,7 +85,6 @@
 
 - id: disable_zigbee1_join
   alias: Disable Zigbee1 joining
-  hide_entity: true
   trigger:
   - entity_id: input_boolean.zigbee1_permit_join
     platform: state
@@ -103,7 +99,6 @@
     service: timer.cancel
 - id: disable_zigbee2_join
   alias: Disable Zigbee2 joining
-  hide_entity: true
   trigger:
   - entity_id: input_boolean.zigbee2_permit_join
     platform: state
@@ -119,7 +114,6 @@
 
 - id: disable_zigbee1_join_timer
   alias: Disable Zigbee1 joining by timer
-  hide_entity: true
   trigger:
   - platform: event
     event_type: timer.finished
@@ -135,7 +129,6 @@
       entity_id: input_boolean.zigbee1_permit_join
 - id: disable_zigbee2_join_timer
   alias: Disable Zigbee2 joining by timer
-  hide_entity: true
   trigger:
   - platform: event
     event_type: timer.finished

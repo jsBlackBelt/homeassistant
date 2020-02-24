@@ -3,8 +3,6 @@
 # ##########################################################################
 zigbee1_group:
   name: Zigbee2mqtt1
-  view: false
-  control: hidden
   entities:
     - input_boolean.zigbee1_permit_join
     - timer.zigbee1_permit_join
@@ -18,8 +16,6 @@ zigbee1_group:
 
 zigbee2_group:
   name: Zigbee2mqtt2
-  view: false
-  control: hidden
   entities:
     - input_boolean.zigbee2_permit_join
     - timer.zigbee2_permit_join

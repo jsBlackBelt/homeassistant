@@ -65,15 +65,6 @@ http:
 # Enables the api
 api:
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-#updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-#  include_used_components: true
-
 # ##########################################################################
 # Enable central functionalities and network connections
 # ##########################################################################
@@ -124,7 +115,7 @@ panel_iframe:
     url: !secret nodered_url
   jupyterlab:
     title: JupyterLab
-    url: !secret jupyterlab_url  # URL GOES HERE
+    url: !secret jupyterlab_url
     icon: mdi:database-search
 
 # ##########################################################################
@@ -136,12 +127,9 @@ tts:
     service_name: google_say
 
 # Netatmo
-# netatmo:
-#   api_key: !secret netatmo_api_key
-#   secret_key: !secret netatmo_secret
-#   username: !secret netatmo_login_id
-#   password: !secret netatmo_password
-#   discovery: true
+netatmo:
+  client_id: !secret netatmo_api_key
+  client_secret: !secret netatmo_secret
 
 # Include SolarEdge
 solaredge:
@@ -246,10 +234,6 @@ timer: !include timers.yaml
 # Include utility meters
 utility_meter: !include utility_meters.yaml
 
-# Zigbee Network Map
-#webhook:
-#zigbee2mqtt_networkmap:
-
 # ##########################################################################
 # Configure some domains
 # ##########################################################################
@@ -269,14 +253,8 @@ homekit:
       - lock
       - cover
 
-# climate:
-#   - platform: netatmo
-
 apcupsd:
   host: 192.168.1.115
-
-hacs:
-  token: !secret hacs_token
 
 # Include Alexa
 alexa_media:
@@ -312,18 +290,6 @@ webostv:
     service: wake_on_lan.send_magic_packet
     data:
       mac: !secret webostv_mac
-  standby_connection: true
-
-
-#  timeout: 5
-
-#hue:
-#  bridges:
-#    -host: bridge1_ip
-#     filename: phue1.conf
-#    -host: bridge2_ip
-#     filename: phue2.conf
-
 
 #alert:
 #  cam1_motion:
