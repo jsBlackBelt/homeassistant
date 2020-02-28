@@ -103,7 +103,7 @@
       prob_given_false: 0.2
       platform: 'state'
       to_state: 'home'
-    - entity_id: 'device_tracker.markus_iphone_11'
+    - entity_id: 'device_tracker.markus_iphone_11_gps'
       prob_given_true: 0.9
       prob_given_false: 0.1
       platform: 'state'
@@ -129,7 +129,7 @@
       prob_given_false: 0.2
       platform: 'state'
       to_state: 'home'
-    - entity_id: 'device_tracker.magda_iphone_8'
+    - entity_id: 'device_tracker.magda_iphone_8_gps'
       prob_given_true: 0.9
       prob_given_false: 0.1
       platform: 'state'
