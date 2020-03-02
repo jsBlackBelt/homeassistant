@@ -199,13 +199,14 @@
 - platform: template
   sensors:
     grid_feed_template:
+      friendly_name: "Grid"
       value_template: >-
         {% if is_state("sensor.sonnen_flow_consumption_grid", "False") and
               is_state("sensor.sonnen_flow_production_grid", "True") -%}
-          Einspeisung
+          Feed in
         {% elif is_state("sensor.sonnen_flow_consumption_grid", "True") and
                 is_state("sensor.sonnen_flow_production_grid", "False") -%}
-          Verbrauch
+          Consumption
         {% else %}
           Neutral
         {% endif %}
@@ -222,13 +223,14 @@
 - platform: template
   sensors:
     battery_feed_template:
+      friendly_name: "Battery"
       value_template: >-
         {% if is_state("sensor.sonnen_flow_consumption_battery", "False") and
               is_state("sensor.sonnen_flow_production_battery", "True") -%}
-          Laden
+          Charging
         {% elif is_state("sensor.sonnen_flow_consumption_battery", "True") and
                 is_state("sensor.sonnen_flow_production_battery", "False") -%}
-          Entladen
+          Discharging
         {% else %}
           Neutral
         {% endif %}
