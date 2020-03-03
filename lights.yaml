@@ -13,13 +13,13 @@
 # Rooms - Link to Alexa Groups
 # ##########################################################################
 - platform: group
-  name: entrance_group
+  name: Flur
   entities:
     - light.entrance_ceiling_light_1
     - light.entrance_ceiling_light_2
 
 - platform: group
-  name: kitchen_group
+  name: Küche
   entities:
     - light.kitchen_counter_top_north
     - light.kitchen_dining_table_light_up
@@ -28,7 +28,7 @@
     - light.switch_kitchen_tetris
 
 - platform: group
-  name: living_room_group
+  name: Wohnzimmer
   entities:
     - light.living_room_color_floor_lamp_candle_1
     - light.living_room_color_floor_lamp_candle_2
@@ -43,43 +43,43 @@
     - light.xmas_star
 
 - platform: group
-  name: living_room_color_floor_lamp_group
+  name: Wohnzimmer Farbstehlampe
   entities:
     - light.living_room_color_floor_lamp_candle_1
     - light.living_room_color_floor_lamp_candle_2
     - light.living_room_color_floor_lamp_candle_3
 
 - platform: group
-  name: toilet_group
+  name: Toilette
   entities:
     - light.toilet_ceiling_light
 
 - platform: group
-  name: kidsroom_amelie_group
+  name: Amelie
   entities:
     - light.kidsroom_amelie_ceiling_light
     - light.kidsroom_amelie_globe
 
 - platform: group
-  name: kidsroom_marlene_group
+  name: Marlene
   entities:
     - light.kidsroom_marlene_wall_lamp
 
 - platform: group
-  name: bedroom_group
+  name: Schlafzimmer
   entities:
     - light.bedroom_ceiling_light
     - light.bedroom_wardrobe
     - light.bedroom_wall_lamp
 
 - platform: group
-  name: bathroom_group
+  name: Badezimmer
   entities:
     - light.bathroom_mirror
     - light.bathroom_ceiling_light
 
 - platform: group
-  name: studio_group
+  name: Studio
   entities:
     - light.studio_ceiling_light_1
     - light.studio_ceiling_light_2
@@ -91,7 +91,7 @@
     - light.studio_sofa
 
 - platform: group
-  name: fitness_group
+  name: Fitness
   entities:
     - light.fitness_ceiling_light_1
     - light.fitness_ceiling_light_2
@@ -103,7 +103,7 @@
 #  entities:
 
 - platform: group
-  name: garden_group
+  name: Garten
   entities:
     - light.garden_south
 
