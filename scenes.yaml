@@ -9,18 +9,18 @@
       - random
       friendly_name: Wohnzimmer Farbstehlampe Licht 1
       hs_color:
-      - 352.315
-      - 79.608
+      - 352.2
+      - 78.431
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 51
-      - 78
+      - 55
+      - 81
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.638
+      - 0.632
       - 0.29
     light.living_room_color_floor_lamp_candle_2:
       brightness: 137
@@ -51,18 +51,18 @@
       - random
       friendly_name: Wohnzimmer Farbstehlampe Licht 3
       hs_color:
-      - 27.945
-      - 85.882
+      - 27.65
+      - 85.098
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 137
-      - 36
+      - 138
+      - 38
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.592
+      - 0.589
       - 0.379
     light.living_room_heart:
       brightness: 214
@@ -72,18 +72,18 @@
       - random
       friendly_name: Wohnzimmer Herz
       hs_color:
-      - 1.402
-      - 83.922
+      - 1.137
+      - 82.745
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 45
-      - 40
+      - 47
+      - 44
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.674
+      - 0.67
       - 0.303
     light.living_room_iris:
       brightness: 205
@@ -93,17 +93,17 @@
       - random
       friendly_name: Wohnzimmer Iris
       hs_color:
-      - 261.35
-      - 63.922
+      - 261.615
+      - 63.137
       rgb_color:
-      - 150
-      - 91
+      - 152
+      - 94
       - 255
       state: 'on'
       supported_features: 61
       xy_color:
-      - 0.241
-      - 0.129
+      - 0.243
+      - 0.133
     light.living_room_play_1:
       brightness: 131
       effect: none
@@ -112,19 +112,19 @@
       - random
       friendly_name: Wohnzimmer Hue Play 1
       hs_color:
-      - 325.97
-      - 78.824
+      - 326.231
+      - 78.039
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 53
-      - 167
+      - 56
+      - 168
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.508
-      - 0.226
+      - 0.506
+      - 0.227
     light.living_room_play_2:
       brightness: 132
       effect: none
@@ -133,23 +133,19 @@
       - random
       friendly_name: Wohnzimmer Hue Play 2
       hs_color:
-      - 5.581
-      - 84.314
+      - 5.377
+      - 83.137
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 59
-      - 39
+      - 61
+      - 43
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.667
+      - 0.663
       - 0.31
-    light.living_room_showcase:
-      friendly_name: living_room_showcase
-      state: unavailable
-      supported_features: 0
     light.living_room_wall_lamp:
       brightness: 255
       friendly_name: Wohnzimmer Wandlampe
@@ -159,15 +155,9 @@
       state: 'on'
       supported_features: 1
       working: 'No'
-    light.xmas_star:
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Wohnzimmer Stern
-      max_mireds: 500
-      min_mireds: 153
-      state: unavailable
-      supported_features: 63
+    switch.living_room_showcase:
+      friendly_name: Wohnzimmer Vitrine
+      state: 'off'
 - id: a3ff8c0ba5a34db3919294ae51a8ee79
   name: Wohnzimmer Frühling
   entities:
@@ -179,8 +169,8 @@
       - random
       friendly_name: Wohnzimmer Farbstehlampe Licht 1
       hs_color:
-      - 8.824
-      - 40
+      - 8.911
+      - 39.608
       max_mireds: 500
       min_mireds: 153
       rgb_color:
@@ -221,7 +211,7 @@
       - random
       friendly_name: Wohnzimmer Farbstehlampe Licht 3
       hs_color:
-      - 42.857
+      - 42.429
       - 54.902
       max_mireds: 500
       min_mireds: 153
@@ -261,19 +251,19 @@
       - random
       friendly_name: Wohnzimmer Hue Play 1
       hs_color:
-      - 32.727
+      - 32.231
       - 47.451
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 199
+      - 198
       - 133
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.454
-      - 0.389
+      - 0.455
+      - 0.388
     light.living_room_play_2:
       brightness: 252
       effect: none
@@ -282,8 +272,8 @@
       - random
       friendly_name: Wohnzimmer Hue Play 2
       hs_color:
-      - 323.158
-      - 22.353
+      - 323.793
+      - 22.745
       max_mireds: 500
       min_mireds: 153
       rgb_color:
@@ -304,10 +294,9 @@
       state: 'on'
       supported_features: 1
       working: 'No'
-    light.switch_living_room_showcase:
+    switch.living_room_showcase:
       friendly_name: Wohnzimmer Vitrine
-      state: unavailable
-      supported_features: 40
+      state: 'on'
 - id: 27d1006edf554ff19216f3cf1c76d818
   name: Wohnzimmer Lesen
   entities:
@@ -319,19 +308,19 @@
       - random
       friendly_name: Wohnzimmer Farbstehlampe Licht 1
       hs_color:
-      - 38.095
+      - 37.619
       - 49.412
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 208
+      - 207
       - 128
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.45
-      - 0.404
+      - 0.451
+      - 0.403
     light.living_room_color_floor_lamp_candle_2:
       brightness: 254
       effect: none
@@ -340,19 +329,19 @@
       - random
       friendly_name: Wohnzimmer Farbstehlampe Licht 2
       hs_color:
-      - 38.095
+      - 37.619
       - 49.412
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 208
+      - 207
       - 128
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.45
-      - 0.404
+      - 0.451
+      - 0.403
     light.living_room_color_floor_lamp_candle_3:
       brightness: 254
       effect: none
@@ -361,19 +350,19 @@
       - random
       friendly_name: Wohnzimmer Farbstehlampe Licht 3
       hs_color:
-      - 38.095
+      - 37.619
       - 49.412
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 208
+      - 207
       - 128
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.45
-      - 0.404
+      - 0.451
+      - 0.403
     light.living_room_iris:
       brightness: 254
       effect: none
@@ -382,16 +371,16 @@
       - random
       friendly_name: Wohnzimmer Iris
       hs_color:
-      - 38.095
-      - 49.412
+      - 37.795
+      - 49.804
       rgb_color:
       - 255
-      - 208
-      - 128
+      - 207
+      - 127
       state: 'on'
       supported_features: 61
       xy_color:
-      - 0.45
+      - 0.452
       - 0.404
     light.living_room_play_1:
       brightness: 254
@@ -401,18 +390,18 @@
       - random
       friendly_name: Wohnzimmer Hue Play 1
       hs_color:
-      - 38.095
-      - 49.412
+      - 37.795
+      - 49.804
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 208
-      - 128
+      - 207
+      - 127
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.45
+      - 0.452
       - 0.404
     light.living_room_play_2:
       brightness: 254
@@ -422,18 +411,18 @@
       - random
       friendly_name: Wohnzimmer Hue Play 2
       hs_color:
-      - 38.095
-      - 49.412
+      - 37.795
+      - 49.804
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 208
-      - 128
+      - 207
+      - 127
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.45
+      - 0.452
       - 0.404
     light.living_room_wall_lamp:
       brightness: 255
@@ -444,10 +433,9 @@
       state: 'on'
       supported_features: 1
       working: 'No'
-    light.switch_living_room_showcase:
+    switch.living_room_showcase:
       friendly_name: Wohnzimmer Vitrine
-      state: unavailable
-      supported_features: 40
+      state: 'on'
 - id: b51a4662efa24ff1b8cd4e012032cef1
   name: Wohnzimmer Energie
   entities:
@@ -522,17 +510,17 @@
       - random
       friendly_name: Wohnzimmer Iris
       hs_color:
-      - 166.667
-      - 3.529
+      - 169.091
+      - 4.314
       rgb_color:
-      - 246
+      - 243
       - 255
-      - 253
+      - 252
       state: 'on'
       supported_features: 61
       xy_color:
-      - 0.315
-      - 0.332
+      - 0.312
+      - 0.333
     light.living_room_play_1:
       brightness: 254
       effect: none
@@ -541,19 +529,19 @@
       - random
       friendly_name: Wohnzimmer Hue Play 1
       hs_color:
-      - 166.667
+      - 160
       - 3.529
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 246
       - 255
-      - 253
+      - 252
       state: 'on'
       supported_features: 63
       xy_color:
       - 0.315
-      - 0.332
+      - 0.333
     light.living_room_play_2:
       brightness: 254
       effect: none
@@ -562,19 +550,19 @@
       - random
       friendly_name: Wohnzimmer Hue Play 2
       hs_color:
-      - 166.667
+      - 160
       - 3.529
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 246
       - 255
-      - 253
+      - 252
       state: 'on'
       supported_features: 63
       xy_color:
       - 0.315
-      - 0.332
+      - 0.333
     light.living_room_wall_lamp:
       brightness: 255
       friendly_name: Wohnzimmer Wandlampe
@@ -584,10 +572,9 @@
       state: 'on'
       supported_features: 1
       working: 'No'
-    light.switch_living_room_showcase:
+    switch.living_room_showcase:
       friendly_name: Wohnzimmer Vitrine
-      state: unavailable
-      supported_features: 40
+      state: 'on'
 - id: 211cc13a9e114c41950588c65e32de25
   name: Studio Arbeit
   entities:
@@ -1261,7 +1248,3 @@
       xy_color:
       - 0.537
       - 0.336
-    light.switch_living_room_showcase:
-      friendly_name: Wohnzimmer Vitrine
-      state: unavailable
-      supported_features: 40
