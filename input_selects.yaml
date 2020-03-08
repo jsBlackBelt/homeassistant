@@ -13,3 +13,15 @@
 #    - Spotify
 #    - Musik
 #    - Power Off
+
+############################################################
+# Washing Maschine Status
+############################################################
+washing_machine_status:
+  name: Washing Machine Status
+  options:
+   - running
+   - finished
+   - poweroff
+  initial: poweroff
+  icon: mdi:washing-machine

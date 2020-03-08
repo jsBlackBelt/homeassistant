@@ -1,214 +1,117 @@
-# ##########################################################################
-# Power Consumptions
-# ##########################################################################
-# Espresso Consumption
-# - alias: Espresso Machine Consumption Actual
-#   trigger:
-#     platform: time_pattern
-#     seconds: /10
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.continuous_espresso_machine_power
-#         value: "{{ states.sensor.espresso_power.state }}"
-#
-# - alias: Espresso Machine Consumption at start of the day
-#   trigger:
-#     platform: time
-#     at: '00:00:00'
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_espresso_machine_consumption_previous
-#         value: "{{ states.sensor.espresso_machine_consumption_today.state }}"
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_espresso_machine_consumption
-#         value: "{{ states.sensor.input_number_continuous_espresso_machine_power_integral.state }}"
-
-# Humidifier Consumption
-# - alias: Humidifier Consumption Actual
-#   trigger:
-#     platform: time_pattern
-#     seconds: /10
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.continuous_humidifier_power
-#         value: "{{ states.sensor.humidifier_power.state }}"
-#
-# - alias: Humidifier Consumption at start of the day
-#   trigger:
-#     platform: time
-#     at: '00:00:00'
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_humidifier_consumption_previous
-#         value: "{{ states.sensor.humidifier_consumption_today.state }}"
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_humidifier_consumption
-#         value: "{{ states.sensor.input_number_continuous_humidifier_power_integral.state }}"
-
-# Dehumidifier Consumption
-# - alias: Dehumidifier Consumption Actual
-#   trigger:
-#     platform: time_pattern
-#     seconds: /10
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.continuous_dehumidifier_power
-#         value: "{{ states.sensor.dehumidifier_power.state }}"
-#
-# - alias: Dehumidifier Consumption at start of the day
-#   trigger:
-#     platform: time
-#     at: '00:00:00'
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_dehumidifier_consumption_previous
-#         value: "{{ states.sensor.dehumidifier_consumption_today.state }}"
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_dehumidifier_consumption
-#         value: "{{ states.sensor.input_number_continuous_dehumidifier_power_integral.state }}"
-
-# Washing Machine Consumption
-# - alias: Washing Machine Consumption Actual
-#   trigger:
-#     platform: time_pattern
-#     seconds: /10
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.continuous_washing_machine_power
-#         value: "{{ states.sensor.washing_machine_power.state }}"
-#
-# - alias: Washing Machine Consumption at start of the day
-#   trigger:
-#     platform: time
-#     at: '00:00:00'
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_washing_machine_consumption_previous
-#         value: "{{ states.sensor.washing_machine_consumption_today.state }}"
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_washing_machine_consumption
-#         value: "{{ states.sensor.input_number_continuous_washing_machine_power_integral.state }}"
-
-# Dryer Consumption
-# - alias: Dryer Consumption Actual
-#   trigger:
-#     platform: time_pattern
-#     seconds: /10
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.continuous_dryer_power
-#         value: "{{ states.sensor.dryer_power.state }}"
-#
-# - alias: Dryer Consumption at start of the day
-#   trigger:
-#     platform: time
-#     at: '00:00:00'
-#   action:
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_dryer_consumption_previous
-#         value: "{{ states.sensor.dryer_consumption_today.state }}"
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.midnight_dryer_consumption
-#         value: "{{ states.sensor.input_number_continuous_dryer_power_integral.state }}"
-
-# Waterbed Consumption
-- alias: Waterbed Consumption Actual
-  trigger:
-    platform: time_pattern
-    seconds: /10
-  action:
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.continuous_waterbed_power
-        value: "{{ states.sensor.waterbed_power.state }}"
-
-- alias: Waterbed Consumption at start of the day
-  trigger:
-    platform: time
-    at: '00:00:00'
-  action:
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.midnight_waterbed_consumption_previous
-        value: "{{ states.sensor.waterbed_consumption_today.state }}"
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.midnight_waterbed_consumption
-        value: "{{ states.sensor.input_number_continuous_waterbed_power_integral.state }}"
-
-# ##########################################################################
-# Telegram
-# ##########################################################################
-#- id: telegramboot
-#  alias: Benachrichtigung beim Start
-#  trigger:
-#    - platform: homeassistant
-#      event: start
-#  action:
-#    - service: notify.telegram
-#      data: Home Assistant ist gestartet
-
-# ##########################################################################
-# Arlo
-# ##########################################################################
-- id: 'automation-0100'
+- id: automation-0100
   alias: Camera Snapshot
   trigger:
   - entity_id: camera.aarlo_vorplatz,camera.aarlo_sudgarten,camera.aarlo_westgarten,camera.aarlo_nordgarten
     for: 00:00:03
-    from: 'idle'
+    from: idle
     platform: state
-    to: 'recording'
+    to: recording
   - entity_id: camera.aarlo_vorplatz,camera.aarlo_sudgarten,camera.aarlo_westgarten,camera.aarlo_nordgarten
     for: 00:00:03
-    from: 'recently active'
+    from: recently active
     platform: state
-    to: 'recording'
+    to: recording
   condition: []
   action:
   - data_template:
-      entity_id: "{{ trigger.entity_id }}"
+      entity_id: '{{ trigger.entity_id }}'
     service: camera.aarlo_request_snapshot
-
-# ##########################################################################
-# Startup Theme
-# ##########################################################################
+  - data_template:
+      filename: /config/www/aarlo.{{ trigger.entity_id }}.mp4
+      entity_id: '{{ trigger.entity_id }}'
+    service: camera.aarlo_request_video_to_file
+  - data_template:
+      filename: /config/www/aarlo.{{ trigger.entity_id }}.png
+      entity_id: '{{ trigger.entity_id }}'
+    service: camera.aarlo_request_snapshot_to_file
+  - data_template:
+      title: Motion Captured
+      message: Video Capture on {{ trigger.entity_id }}
+    service: notify.telegram
+  - delay: 0:03
+  - data_template:
+      title: Send a Photo
+      message: Photo Capture
+      data:
+        photo:
+        - file: /config/www/aarlo.{{ trigger.entity_id }}.png
+          caption: Camera Motion Photo {{ trigger.entity_id }}
+    service: notify.telegram
+  - delay: 0:30
+  - data_template:
+      title: Send a Video
+      message: Video Capture
+      data:
+        video:
+        - file: /config/www/aarlo.{{ trigger.entity_id }}.mp4
+          caption: Camera Motion Video {{ trigger.entity_id }}
+    service: notify.telegram
+- alias: Washing Machine Running
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.washing_machine_power
+    above: 1000
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
+      option: Running
+- alias: Washing Machine Finished
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.washing_machine_power
+    below: 5
+    for:
+      minutes: 2
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: Running
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
+      option: Finished
+- alias: Washing Maching Power Off
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.washing_machine_power
+    below: 0.2
+    for:
+      minutes: 2
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: Finished
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
+      option: PowerOff
 - id: activate_startup_theme
   alias: Setze Theme beim Start
   initial_state: 'on'
   trigger:
-    - platform: homeassistant
-      event: start
+  - platform: homeassistant
+    event: start
   action:
     service: frontend.set_theme
     data:
       name: midnight_blue
-
 - id: hyperion_activate_hdmi
   alias: Starte Hyperion Service beim Start
   trigger:
-    - platform: homeassistant
-      event: start
-    - platform: state
-      entity_id: light.hyperion_service
-      to: 'on'
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: light.hyperion_service
+    to: 'on'
   action:
-    - service: light.turn_on
-      data:
-        entity_id: light.hyperion_service
-        effect: "HDMI"
+  - service: light.turn_on
+    data:
+      entity_id: light.hyperion_service
+      effect: HDMI

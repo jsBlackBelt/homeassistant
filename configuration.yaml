@@ -25,6 +25,10 @@ homeassistant:
     pack_zigbee: !include packages/zigbee/package.yaml
     # pack_battery_alert: !include packages/battery_alert/battery_alert.yaml
 
+  whitelist_external_dirs:
+    - /tmp
+    - /config/www
+
 logger:
   default: info
 #  logs:
@@ -145,6 +149,7 @@ gardena:
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_api_key
+    parse_mode: html
     allowed_chat_ids:
       - !secret telegram_chat_id
 

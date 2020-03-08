@@ -2,10 +2,6 @@
 # Switch Transforms
 # ##########################################################################
 - platform: switch
-  name: living_room_showcase
-  entity_id: switch.living_room_showcase
-
-- platform: switch
   name: kitchen_tetris
   entity_id: switch.kitchen_tetris
 

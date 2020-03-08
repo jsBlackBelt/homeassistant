@@ -103,21 +103,21 @@
 #       friendly_name: "Today's Dryer Consumption"
 
 # Waterbed Consumption
-- platform: integration
-  source: input_number.continuous_waterbed_power
-#  source: sensor.waterbed_power
-  method: right
-  unit_prefix: k
-  round: 2
-
-- platform: template
-  sensors:
-    waterbed_consumption_today:
-      value_template: >
-        {{ (float(states.sensor.input_number_continuous_waterbed_power_integral.state) - float(states.input_number.midnight_waterbed_consumption.state)) | round(3) }}
-#        {{ (float(states.sensor.sensor_waterbed_power_integral.state) - float(states.input_number.midnight_waterbed_consumption.state)) | round(3) }}
-      unit_of_measurement: 'kWh'
-      friendly_name: "Today's Waterbed Consumption"
+# - platform: integration
+#   source: input_number.continuous_waterbed_power
+# #  source: sensor.waterbed_power
+#   method: right
+#   unit_prefix: k
+#   round: 2
+#
+# - platform: template
+#   sensors:
+#     waterbed_consumption_today:
+#       value_template: >
+#         {{ (float(states.sensor.input_number_continuous_waterbed_power_integral.state) - float(states.input_number.midnight_waterbed_consumption.state)) | round(3) }}
+# #        {{ (float(states.sensor.sensor_waterbed_power_integral.state) - float(states.input_number.midnight_waterbed_consumption.state)) | round(3) }}
+#       unit_of_measurement: 'kWh'
+#       friendly_name: "Today's Waterbed Consumption"
 
 # ##########################################################################
 # SolarEdge

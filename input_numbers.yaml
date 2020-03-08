@@ -72,18 +72,18 @@
 #   max: 999999999
 
 # Waterbed Consumption
-continuous_waterbed_power:
-  name: Waterbed Continuous Power
-  min: -999999999
-  max: 999999999
-midnight_waterbed_consumption:
-  name: Midnight Waterbed Consumption
-  min: -999999999
-  max: 999999999
-midnight_waterbed_consumption_previous:
-  name: Midnight Waterbed Consumption previous
-  min: -999999999
-  max: 999999999
+# continuous_waterbed_power:
+#   name: Waterbed Continuous Power
+#   min: -999999999
+#   max: 999999999
+# midnight_waterbed_consumption:
+#   name: Midnight Waterbed Consumption
+#   min: -999999999
+#   max: 999999999
+# midnight_waterbed_consumption_previous:
+#   name: Midnight Waterbed Consumption previous
+#   min: -999999999
+#   max: 999999999
 
 # ##########################################################################
 # Sun
