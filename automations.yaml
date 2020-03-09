@@ -25,11 +25,6 @@
       entity_id: '{{ trigger.entity_id }}'
     service: camera.aarlo_request_snapshot_to_file
   - data_template:
-      title: Motion Captured
-      message: Video Capture on {{ trigger.entity_id }}
-    service: notify.telegram
-  - delay: 0:03
-  - data_template:
       title: Send a Photo
       message: Photo Capture
       data:
@@ -37,7 +32,7 @@
         - file: /config/www/aarlo.{{ trigger.entity_id }}.png
           caption: Camera Motion Photo {{ trigger.entity_id }}
     service: notify.telegram
-  - delay: 0:30
+  - delay: 00:01:30
   - data_template:
       title: Send a Video
       message: Video Capture
