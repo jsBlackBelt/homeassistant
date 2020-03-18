@@ -1,4 +1,17 @@
 # ##########################################################################
+# Homematic
+# ##########################################################################
+- platform: template
+  sensors:
+    homematic_up:
+      friendly_name: "Homematic is sending updates"
+      entity_id:
+        - sensor.it_power
+        - sensor.time
+      value_template: >-
+        {{as_timestamp(now()) - as_timestamp(states.sensor.it_power.last_changed) < 600}}
+
+# ##########################################################################
 # Arlo
 # ##########################################################################
 - platform: aarlo

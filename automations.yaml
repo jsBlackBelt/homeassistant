@@ -51,6 +51,7 @@
     data:
       entity_id: input_select.washing_machine_status
       option: Running
+  id: dd3549e137c84ec2b884f6b6afd3d804
 - alias: Washing Machine Finished
   trigger:
   - platform: numeric_state
@@ -69,6 +70,7 @@
     data:
       entity_id: input_select.washing_machine_status
       option: Finished
+  id: 381011be494146e6899494f6749b59a1
 - alias: Washing Maching Power Off
   trigger:
   - platform: numeric_state
@@ -87,6 +89,7 @@
     data:
       entity_id: input_select.washing_machine_status
       option: PowerOff
+  id: e833fc7415ca4ed3b745cb3b0b108faf
 - id: activate_startup_theme
   alias: Setze Theme beim Start
   initial_state: 'on'
@@ -110,3 +113,14 @@
     data:
       entity_id: light.hyperion_service
       effect: HDMI
+- id: '1584564050624'
+  alias: Homematic Reconnect
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.homematic_up
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data: {}
+    service: homematic.reconnect
