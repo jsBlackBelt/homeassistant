@@ -25,3 +25,15 @@ washing_machine_status:
    - poweroff
   initial: poweroff
   icon: mdi:washing-machine
+
+############################################################
+# Dryer Status
+############################################################
+dryer_status:
+  name: Dryer Status
+  options:
+   - running
+   - finished
+   - poweroff
+  initial: poweroff
+  icon: mdi:tumble-dryer

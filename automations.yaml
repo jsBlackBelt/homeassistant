@@ -41,55 +41,55 @@
         - file: /config/www/aarlo.{{ trigger.entity_id }}.mp4
           caption: Camera Motion Video {{ trigger.entity_id }}
     service: notify.telegram
-- alias: Washing Machine Running
+- id: dd3549e137c84ec2b884f6b6afd3d804
+  alias: Washing Machine Running
   trigger:
-  - platform: numeric_state
+  - above: '100'
     entity_id: sensor.washing_machine_power
-    above: 1000
+    platform: numeric_state
   action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.washing_machine_status
-      option: Running
-  id: dd3549e137c84ec2b884f6b6afd3d804
-- alias: Washing Machine Finished
+  - data:
+      option: running
+    entity_id: input_select.washing_machine_status
+    service: input_select.select_option
+- id: 381011be494146e6899494f6749b59a1
+  alias: Washing Machine Finished
   trigger:
-  - platform: numeric_state
+  - below: '6'
     entity_id: sensor.washing_machine_power
-    below: 5
     for:
       minutes: 2
+    platform: numeric_state
   condition:
-    condition: and
+  - condition: and
     conditions:
     - condition: state
       entity_id: input_select.washing_machine_status
       state: Running
   action:
-  - service: input_select.select_option
-    data:
+  - data:
       entity_id: input_select.washing_machine_status
       option: Finished
-  id: 381011be494146e6899494f6749b59a1
-- alias: Washing Maching Power Off
+    service: input_select.select_option
+- id: e833fc7415ca4ed3b745cb3b0b108faf
+  alias: Washing Maching Power Off
   trigger:
-  - platform: numeric_state
+  - below: '1'
     entity_id: sensor.washing_machine_power
-    below: 0.2
     for:
       minutes: 2
+    platform: numeric_state
   condition:
-    condition: and
+  - condition: and
     conditions:
     - condition: state
       entity_id: input_select.washing_machine_status
       state: Finished
   action:
-  - service: input_select.select_option
-    data:
+  - data:
       entity_id: input_select.washing_machine_status
       option: PowerOff
-  id: e833fc7415ca4ed3b745cb3b0b108faf
+    service: input_select.select_option
 - id: activate_startup_theme
   alias: Setze Theme beim Start
   initial_state: 'on'
@@ -100,8 +100,7 @@
     service: frontend.set_theme
     data:
       name: midnight_blue
-- id: hyperion_activate_hdmi
-  alias: Starte Hyperion Service beim Start
+- alias: Starte Hyperion Service beim Start
   trigger:
   - platform: homeassistant
     event: start
