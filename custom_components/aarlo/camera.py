@@ -294,6 +294,10 @@ class ArloCam(Camera):
         self._recent = False
         self._motion_status = False
         self._ffmpeg_arguments = config.get(CONF_FFMPEG_ARGUMENTS)
+        self.stream_options = { 'use_wallclock_as_timestamps': 1,
+                                'rtsp_flags': 'prefer_tcp',
+                                'stimeout': '5000000', }
+
         _LOGGER.info('ArloCam: %s created', self._name)
 
     async def stream_source(self):
@@ -888,14 +892,13 @@ async def async_camera_siren_off_service(hass, call):
 
 async def async_camera_start_recording_service(hass, call):
     for entity_id in call.data['entity_id']:
-        duration = service.data[ATTR_DURATION]
+        duration = hass.data[ATTR_DURATION]
         _LOGGER.info("{} start recording(duration={})".format(entity_id,duration))
         get_entity_from_domain(hass,DOMAIN,entity_id).start_recording(duration=duration)
 
 
 async def async_camera_stop_recording_service(hass, call):
     for entity_id in call.data['entity_id']:
-        duration = service.data[ATTR_DURATION]
         _LOGGER.info("{} stop recording".format(entity_id))
         get_entity_from_domain(hass,DOMAIN,entity_id).stop_recording()
 
