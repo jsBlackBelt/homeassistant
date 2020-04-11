@@ -57,8 +57,7 @@
   trigger:
   - below: '6'
     entity_id: sensor.washing_machine_power
-    for:
-      minutes: 2
+    for: 0:01:00
     platform: numeric_state
   condition:
   - condition: and
@@ -90,28 +89,6 @@
       entity_id: input_select.washing_machine_status
       option: PowerOff
     service: input_select.select_option
-- id: activate_startup_theme
-  alias: Setze Theme beim Start
-  initial_state: 'on'
-  trigger:
-  - platform: homeassistant
-    event: start
-  action:
-    service: frontend.set_theme
-    data:
-      name: midnight_blue
-- alias: Starte Hyperion Service beim Start
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: light.hyperion_service
-    to: 'on'
-  action:
-  - service: light.turn_on
-    data:
-      entity_id: light.hyperion_service
-      effect: HDMI
 - id: '1584564050624'
   alias: Homematic Reconnect
   description: ''
@@ -123,3 +100,30 @@
   action:
   - data: {}
     service: homematic.reconnect
+- id: '1586587531840'
+  alias: Hyperion Service Start at Home Assistant Start
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  - entity_id: switch.hyperion_leds
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      effect: HDMI
+    entity_id: light.hyperion_service
+    service: light.turn_on
+- id: '1586588042932'
+  alias: Set Theme at Home Assistant Start
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - data:
+      name: google_dark_theme
+    service: frontend.set_theme
