@@ -120,6 +120,45 @@
 #       friendly_name: "Today's Waterbed Consumption"
 
 # ##########################################################################
+# Quarantine Meters
+# ##########################################################################
+- platform: history_stats
+  name: Quarantine Meter Markus
+  entity_id: person.markus
+  state: "home"
+  type: ratio
+  duration:
+    days: 7
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: Quarantine Meter Magda
+  entity_id: person.magda
+  state: "home"
+  type: ratio
+  duration:
+    days: 7
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: Quarantine meter Markus times left
+  entity_id: person.markus
+  state: "home"
+  type: count
+  duration:
+    days: 7
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: Quarantine meter Magda times left
+  entity_id: person.magda
+  state: "home"
+  type: count
+  duration:
+    days: 7
+  end: "{{ now() }}"
+
+# ##########################################################################
 # SolarEdge
 # ##########################################################################
 - platform: template
