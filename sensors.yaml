@@ -120,6 +120,27 @@
 #       friendly_name: "Today's Waterbed Consumption"
 
 # ##########################################################################
+# Preception Meters
+# ##########################################################################
+- platform: statistics
+  name: Preception 24 hs
+  entity_id: sensor.netatmo_regenmesser_sum_rain_24
+  max_age:
+    hours: 24
+
+- platform: statistics
+  name: Preception 48 hs
+  entity_id: sensor.netatmo_regenmesser_sum_rain_24
+  max_age:
+    hours: 48
+
+- platform: statistics
+  name: Preception 72 hs
+  entity_id: sensor.netatmo_regenmesser_sum_rain_24
+  max_age:
+    hours: 72
+
+# ##########################################################################
 # Quarantine Meters
 # ##########################################################################
 - platform: history_stats
