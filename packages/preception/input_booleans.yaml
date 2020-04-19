@@ -1,0 +1,7 @@
+watering_manual_start:
+  name: Watering Manual Start
+  initial: off
+
+watering_manual_stop:
+  name: Watering Manual Stop
+  initial: off

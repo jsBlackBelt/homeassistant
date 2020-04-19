@@ -1,0 +1,11 @@
+# Include automations
+automation: !include automations.yaml
+
+# Include input_numbers
+input_number: !include input_numbers.yaml
+
+# Include input_booleans
+input_boolean: !include input_booleans.yaml
+
+# Include sensors
+sensor: !include sensors.yaml

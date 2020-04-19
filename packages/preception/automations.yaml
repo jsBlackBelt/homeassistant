@@ -1,0 +1,21 @@
+- alias: Preception Shift
+  trigger:
+    platform: time
+    at: '23:59:45'
+    # platform: time_pattern
+    # hours: /1
+    # minutes: 00
+    # seconds: /10
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.preception_three_days_before
+        value: "{{ states.input_number.preception_two_days_before.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.preception_two_days_before
+        value: "{{ states.input_number.preception_one_day_before.state }}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.preception_one_day_before
+        value: "{{ states.sensor.netatmo_regenmesser_sum_rain_24.state }}"

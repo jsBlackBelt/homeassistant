@@ -1,0 +1,15 @@
+---
+preception_one_day_before:
+  name: Preception One Day Before
+  min: 0
+  max: 999999999
+
+preception_two_days_before:
+  name: Preception Two Days Before
+  min: 0
+  max: 999999999
+
+preception_three_days_before:
+  name: Preception Three Days Before
+  min: 0
+  max: 999999999
