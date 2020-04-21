@@ -303,16 +303,16 @@
       value_template: "{{ states.switch.water_control.attributes.ambient_temperature }}"
       unit_of_measurement: '°C'
       friendly_name: "Umgebungstemperatur"
-    gardena_water_control_ambient_frost_warning:
-#      value_template: "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
-#        {% if state_attr('states.switch.water_control', 'ambient_frost_warning') == 'no_frost') %}
-      value_template: >-
-        {% if state_attr('states.switch.water_control.attributes', 'ambient_frost_warning', 'no_frost') %}
-          "no frost"
-        {% else %}
-          "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
-        {% endif %}
-      friendly_name: "Frostwarnung"
+#     gardena_water_control_ambient_frost_warning:
+# #      value_template: "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
+# #        {% if state_attr('states.switch.water_control', 'ambient_frost_warning') == 'no_frost') %}
+#       value_template: >-
+#         {% if state_attr('states.switch.water_control.attributes', 'ambient_frost_warning', 'no_frost') %}
+#           "no frost"
+#         {% else %}
+#           "{{ states.switch.water_control.attributes.ambient_frost_warning }}"
+#         {% endif %}
+#       friendly_name: "Frostwarnung"
     gardena_water_control_valve_open:
       value_template: >-
         {% if is_state('states.switch.water_control.attributes.valve_open', false) %}

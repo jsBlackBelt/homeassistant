@@ -253,11 +253,11 @@ homekit:
   filter:
     include_domains:
       - alarm_control_panel
-      - light
-      - media_player
+      # - light
+      # - media_player
       - switch
-      - lock
-      - cover
+      # - lock
+      # - cover
 
 apcupsd:
   host: 192.168.1.115
