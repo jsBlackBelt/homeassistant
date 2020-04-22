@@ -75,6 +75,8 @@ api:
 # ##########################################################################
 # Discover some devices automatically
 discovery:
+  enable:
+    - homekit
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
