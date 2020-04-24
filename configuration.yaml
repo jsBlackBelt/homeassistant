@@ -32,8 +32,10 @@ homeassistant:
 
 logger:
   default: info
-#  logs:
-#    custom_components.alexa_media: debug
+  logs:
+    custom_components.alexa_media: debug
+    homeassistant.components.homekit: debug
+    homeassistant.components.homekit_controller: debug
 
 recorder:
   purge_keep_days: 31
@@ -75,8 +77,6 @@ api:
 # ##########################################################################
 # Discover some devices automatically
 discovery:
-  enable:
-    - homekit
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -144,9 +144,9 @@ solaredge:
   site_id: !secret solaredge_site_id
 
 # Gardena
-gardena:
-  username : !secret gardena_user
-  password : !secret gardena_password
+# gardena:
+#   username : !secret gardena_user
+#   password : !secret gardena_password
 
 # Telegram
 telegram_bot:
@@ -257,7 +257,7 @@ homekit:
       - alarm_control_panel
       # - light
       # - media_player
-      - switch
+      # - switch
       # - lock
       # - cover
 
